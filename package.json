@@ -15,9 +15,20 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@hapi/boom": "^7.4.10",
+    "@hapi/cryptiles": "^4.2.1",
+    "@hapi/hoek": "^8.2.4",
     "browser-sync": "^2.26.3",
     "browser-sync-webpack-plugin": "^2.0.1",
     "cross-env": "^3.2.3",
-    "laravel-mix": "^2.1.8"
+    "deep-extend": ">=0.5.1",
+    "js-yaml": ">=3.13.1",
+    "laravel-mix": "^5.0.0",
+    "macaddress": ">=0.2.9",
+    "url-parse": ">=1.4.3"
+  },
+  "dependencies": {
+    "ajv": "^6.10.2",
+    "imagemin": "^6.1.0"
   }
 }

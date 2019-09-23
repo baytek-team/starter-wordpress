@@ -1,0 +1,64 @@
+// COMPONENTS - MENUS / NAVIGATION
+
+// Menu styling code
+
+// Hamburger Menu Icon/Toggle (three Lines evenly spaced)
+// - adjust properties as needed
+$hamburger-line-height: 0.3rem;
+$hamburger-line-spacing: 0.5rem;
+$hamburger-line-color: $grey;
+$hamburger-width: 2.8rem;
+$hamburger-height: ($hamburger-line-height * 3) + ($hamburger-line-spacing * 2);
+
+.main-menu-toggle {
+	width: $hamburger-width;
+	height: $hamburger-height;
+	position: relative;
+	transform: rotate(0deg);
+	transition: .5s ease-in-out;
+	cursor: pointer;
+
+  	@media #{$medium-screen} {
+		display: none;
+	}
+
+	span {
+		display: block;
+		position: absolute;
+		height: $hamburger-line-height;
+		width: 100%;
+		background: $hamburger-line-color;
+		border-radius: $hamburger-line-height;
+		opacity: 1;
+		left: 0;
+		transform: rotate(0deg);
+		transition: .25s ease-in-out;
+
+		&:nth-child(1) {
+		  top: 0rem;
+		}
+		&:nth-child(2) {
+		  top: ($hamburger-line-height + $hamburger-line-spacing);
+		}
+		&:nth-child(3) {
+		  top: ($hamburger-line-height * 2) + ($hamburger-line-spacing * 2);
+		}
+	}
+
+	&.cross {
+		span{
+			&:nth-child(1) {
+				top: $hamburger-height / 2;
+				transform: rotate(135deg);
+			}
+			&:nth-child(2) {
+				opacity: 0;
+				left: -1rem - $hamburger-width;
+			}
+			&:nth-child(3) {
+				top: $hamburger-height / 2;
+				transform: rotate(-135deg);
+			}
+		}
+	}
+}

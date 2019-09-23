@@ -1,0 +1,49 @@
+// ALERTS / MESSAGES
+
+.alert,
+.message,
+.validation_error,
+.gform_confirmation_message {
+	margin-bottom: $row-margin;
+	padding: 1.5em;
+	border: $default-border-width solid;
+	border-radius: 0.5rem;
+
+	// Desktop/Full
+	@media only #{$medium-screen} {
+		margin-bottom: $row-margin-large;
+	}
+
+	* {
+		color: inherit;
+	}
+}
+
+.alert.info,
+.message.info {
+	background-color: $info-bg-color;
+	border-color: $info-border-color;
+	color: $info-color;
+}
+.alert.success,
+.message.success,
+.gform_confirmation_message {
+	background-color: $success-bg-color;
+	border-color: $success-border-color;
+	color: $success-color;
+}
+.alert.warning,
+.message.warning {
+	background-color: $warning-bg-color;
+	border-color: $warning-border-color;
+	color: $warning-color;
+	font-weight: bolder;
+}
+.alert.error,
+.message.error,
+.validation_error {
+	background-color: $error-bg-color;
+	border-color: $error-border-color;
+	color: $error-color;
+	font-weight: bolder;
+}

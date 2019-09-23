@@ -1,0 +1,44 @@
+// ELEMENTS - QUOTES
+
+blockquote,
+.wp-block-quote,
+.wp-block-quote.is-style-default,
+.wp-block-quote.is-style-large {
+	font-size: 2.2rem;
+	font-style: normal;
+
+	@media only #{$medium-screen} {
+		font-size: 3.6rem;
+	}
+
+	p {
+		font-size: inherit;
+		line-height: inherit;
+		font-weight: inherit;
+		font-style: inherit;
+	}
+
+	> * {
+		margin: 0 0 $default-margin;
+		padding-left: $row-margin;
+		border-left: $default-border-width solid;
+
+		@media only #{$medium-screen} {
+			padding-left: $section-margin;
+		}
+	}
+
+	footer, cite {
+		display: block;
+		text-align: left;
+		font-family: $fonts-secondary;
+		font-size: 1.5rem;
+		text-transform: uppercase;
+		letter-spacing: 0.1rem;
+		border-left-color: transparent;
+
+		@media only #{$medium-screen} {
+			font-size: 1.5rem;
+		}
+	}
+}

@@ -1,0 +1,56 @@
+// Gutenberg Media + Text Block
+
+.wp-block-media-text {
+	margin-bottom: $default-margin;
+
+	&.auto-grid {
+		grid-template-columns: auto auto;
+	}
+
+	&.media-round {
+		img {
+			border-radius: 50%;
+		}
+	}
+
+	&.media-64 {
+		grid-template-columns: 6.4rem auto;
+	}
+}
+
+/**
+ * IE10/11 Flex Fallback for Grids
+ */
+.wp-block-media-text {
+	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+		display: flex;
+
+		> * {
+			width: 50%;
+		}
+
+		&.is-vertically-aligned-top {
+			align-items: flex-start;
+		}
+
+		&.auto-grid {
+			.wp-block-media-text__media {
+				width: auto;
+			}
+
+			.wp-block-media-text__content {
+				width: 100%;
+			}
+		}
+
+		&.media-64 {
+			.wp-block-media-text__media {
+				width: 6.4rem;
+			}
+
+			.wp-block-media-text__content {
+				width: 100%;
+			}
+		}
+	}
+}

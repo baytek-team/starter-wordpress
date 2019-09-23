@@ -1,0 +1,55 @@
+//
+// @file    tables.scss
+// @theme   boilerplate
+//
+// @desc    defines theme table elements
+// @usage
+//
+//
+
+table {
+	font-size: 1.4rem;
+	line-height: 2.0rem;
+	width: 100%;
+	text-align: left;
+
+	tr {
+		// border-bottom: 0.2rem solid $tborder-color;
+		background-color:white;
+
+		th, td {
+			// padding-top: calc(#{$gutter} / 4);
+			// padding-bottom: calc(#{$gutter} / 4 * 2);
+			// color: $tborder-color;
+
+			p {
+				color: inherit;
+			}
+		}
+	}
+
+	caption {
+		//
+	}
+
+	thead {
+		// background-color: darken($tbody-color, 20%);
+		// color: $thead-color;
+		// text-transform: uppercase;
+		// font-weight: 500;
+	}
+
+	tbody {
+		tr {
+			font-weight: 400;
+		}
+
+		td {
+			font-weight: 300;
+		}
+	}
+
+	tfoot {
+		//
+	}
+}

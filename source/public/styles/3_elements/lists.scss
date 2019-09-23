@@ -1,0 +1,35 @@
+// ELEMENTS - LISTS
+
+
+ul, ol {
+	margin-left: 2.2rem;
+
+	li {
+		margin-bottom: 1em;
+	}
+}
+
+ul {
+	list-style-type: disc;
+
+	li {
+		//
+	}
+}
+ol {
+	list-style-type: decimal;
+
+	li {
+		//
+	}
+}
+
+dl {
+	dt {
+		// margin-bottom: $content-margin-paragraph;
+	}
+
+	dd {
+		// margin-bottom: $content-margin-paragraph;
+	}
+}

@@ -1,0 +1,26 @@
+// OBJECTS - ROWS & COLUMNS
+// The responsive grid for the site. Use the following or replace with the grid of your choice.
+// SEE settings/_layout.scss for details on the breakpoints used.
+
+.wp-block-columns {
+	&.no-gutters {
+		.wp-block-column {
+			margin-left: 0;
+			margin-right: 0;
+
+			//Following Gutenberg conventions
+			@media only screen and (min-width: 600px) {
+				flex-basis: 50%;
+			}
+		}
+	}
+
+	&.breaks-early {
+		.wp-block-column {
+			//Following Gutenberg conventions
+			@media only screen and (min-width: 600px) {
+				flex-basis: 100%;
+			}
+		}
+	}
+}

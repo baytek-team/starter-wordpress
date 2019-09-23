@@ -1,0 +1,36 @@
+// ELEMENTS - LINKS
+
+
+a {
+	color: initial;
+	text-decoration: none;
+	font-weight: 500;
+	cursor: pointer;
+	transition: opacity 0.2s ease-out;
+
+	&:hover {
+		opacity: 0.7;
+	}
+}
+
+#{$headings} {
+	a {
+		color: inherit;
+	}
+}
+
+.social-link {
+	.icon {
+		&:before {
+			display: inline-block;
+			font-family: 'start-icons';
+			font-size: inherit;
+			color: inherit;
+			content: '';
+		}
+
+		&.twitter:before {
+			content: '\f099';
+		}
+	}
+}

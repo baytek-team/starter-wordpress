@@ -1,0 +1,24 @@
+// SETTINGS - LAYOUT
+
+
+// Front End Theme Layout Variables - If Needed
+@import "../../styles/settings/layout";
+
+
+// Admin Layout Variables
+// Normalizing all the Front End Spacing for Gutenberg
+
+
+// Main Content Spacing
+$admin-default-margin: calcScreenRem($default-margin);
+
+// Section/Row Spacing
+$admin-row-margin: calcScreenRem($row-margin);
+$admin-row-margin-large: calcScreenRem($row-margin-large);
+$admin-section-margin: calcScreenRem($section-margin);
+$admin-section-margin-large: calcScreenRem($section-margin-large);
+
+
+// ADMIN SPECIFIC SCREEN & CONTENT BREAKPOINTS
+$admin-content-width: calcScreenRem($content-width);
+

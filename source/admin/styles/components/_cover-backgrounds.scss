@@ -1,0 +1,84 @@
+// COVER BLOCKS & BACKGROUNDS
+
+$background-color-size: calcScreenRem(5.6rem);
+$background-colors: (
+	"dark-green": $lime-green,
+	"lime-green": $lime-green,
+	"brown": $brown,
+	"terracotta": $terracotta,
+	"dark-grey": $dark-grey,
+	"grey": $grey,
+	"light-grey": $light-grey
+);
+
+@each $color-name, $color in $background-colors {
+	.has-background-#{$color-name} {
+		background-color: $color;
+	}
+	.wp-block-cover.has-background-#{$color-name} {
+		background-color: $color;
+
+		&.has-background-color-right:before,
+		&.has-background-color-left:before,
+		&.has-background-color-top:before,
+		&.has-background-color-bottom:before {
+			background-color: $color;
+		}
+	}
+}
+
+.wp-block-cover {
+	&.has-background-color-left {
+		background-color: transparent;
+
+		&:before {
+			width: $background-color-size;
+			right: auto;
+		}
+
+	}
+	&.has-background-color-right {
+		background-color: transparent;
+
+		&:before {
+			width: $background-color-size;
+			left: auto;
+		}
+	}
+	&.has-background-color-top {
+		background-color: transparent;
+
+		&:before {
+			height: $background-color-size;
+			bottom: auto;
+		}
+	}
+	&.has-background-color-bottom {
+		background-color: transparent;
+
+		&:before {
+			height: $background-color-size;
+			top: auto;
+		}
+	}
+
+	&.has-background-linear-gradient-dark-grey {
+		background-color: transparent;
+
+		&:before {
+			@include linearGradient(rgba($dark-grey, 0), rgba($dark-grey, 0.6));
+		}
+	}
+
+	.editor-block-list__block {
+		color: $white;
+
+		#{$headings} {
+			color: inherit;
+		}
+
+		.wp-block-button.is-style-outline .wp-block-button__link {
+			border-color: $white;
+		}
+	}
+}

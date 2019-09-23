@@ -1,0 +1,43 @@
+// Gutenberg specific admin styles
+
+.editor-post-title__block {
+	max-width: 90%;
+}
+
+// Firefox specifc rule
+@-moz-document url-prefix() {
+	.editor-block-list__layout {
+		font-weight: lighter !important;
+	}
+}
+
+.editor-block-list__layout {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	font-weight: 400;
+
+	// font-size: 62.5%;
+	box-sizing: border-box;
+	word-wrap: normal;
+
+	.editor-block-list__block {
+		max-width: 90%;
+
+		font-family: $fonts-main;
+		font-weight: 400;
+		font-size: $admin-base-font-size;
+		line-height: $admin-base-line-height;
+		color: $grey;
+		counter-reset: section;
+
+		@media only #{$medium-screen} {
+			font-size: $admin-tablet-font-size;
+		}
+		@media only #{$large-screen} {
+			font-size: $admin-desktop-font-size;
+		}
+	}
+}
+
+

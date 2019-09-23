@@ -1,0 +1,245 @@
+// ELEMENTS - FORM FIELDS
+// Includes gravity form classes. Gravity Forms should be configured to not output its CSS file.
+
+
+// Form Specific Variables
+$placeholder-color: rgba($grey, 0.5);
+$form-field-background: $white;
+$form-field-padding: 0.75em 1.5em;
+$form-field-border: $default-border-width solid rgba(#868686, 0.2);
+$form-field-border-radius: 0.5rem;
+$form-field-margin: $row-margin;
+$description-margin: $form-field-margin / 2;
+
+
+// FORM FIELDS
+// For general form layout.
+.gfield,
+.form-field {
+	margin-bottom: $form-field-margin;
+
+	// Description fields (help text, validation messages, etc)
+	.description,
+	.gfield_description {
+		font-size: smaller;
+		opacity: 0.7;
+	}
+
+	&.hidden_label label,
+	&.gform_validation_container {
+		@include screenReaderText();
+	}
+
+	&.has-error,
+	&.gfield_error {
+		color: $error-color;
+
+		input[type="text"],
+		input[type="password"],
+		input[type="url"],
+		input[type="email"],
+		input[type="tel"],
+		input[type="search"],
+		input[type="number"],
+		select,
+		textarea {
+			background-color: $error-bg-color;
+			border-color: $error-border-color;
+			color: inherit;
+		}
+		.description,
+		.gfield_description {
+			font-weight: bolder;
+			color: inherit;
+			opacity: 0.8;
+		}
+		::-moz-placeholder {
+			color: inherit;
+			opacity: 0.8;
+		}
+		::-webkit-input-placeholder {
+			color: inherit;
+			opacity: 0.8;
+		}
+		::-ms-input-placeholder {
+			color: inherit;
+			opacity: 0.8;
+		}
+		::placeholder {
+			color: inherit;
+			opacity: 0.8;
+		}
+	}
+}
+
+// Gravity Forms Specific
+.gform_fields {
+	list-style: none;
+	margin-left: 0;
+}
+.ginput_container + .gfield_description {
+	margin-top: $description-margin;
+}
+.gform_footer {
+	text-align: center;
+}
+
+
+// Ensure Elements Are Using Body Font Size
+label, input, select, textarea {
+	font-family: inherit;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	letter-spacing: inherit;
+	color: inherit;
+}
+
+
+// LABELS
+label {
+	display: block;
+	margin-bottom: $description-margin;
+	font-weight: bolder;
+
+	&.inline {
+		display: inline-block;
+	}
+}
+
+
+// COMMON INPUTS
+input[type="text"],
+input[type="password"],
+input[type="url"],
+input[type="email"],
+input[type="tel"],
+input[type="search"],
+input[type="number"] {
+	width: 100%;
+	padding: $form-field-padding;
+	background-color: $form-field-background;
+	border: $form-field-border;
+	border-radius: $form-field-border-radius;
+
+	+ .description,
+	+ .gfield_description {
+		margin-top: $description-margin;
+	}
+}
+
+select {
+	position: relative;
+	width: 100%;
+	padding: $form-field-padding;
+	background-color: $form-field-background;
+	border: $form-field-border;
+	border-radius: $form-field-border-radius;
+	appearance: none;
+
+	// Put a down arrow on the right
+	background-image: url('/wp-content/themes/4r-solution/assets/images/caret-down-solid.svg');
+	background-position-x: calc(100% - 1.5em);
+	background-position-y: center;
+	background-repeat: no-repeat;
+	background-size: 2.4rem;
+	// Add some extra padding to the right now that the caret image is there.
+	padding-right: calc(3em + 2.4rem);
+
+	&:hover {
+		border-color: rgba(#868686, 0.5);
+	}
+}
+select::-ms-expand {
+	display: none;
+}
+
+input[type="checkbox"] {
+	//
+}
+
+input[type="radio"] {
+	//
+}
+
+textarea {
+	width: 100%;
+	padding: $form-field-padding;
+	background-color: $form-field-background;
+	border: $form-field-border;
+	border-radius: $form-field-border-radius;
+}
+
+input[type="submit"],
+input[type="button"],
+input[type="reset"] {
+	// See button elements styling
+}
+
+
+// PLACEHOLDERS
+::-moz-placeholder {
+	color: $placeholder-color;
+}
+::-webkit-input-placeholder {
+	color: $placeholder-color;
+}
+::-ms-input-placeholder {
+	color: $placeholder-color;
+}
+::placeholder {
+	color: $placeholder-color;
+}
+
+
+// Change Autocomplete styles in Chrome
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+	// border: 1px solid $ter-color;
+	// -webkit-text-fill-color: rgba($input-color, 0.5);
+	// -webkit-box-shadow: 0 0 0px 1000px white inset;
+	// transition: background-color 5000s ease-in-out 0s;
+	// background-color: $input-bg-color !important;
+}
+
+
+// UNCOMMON INPUTS AND ELEMENTS
+fieldset {
+	legend {
+		//
+	}
+}
+
+input[type="color"] {
+	//
+}
+
+input[type="range"] {
+	//
+}
+
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="datetime"],
+input[type="datetime-local"], {
+	//
+}
+
+
+// FILE INPUT
+input[type="file"]{
+	//
+}
+input[type="file"] + label {
+	//
+}
+

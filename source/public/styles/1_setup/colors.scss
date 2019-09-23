@@ -1,0 +1,38 @@
+// SETTINGS - COLORS
+// The main color palette for the site.
+
+
+// BRAND COLORS
+// List here for use throughout the other SASS files.
+// Using the actual brand color names or something memorable as the variables might be easier for you to for reference than primary, secondary, etc.
+// - ex. $netflix-red, $light-blue, $greenish-blue, $aqua
+
+
+// NEUTRALS & NON BRAND COLORS
+// Colors used that are not core brand colors but required for things like backgrounds, text, etc.
+// - ex. white, black, grey, state related colors (red - error, yellow - warning, green - success)
+$black: #000000;
+$dark-grey: #4b4b4b;
+$grey: #9e9e9e;
+$light-grey: #e5e5e5;
+$white: #ffffff;
+
+
+// STATE & FEEDBACK COLORS
+// Colors for communicating state or feedback
+// ex. error, warning, success, etc.
+$error-color: #a94442;
+$error-bg-color: #f2dede;
+$error-border-color: rgba($error-color, 0.7);
+
+$warning-color: #8a6d3b;
+$warning-bg-color: #fcf8e3;
+$warning-border-color: rgba($warning-color, 0.7);
+
+$success-color: #3c763d;
+$success-bg-color: #dff0d8;
+$success-border-color: rgba($success-color, 0.7);
+
+$info-color: #31708f;
+$info-bg-color: #d9edf7;
+$info-border-color: rgba($info-color, 0.7);

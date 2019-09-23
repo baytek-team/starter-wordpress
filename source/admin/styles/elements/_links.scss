@@ -1,0 +1,14 @@
+// ELEMENTS - LINKS
+
+
+a {
+	color: $lime-green;
+	text-decoration: none;
+	font-weight: 500;
+	cursor: pointer;
+	transition: opacity 0.2s ease-out;
+
+	&:hover {
+		opacity: 0.7;
+	}
+}

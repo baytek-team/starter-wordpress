@@ -1,0 +1,80 @@
+/**
+ * Theme Name: <Your Theme Name>
+ * Version: <Version #>
+ * Description: <Your theme description could go here.>
+ * Author: <Your name>
+ * Author URI: <URL>
+ */
+
+// Document Structure inspired by inuitcss
+// https://github.com/inuitcss/inuitcss
+
+
+//
+// SETUP
+// Site wide variables, resets, normalize, etc.
+// - ex. base font size and line height, branding colors, content widths, common breakpoints, etc.
+@import "1_setup/global";
+@import "1_setup/layout";
+@import "1_setup/colors";
+@import "1_setup/reset";
+
+
+//
+// TOOLS
+// Site wide mixins and useful functions
+@import "2_tools/mixins";
+
+
+//
+// ELEMENTS
+// Simple HTML elements and single UI elements
+// - ex. a, blockquote, address, form, table, eyebrow, button, etc.
+@import "3_elements/page";
+@import "3_elements/headings";
+@import "3_elements/links";
+@import "3_elements/lists";
+@import "3_elements/quotes";
+@import "3_elements/tables";
+@import "3_elements/forms";
+@import "3_elements/eyebrows";
+@import "3_elements/buttons";
+
+
+//
+// COMPONENTS
+// Discrete, complete reusable chunks of UI. Usually a collection of elements.
+// - ex. menus, modals, sliders, tabs, accordions, etc.
+@import "4_components/menus";
+@import "4_components/pagination";
+@import "4_components/modals";
+@import "4_components/sliders";
+@import "4_components/media-text";
+@import "4_components/cover-backgrounds";
+@import "4_components/alerts";
+@import "4_components/rows-columns";
+@import "4_components/sections";
+
+
+//
+// UNIQUE SITE ELEMENTS
+// Any unqiue styling for elements of the site that cannot be achieved through the use of objects and components.
+// Usually elements that would also have an ID attribute.
+// - ex. site header, site footer, etc.
+@import "5_site/header";
+@import "5_site/footer";
+@import "5_site/content";
+@import "5_site/archives";
+// @import "5_site/final-cta";
+// @import "5_site/sidebar";
+
+
+//
+// UTILITIES
+// High-specificity, very explicit selectors. Overrides and helper classes.
+// Used only as a last resort when there's no other hook available, or completely unique circumstances.
+// - ex. hidden, screen reader only, alignment, spacing, decoration, etc.
+@import "6_utilities/visibility";
+@import "6_utilities/alignment";
+@import "6_utilities/spacing";
+

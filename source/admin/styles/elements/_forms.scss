@@ -1,0 +1,302 @@
+//
+// @file    forms.scss
+// @theme   boilerplate
+//
+// @desc    defines theme form elements
+// @usage
+//
+//
+
+/**
+ * Buttons (for use in and out of forms)
+ */
+button, .button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"] {
+	font-family: $fonts-titles;
+	font-size: 1.2rem;
+	line-height: 2.2rem;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	color: $button-color;
+	background-color: $button-bg-color;
+	border: none;
+	border-radius: 0px;
+	padding: 1em 2em;
+	cursor: pointer;
+	display: inline-block;
+	@include transition;
+	box-shadow: 0px 4px 6px rgba($black, 0.11);
+
+	&:hover, &:focus {
+		background-color: lighten($button-bg-color, 10%);
+		box-shadow: 0px 8px 12px rgba($black, 0.11); 
+	}
+	&:active {
+		background-color: $button-bg-color;
+		box-shadow: 0px 2px 3px rgba($black, 0.11); 
+	}
+	&.round{
+		border-radius:50%;
+		box-shadow: 0px 0px 0px rgba($white, 0);
+		font-size: 1.7rem;
+		line-height: 2.7rem;
+		padding: .6em 1em;
+		margin-right: 2rem;
+	}
+	&.light{
+		background-color:white;
+		color: $a-color;
+		margin:auto;
+	}
+}
+
+button.secondary,
+.button.secondary,
+input[type="reset"] {
+	color: $button-color-secondary;
+	background-color: $button-bg-color-inverse;
+
+	&:hover {
+		background-color: $button-bg-color-inverse;
+		box-shadow: 0px 8px 12px rgba($black, 0.11); 
+	}
+	&:active {
+		background-color: lighten($button-color-secondary, 34%);
+		box-shadow: 0px 2px 3px rgba($black, 0.11); 
+	}
+}
+
+button.inverse,
+.button.inverse {
+	color: $button-color-inverse;
+	border-color: $button-border-color-inverse;
+	background-color: transparent;
+
+	&:hover {
+		box-shadow: 0px 8px 12px rgba($black, 0.11); 
+	}
+	&:active {
+		box-shadow: 0px 2px 3px rgba($black, 0.11); 
+	}
+}
+
+form {
+	// Common inputs
+	label {
+		font-size: 1.4rem;
+		line-height: 3.0rem;
+		font-weight: 300;
+	}
+
+	input[type="text"],
+	input[type="password"],
+	input[type="url"],
+	input[type="email"],
+	input[type="tel"],
+	input[type="search"],
+	input[type="number"] {
+		height: 5.0rem;
+		width: 100%;
+		border: .1rem solid rgba($trado-grey, 0.2);
+		border-radius: 0;
+		background-color: $input-bg-color;
+		padding-left: 1.0rem;
+		font-size: 1.7rem;
+		line-height: 2.7rem;
+		color: $input-color;
+		margin-bottom: $form-gutter;
+	}
+
+	select {
+		height: 5.0rem;
+		width: 100%;
+		border: .1rem solid rgba($trado-grey, 0.2);
+		border-radius: 0;
+		background-color: $input-bg-color;
+		padding-left: 1.0rem;
+		font-size: 1.7rem;
+		line-height: 2.7rem;
+		color: $input-color;
+		margin-bottom: $form-gutter;
+		appearance: none;
+	}
+
+	input[type="checkbox"] {
+		//
+	}
+
+	input[type="radio"] {
+		//
+	}
+
+	textarea {
+		height: 20.0rem;
+		width: 100%;
+		padding: 1.0rem;
+		border: .1rem solid rgba($trado-grey, 0.2);
+		border-radius: 0;
+		background-color: $input-bg-color;
+		font-size: 1.7rem;
+		line-height: 2.7rem;
+		color: $input-color;
+		margin-bottom: $form-gutter;
+	}
+
+	input[type="submit"],
+	input[type="button"],
+	input[type="reset"] {
+
+	}
+
+	//Placeholders
+	::-moz-placeholder {
+		color: $placeholder-color;
+		font-weight: 300;
+	}
+
+	::-webkit-input-placeholder {
+		color: $placeholder-color;
+		font-weight: 300;
+	}
+
+	::-ms-input-placeholder {
+		color: $placeholder-color;
+		font-weight: 300;
+	}
+
+	::placeholder {
+		color: $placeholder-color;
+		font-weight: 300;
+	}
+
+	/* Change Autocomplete styles in Chrome*/
+	input:-webkit-autofill,
+	input:-webkit-autofill:hover,
+	input:-webkit-autofill:focus
+	textarea:-webkit-autofill,
+	textarea:-webkit-autofill:hover
+	textarea:-webkit-autofill:focus,
+	select:-webkit-autofill,
+	select:-webkit-autofill:hover,
+	select:-webkit-autofill:focus {
+		border: 1px solid $ter-color;
+		-webkit-text-fill-color: rgba($input-color, 0.5);
+		-webkit-box-shadow: 0 0 0px 1000px white inset;
+		transition: background-color 5000s ease-in-out 0s;
+		background-color: $input-bg-color !important;
+	}
+
+
+	//Uncommon inputs and elements
+	fieldset {
+		legend {
+			//
+		}
+	}
+
+	input[type="color"] {
+		//
+	}
+
+	input[type="range"] {
+		//
+	}
+
+	input[type="date"],
+	input[type="month"],
+	input[type="week"],
+	input[type="datetime"],
+	input[type="datetime-local"], {
+		height: 5.0rem;
+		width: 100%;
+		border: .1rem solid rgba($trado-grey, 0.2);
+		border-radius: 0;
+		background-color: $input-bg-color;
+		padding-left: 1.0rem;
+		font-size: 1.7rem;
+		line-height: 2.7rem;
+		color: $input-color;
+		margin-bottom: $form-gutter;
+	}
+	input[type="file"]{
+		width: 0.1px;
+		height: 0.1px;
+		opacity: 0;
+		overflow: hidden;
+		position: absolute;
+		z-index: -1;
+	}
+	input[type="file"] + label {
+	    font-size: 1.25em;
+	    font-weight: 700;
+	    color: white;
+	    background-color: black;
+	    display: inline-block;
+	}
+
+.js input[type="file"] {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+input[type="file"] + label {
+    max-width: 80%;
+    font-size: 1.25rem;
+    /* 20px */
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0.625rem 1.25rem;
+    /* 10px 20px */
+}
+
+.no-js input[type="file"] + label {
+    display: none;
+}
+
+input[type="file"]:focus + label,
+input[type="file"].has-focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+input[type="file"] + label * {
+    /* pointer-events: none; */
+    /* in case of FastClick lib use */
+}
+
+input[type="file"] + label svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    /* 4px */
+    margin-right: 0.25em;
+    /* 4px */
+}
+
+
+/* style 1 */
+
+input[type="file"]-1 + label {
+    color: #f1e5e6;
+    background-color: #d3394c;
+}
+
+input[type="file"]-1:focus + label,
+input[type="file"]-1.has-focus + label,
+input[type="file"]-1 + label:hover {
+    background-color: #722040;
+}
+}

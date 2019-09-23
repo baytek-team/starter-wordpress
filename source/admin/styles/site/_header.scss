@@ -1,0 +1,40 @@
+// SITE - HEADER
+// Unique styles for the site header that could not be achieved through the
+// use of objects and components.
+
+
+.site-header {
+	position: relative;
+	z-index: 5;
+
+	.container {
+		margin-top: 1.6rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.logo-wrapper {
+			position: relative;
+			width: 7.6rem;
+			height: 6.4rem; // Height of top part of the logo
+
+			.logo-link {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: inherit;
+
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+		}
+	}
+}
+
+// .flex-between {
+// 	display: flex;
+// 	flex-wrap: wrap;
+// 	justify-content: space-between;
+// }

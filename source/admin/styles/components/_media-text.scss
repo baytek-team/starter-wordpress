@@ -1,0 +1,19 @@
+// Gutenberg Media + Text Block
+
+.wp-block-media-text {
+	margin-bottom: $admin-default-margin;
+
+	&.auto-grid {
+		grid-template-columns: auto auto !important;
+	}
+
+	&.media-round {
+		img {
+			border-radius: 50%;
+		}
+	}
+
+	&.media-64 {
+		grid-template-columns: calcScreenRem(6.4rem) auto !important;
+	}
+}

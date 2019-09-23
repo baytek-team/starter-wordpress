@@ -1,0 +1,37 @@
+// ARCHIVE SPECIFIC STYLING
+
+.archive article {
+	margin-bottom: $row-margin;
+
+	// Desktop/Full
+	@media only #{$medium-screen} {
+		margin-bottom: $section-margin;
+	}
+
+	+ article {
+		border-top: $default-border-width solid $light-grey;
+		padding-top: $row-margin;
+
+		// Desktop/Full
+		@media only #{$medium-screen} {
+			padding-top: $section-margin;
+		}
+	}
+
+}
+
+//Load more button
+.bis-load-more-wrapper {
+	border-top: $default-border-width solid $light-grey;
+	padding-top: $row-margin;
+	margin-bottom: $section-margin;
+
+	@media only #{$medium-screen} {
+		padding-top: $section-margin;
+		margin-bottom: $section-margin-large;
+	}
+
+	button {
+		//
+	}
+}

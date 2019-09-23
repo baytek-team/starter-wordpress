@@ -1,0 +1,36 @@
+// OBJECTS - EYEBROWS
+
+
+// Eyebrow
+.eyebrow, #main .eyebrow {
+	position: relative;
+	display: block;
+	text-transform: uppercase;
+	color: $grey;
+	font-weight: 600;
+	font-size: 1.6rem;
+	line-height: 2.0rem;
+	margin-bottom: $default-margin;
+	font-family: $fonts-secondary;
+	letter-spacing: 0.1rem;
+	padding: 0;
+
+	// Tablet
+	@media only #{$small-screen} {
+		//
+	}
+
+	// Desktop/Full
+	@media only #{$medium-screen} {
+		//
+	}
+}
+
+#main .wp-block-cover .eyebrow {
+	color: inherit;
+}
+
+h2.eyebrow:after,
+.h2.eyebrow:after {
+	display: none;
+}

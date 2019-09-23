@@ -1,0 +1,40 @@
+// COMPONENTS - BUTTONS
+
+.button,
+.wp-block-button .wp-block-button__link {
+	display: inline-block;
+	padding: 0.75em 1.5em;
+	text-align: center;
+	text-transform: uppercase;
+	background: $terracotta;
+	border: calcScreenRem(0.2rem) solid $terracotta;
+	border-radius: calcScreenRem(0.5rem);
+	color: $white;
+	font-family: $fonts-secondary;
+	font-size: calcScreenRem(1.5rem);
+	letter-spacing: calcScreenRem(0.1rem);
+}
+
+.wp-block-button.is-style-squared .wp-block-button__link {
+	border-radius: 0;
+}
+
+.button,
+.wp-block-button.is-style-outline .wp-block-button__link {
+	background: transparent;
+	border: calcScreenRem(0.2rem) solid $terracotta;
+	color: $terracotta;
+}
+
+.button.is-green,
+.wp-block-button.is-style-outline.is-green .wp-block-button__link  {
+	border-color: $lime-green;
+	color: $lime-green;
+}
+
+.button.is-solid-green,
+.wp-block-button.is-solid-green .wp-block-button__link  {
+	background: $lime-green;
+	border-color: $lime-green;
+	color: $white;
+}

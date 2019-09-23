@@ -1,0 +1,35 @@
+// TOOLS - MIXINS
+
+//Gradients
+@mixin linearGradient($top, $bottom){
+	background: linear-gradient(to bottom, $top 0%, $bottom 100%);
+}
+
+@mixin horizontalGradient($left, $right){
+	background: linear-gradient(to right, $left 0%, $right 100%);
+}
+
+@mixin diagonalGradient($start, $end){
+	background: linear-gradient(135deg, $start 0%, $end 100%);
+}
+
+@mixin mirrorGradient($outside, $center){
+	background: linear-gradient(to bottom, $outside 0%, $center 50%, $outside 100%);
+}
+
+@mixin radialGradient($outside, $center){
+	background: radial-gradient(ellipse at center, $outside 0%, $center 50%, $outside 100%);
+}
+
+// Conversion specific to Adobe XD for those that don't know the unit conversion
+@mixin xdLetterSpacing($xdSize){
+	letter-spacing: ($xdSize/1000) + 0em;
+}
+
+@mixin screenReaderText(){
+	clip: rect(0.1rem, 0.1rem, 0.1rem, 0.1rem);
+	position: absolute;
+	height: 0.1rem;
+	width: 0.1rem;
+	overflow: hidden;
+}

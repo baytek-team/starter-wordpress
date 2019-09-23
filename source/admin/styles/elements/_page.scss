@@ -1,0 +1,173 @@
+// ELEMENTS - PAGE
+
+// #{$block-text} {
+// 	margin-bottom: $default-margin;
+
+// 	&:last-child {
+// 		margin-bottom: 0;
+// 	}
+// }
+
+
+p, .p {
+	// &:last-child {
+	// 	margin-bottom: 0;
+	// }
+}
+
+.lead {
+	display: block; //Otherwise the line height won't work
+	font-size: calcScreenRem(2.0rem);
+
+	@media only #{$medium-screen} {
+		font-size: calcScreenRem(2.2rem);
+	}
+	@media only #{$large-screen} {
+		font-size: calcScreenRem(2.4rem);
+	}
+}
+
+/**
+ * Inline elements
+ */
+
+
+small, .small {
+	display: block; //Otherwise the line height won't work
+	font-size: calcScreenRem(1.4rem);
+
+	@media only #{$medium-screen} {
+		font-size: calcScreenRem(1.5rem);
+		line-height: 1.375;
+	}
+	@media only #{$large-screen} {
+		font-size: calcScreenRem(1.6rem);
+	}
+}
+
+strong, .strong, b {
+	font-weight: 600;
+}
+
+em, .em {
+	font-style: italic;
+}
+
+sup, .sup {
+	vertical-align: super;
+	font-size: smaller;
+}
+
+sub, .sub {
+	vertical-align: sub;
+	font-size: smaller;
+}
+
+u {
+	//
+}
+
+del {
+	//
+}
+
+ins {
+	//
+}
+
+abbr {
+	//
+}
+
+q {
+	//
+}
+
+cite {
+	//
+}
+
+mark {
+	//
+}
+
+var {
+	//
+}
+
+time {
+	//
+}
+
+
+
+// Code
+kbd, code, samp, pre {
+	margin: 0px 1em 1em 1em;
+    font-family: 'Monaco', 'Monaco', monospace;
+    white-space: pre;
+    font-size: smaller;
+}
+
+// Images
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+figure {
+	margin: 0 auto $admin-default-margin;
+	max-width: 100%;
+
+	img {
+		//
+	}
+
+	figcaption {
+		//
+	}
+
+	&.aligncenter {
+		figcaption {
+			text-align: center;
+		}
+	}
+
+	&.alignleft {
+		figcaption {
+			text-align: left;
+		}
+	}
+
+	&.alignright {
+		figcaption {
+			text-align: right;
+		}
+	}
+}
+
+svg {
+	//
+}
+
+// Multimedia
+audio {
+	//
+}
+
+video {
+	//
+}
+
+// Misc
+meter {
+	//
+}
+
+progress {
+	//
+}
+
+iframe {
+	//
+}

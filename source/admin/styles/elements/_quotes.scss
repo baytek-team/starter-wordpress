@@ -1,0 +1,41 @@
+// ELEMENTS - QUOTES
+
+blockquote,
+.wp-block-quote,
+.wp-block-quote.is-style-default,
+.wp-block-quote.is-style-large {
+	border-left: none;
+	padding-left: 0;
+	font-size: calcScreenRem(2.4em);
+	font-style: normal;
+
+	@media only #{$medium-screen} {
+		font-size: calcScreenRem(3.6rem);
+	}
+
+	p {
+		font-size: inherit;
+		line-height: inherit;
+		font-weight: inherit;
+		font-style: inherit;
+	}
+
+	.block-editor-rich-text__editable {
+		margin: 0 0 $default-margin;
+		padding-left: $section-margin;
+		border-left: calcScreenRem(0.2rem) solid $white;
+	}
+
+	footer, cite, .wp-block-quote__citation {
+		font-family: $fonts-secondary;
+		font-size: calcScreenRem(1.5rem);
+		text-transform: uppercase;
+		letter-spacing: calcScreenRem(0.1rem);
+		border-left-color: transparent;
+		color: inherit;
+
+		@media only #{$medium-screen} {
+			font-size: calcScreenRem(1.5rem);
+		}
+	}
+}

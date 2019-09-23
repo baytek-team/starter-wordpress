@@ -1,0 +1,31 @@
+// COMPONENTS - MENUS / NAVIGATION
+
+.menu {
+	margin-left: 0;
+	list-style: none;
+	text-transform: uppercase;
+	font-family: $fonts-secondary;
+
+	&.inline {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		align-items: center;
+
+		.menu-item {
+			margin-right: 1em;
+
+			a {
+				color: inherit;
+			}
+		}
+	}
+
+	&.brown {
+		.menu-item {
+			color: $brown;
+		}
+	}
+}
+
+

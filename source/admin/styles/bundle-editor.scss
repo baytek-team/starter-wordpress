@@ -1,0 +1,78 @@
+/**
+ * Admin Styles for the Gutenberg Editor
+ */
+
+
+//
+// SETTINGS
+// Site wide variables.
+// - ex. base font size and line height, branding colors, content widths, common breakpoints, etc.
+@import "settings/global";
+@import "settings/layout";
+@import "settings/colors";
+
+
+//
+// TOOLS
+// Site wide mixins and functions
+@import "tools/mixins";
+
+
+//
+// GENERIC
+// Low-specificity, far-reaching rulesets
+// - ex. resets
+// @import "generic/reset";
+
+
+//
+// ELEMENTS
+// Simple Unclassed HTML elements
+// - ex. a, blockquote, address, form, table, etc.
+// @import "elements/page-gutenberg";
+// @import "elements/headings";
+// @import "elements/links";
+// @import "elements/lists";
+// @import "elements/quotes";
+// @import "elements/tables";
+
+
+//
+// OBJECTS
+// Design patterns for classed HTML elements
+// - ex. rows and columns, different table layouts, list variations, form variations, etc
+// @import "objects/sections";
+// @import "objects/rows-columns";
+// @import "objects/eyebrows";
+
+
+//
+// COMPONENTS
+// Discrete, complete reusable chunks of UI
+// - ex. buttons, menus, modals, sliders, tabs, accordions, etc.
+// @import "components/buttons";
+// @import "components/menus";
+// @import "components/modals";
+// @import "components/sliders";
+// @import "components/media-text";
+// @import "components/cover-backgrounds";
+
+
+//
+// UNIQUE PAGE ELEMENTS
+// Any unqiue styling for elements of the site that cannot be achieved through the use of objects and components.
+// Usually elements that would also have an ID attribute.
+// - ex. site header, site footer, etc.
+// @import "page/header";
+// @import "page/footer";
+// @import "page/sidebar";
+
+
+//
+// UTILITIES
+// High-specificity, very explicit selectors. Overrides and helper classes.
+// Used only as a last resort when there's no other hook available, or completely unique circumstances.
+// - ex. hidden, screen reader only, alignment, spacing, decoration, etc.
+// @import "utilities/visibility";
+// @import "utilities/alignment";
+// @import "utilities/spacing";

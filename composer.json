@@ -1,0 +1,23 @@
+{
+    "name": "baytek-team/starter-wordpress",
+    "description": "A starting point for a custom WordPress theme using Gutenberg",
+    "version": "0.0.2",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Baytek\\Wordpress\\": "app/"
+        },
+        "files": [
+            "app/helpers.php"
+        ]
+    },
+    "require": {
+        "php": ">=5.6.4"
+    },
+    "extra": {
+        "wordpress": {
+            "slug": "start-theme",
+            "version": "0.0.2"
+        }
+    }
+}

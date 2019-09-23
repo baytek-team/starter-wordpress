@@ -1,0 +1,22 @@
+// SETTINGS - GLOBAL
+
+
+// Font variables
+$fonts-main: 'Source Serif Pro', 'Palatino', serif;
+$fonts-secondary: 'Source Sans Pro', 'Helvetica', 'Arial', sans-serif;
+
+// Body font sizing
+$base-font-size: 1.6rem;
+$base-line-height: 1.42;
+$tablet-font-size: 1.7rem;
+$desktop-font-size: 1.9rem;
+
+// Default border width (ex. buttons, dividers, etc)
+$default-border-width: 0.2rem;
+
+
+// Typography Selectors
+$a: 'a, a:link, a:visited';
+$hover: '&:hover, &:focus';
+$headings: 'h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6';
+$block-text: 'h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .p, .eyebrow, .button, small, .small, blockquote, ul, ol';

@@ -1,0 +1,19 @@
+// SITE - FOOTER
+// Unique styles for the site footer that could not be achieved through the
+// use of objects and components.
+
+.legal-credits {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto $row-margin;
+}
+
+.copyright + .privacy-policy-link {
+	margin-left: 0.25em;
+}
+.byline {
+	margin-left: 0.25em;
+}

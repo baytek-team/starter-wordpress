@@ -1,0 +1,17 @@
+// UTILITIES - VISIBILITY
+
+.screen-reader-text {
+	@include screenReaderText();
+}
+
+.mobile-only {
+	@media #{$medium-screen} {
+		display: none;
+	}
+}
+
+.desktop-only {
+	@media #{$medium-screen-max} {
+		display: none;
+	}
+}

@@ -36,12 +36,32 @@
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
 /******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
 /******/ 	};
 /******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
@@ -59,77 +79,88 @@
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "/";
 /******/
+/******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/******/ ({
 
-__webpack_require__(1);
-__webpack_require__(3);
-module.exports = __webpack_require__(4);
-
-
-/***/ }),
-/* 1 */
+/***/ "./source/public/scripts/app.js":
+/*!**************************************!*\
+  !*** ./source/public/scripts/app.js ***!
+  \**************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 String.prototype.toProperCase = function () {
-    return this.replace(/\w\S*/g, function (txt) {
-        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-    });
-};
-
-// Polyfills - add as needed
+  return this.replace(/\w\S*/g, function (txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
+}; // Polyfills - add as needed
 // require('./polyfills/foreach.js');
-
-
 // Script Modules
 // Include as needed on your project. All scripts will be bundled together.
 // Some sample files are included for ideas to get you started.
-
 // require('./animations.js');
-__webpack_require__(2);
-// require('./modals.js');
+
+
+__webpack_require__(/*! ./menu.js */ "./source/public/scripts/menu.js"); // require('./modals.js');
 // require('./sliders.js');
 // require('./smooth-scroll.js');
 // require('./tabs.js');
 
 /***/ }),
-/* 2 */
+
+/***/ "./source/public/scripts/menu.js":
+/*!***************************************!*\
+  !*** ./source/public/scripts/menu.js ***!
+  \***************************************/
+/*! no static exports found */
 /***/ (function(module, exports) {
 
 // A place to keep your menu scripting (ex. toggling a mobile menu)
 (function ($) {
-	// Handle menu interactions
-	$(".main-menu-toggle").click(function () {
-		mainNav();
-	});
+  // Handle menu interactions
+  $(".main-menu-toggle").click(function () {
+    mainNav();
+  });
 
-	function mainNav() {
-		$(".main-menu-toggle").toggleClass("cross");
-		$("body").toggleClass("modal-open");
-		$("#site-navigation").toggleClass("open");
-	}
+  function mainNav() {
+    $(".main-menu-toggle").toggleClass("cross");
+    $("body").toggleClass("modal-open");
+    $("#site-navigation").toggleClass("open");
+  }
 })(jQuery);
 
 /***/ }),
-/* 3 */
+
+/***/ "./source/public/styles/bundle.scss":
+/*!******************************************!*\
+  !*** ./source/public/styles/bundle.scss ***!
+  \******************************************/
+/*! no static exports found */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 4 */
-/***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+/***/ 0:
+/*!*******************************************************************************!*\
+  !*** multi ./source/public/scripts/app.js ./source/public/styles/bundle.scss ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! /Users/chadsehn/Web/test/wordpress/wp-content/themes/starter-theme/source/public/scripts/app.js */"./source/public/scripts/app.js");
+module.exports = __webpack_require__(/*! /Users/chadsehn/Web/test/wordpress/wp-content/themes/starter-theme/source/public/styles/bundle.scss */"./source/public/styles/bundle.scss");
+
 
 /***/ })
-/******/ ]);
+
+/******/ });
 //# sourceMappingURL=app.js.map

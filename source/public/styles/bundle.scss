@@ -13,9 +13,9 @@
 //
 // SETUP
 // Site wide variables, resets, normalize, etc.
-// - ex. base font size and line height, branding colors, content widths, common breakpoints, etc.
-@import "1_setup/global";
-@import "1_setup/layout";
+// - ex. base font size and line height, branding colors, content widths, etc.
+@import "1_setup/fonts";
+@import "1_setup/spacing";
 @import "1_setup/colors";
 @import "1_setup/reset";
 
@@ -23,7 +23,9 @@
 //
 // TOOLS
 // Site wide mixins and useful functions
-@import "2_tools/mixins";
+@import "2_tools/breakpoint-mixins";
+@import "2_tools/utility-mixins";
+// @import "2_tools/gradient-mixins";
 
 
 //
@@ -74,7 +76,7 @@
 // High-specificity, very explicit selectors. Overrides and helper classes.
 // Used only as a last resort when there's no other hook available, or completely unique circumstances.
 // - ex. hidden, screen reader only, alignment, spacing, decoration, etc.
-@import "6_utilities/visibility";
-@import "6_utilities/alignment";
-@import "6_utilities/spacing";
+@import "6_utilities/visibility-overrides";
+@import "6_utilities/alignment-overrides";
+@import "6_utilities/spacing-overrides";
 

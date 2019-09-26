@@ -21,12 +21,12 @@
 	margin-bottom: $section-margin;
 
 	// Desktop/Full
-	@media only #{$medium-screen} {
+	@include medium-screen-up {
 		margin-bottom: $section-margin-large;
 	}
 
 	// Max Width
-	@media only #{$max-content-screen} {
+	@include max-content-screen-up {
 		padding-left: 0;
 		padding-right: 0;
 	}
@@ -45,7 +45,7 @@
 		padding-bottom: $section-margin;
 
 		// Desktop/Full
-		@media only #{$medium-screen} {
+		@include medium-screen-up {
 			padding-top: $section-margin-large;
 			padding-bottom: $section-margin-large;
 		}
@@ -76,7 +76,7 @@
 		margin-bottom: $row-margin;
 
 		// Desktop/Full
-		@media only #{$medium-screen} {
+		@include medium-screen-up {
 			margin-bottom: $row-margin-large;
 		}
 
@@ -89,7 +89,7 @@
 			margin-top: $row-margin;
 
 			// Desktop/Full
-			@media only #{$medium-screen} {
+			@include medium-screen-up {
 				margin-top: $row-margin-large;
 			}
 
@@ -108,21 +108,21 @@
 .wp-block-cover {
 	min-height: 42rem;
 
-	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	@include internet-explorer-only {
 		height: 42rem;
 	}
 
 	&.tall {
 		min-height: 60rem;
 
-		@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+		@include internet-explorer-only {
 			height: 60rem;
 		}
 
 		&.very {
 			min-height: 80rem;
 
-			@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+			@include internet-explorer-only {
 				height: 80rem;
 			}
 		}
@@ -134,7 +134,7 @@
 		.wp-block-cover__inner-container {
 			margin-bottom: $section-margin;
 
-			@media only #{$medium-screen} {
+			@include medium-screen-up {
 				margin-bottom: $section-margin-large;
 			}
 		}
@@ -151,7 +151,7 @@
 
 .wp-block-cover,
 .wp-block-cover {
-	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	@include internet-explorer-only {
 		width: inherit;
 
 		&.main-cta,

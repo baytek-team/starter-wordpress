@@ -1,4 +1,4 @@
-const { mix } = require('laravel-mix');
+const mix = require('laravel-mix');
 let env;
 
 try {
@@ -30,7 +30,7 @@ mix
 		'source/public/scripts/app.js'
 	], 'assets/scripts/app.js')
 	.sass('source/public/styles/bundle.scss', 'assets/styles')
-	.sass('source/admin/styles/bundle-editor.scss', 'assets/styles')
+	// .sass('source/admin/styles/bundle-editor.scss', 'assets/styles')
 
 
 /*

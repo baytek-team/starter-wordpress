@@ -1,0 +1,70 @@
+// Breakpoints
+
+
+// SCREEN & CONTENT BREAKPOINTS
+$max-width: 1368px;
+$xlarge-width: 1100px;
+$large-width: 980px;
+$small-width: 720px;
+$tiny-width: 480px;
+$content-width: 63.6rem;
+
+// $row-margin is 2.4rem (aka 24px)
+$max-padded-content-width: $max-width + (24px * 2);
+
+$cover-width: 960px;
+$narrow-width: 624px;
+
+// Breakpoint mixins
+@mixin small-screen-up {
+  @media (min-width: $tiny-width) { @content; }
+}
+@mixin small-screen-max {
+  @media (max-width: $tiny-width - 1px) { @content; }
+}
+
+@mixin medium-small-screen-up {
+  @media (min-width: $small-width) { @content; }
+}
+@mixin medium-small-screen-max {
+  @media (max-width: $small-width - 1px) { @content; }
+}
+
+@mixin medium-screen-up {
+  @media (min-width: $large-width) { @content; }
+}
+@mixin medium-screen-max {
+  @media (max-width: $large-width - 1px) { @content; }
+}
+
+@mixin medium-large-screen-up {
+  @media (min-width: $xlarge-width) { @content; }
+}
+@mixin medium-large-screen-max {
+  @media (max-width: $xlarge-width - 1px) { @content; }
+}
+
+@mixin large-screen-up {
+  @media (min-width: $xlarge-width) { @content; }
+}
+@mixin large-screen-max {
+  @media (max-width: $xlarge-width - 1px) { @content; }
+}
+
+@mixin max-content-screen-up {
+  @media (min-width: $max-padded-content-width) { @content; }
+}
+
+// IE Specific Media Query
+@mixin internet-explorer-only {
+	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { @content; }
+}
+
+
+// NOTE: since these are screen widths, not document widths,
+// the rem calculation isn't reduced by the HTML font-size
+// so the rem to pixel ratio is still 1:16, rather than 1:10
+// like all the other variables
+@function calcScreenRem($size) {
+	@return $size * 0.625;
+}

@@ -14,7 +14,7 @@ use Baytek\Wordpress\Theme;
 		<footer>
 			<div class="container legal-credits">
 				<div class="copyright">
-					<p><?php printf("&copy;&nbsp;%s %s.", date('Y'), __('Fertilizer Canada', THEMEL10N) ); ?></p>
+					<p><?php printf("&copy;&nbsp;%s %s.", date('Y'), get_bloginfo('name')); ?></p>
 				</div>
 				<?php
 					// Output the legal page link

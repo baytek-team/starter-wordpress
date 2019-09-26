@@ -26,9 +26,9 @@ Footer templates should go here.
 
 Header templates should go here.
 
-## Menus
+## Navigation
 
-Templates related to navigation and menus should go here.
+Templates related to navigation (ex. pagination and menus) should go here.
 
 ## Pages
 

@@ -1,4 +1,4 @@
-// TOOLS - MIXINS
+// TOOLS - GRADIENT MIXINS
 
 //Gradients
 @mixin linearGradient($top, $bottom){
@@ -19,17 +19,4 @@
 
 @mixin radialGradient($outside, $center){
 	background: radial-gradient(ellipse at center, $outside 0%, $center 50%, $outside 100%);
-}
-
-// Conversion specific to Adobe XD for those that don't know the unit conversion
-@mixin xdLetterSpacing($xdSize){
-	letter-spacing: ($xdSize/1000) + 0em;
-}
-
-@mixin screenReaderText(){
-	clip: rect(0.1rem, 0.1rem, 0.1rem, 0.1rem);
-	position: absolute;
-	height: 0.1rem;
-	width: 0.1rem;
-	overflow: hidden;
 }

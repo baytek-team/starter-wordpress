@@ -31,7 +31,7 @@ do_action('theme_header', 'post'); ?>
 				}
 				// Link to next or previous post
 				elseif ( is_singular( 'post' ) ) {
-					get_template_part('templates/menus/nav', 'post');
+					get_template_part('templates/navigation/nav', 'post');
 
 					get_template_part('templates/blocks/cta', 'post');
 				}

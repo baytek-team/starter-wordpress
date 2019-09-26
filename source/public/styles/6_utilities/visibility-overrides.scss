@@ -5,13 +5,13 @@
 }
 
 .mobile-only {
-	@media #{$medium-screen} {
+	@include medium-screen-up {
 		display: none;
 	}
 }
 
 .desktop-only {
-	@media #{$medium-screen-max} {
+	@include medium-screen-max {
 		display: none;
 	}
 }

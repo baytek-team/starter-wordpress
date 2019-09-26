@@ -7,7 +7,7 @@ blockquote,
 	font-size: 2.2rem;
 	font-style: normal;
 
-	@media only #{$medium-screen} {
+	@include medium-screen-up {
 		font-size: 3.6rem;
 	}
 
@@ -23,7 +23,7 @@ blockquote,
 		padding-left: $row-margin;
 		border-left: $default-border-width solid;
 
-		@media only #{$medium-screen} {
+		@include medium-screen-up {
 			padding-left: $section-margin;
 		}
 	}
@@ -37,7 +37,7 @@ blockquote,
 		letter-spacing: 0.1rem;
 		border-left-color: transparent;
 
-		@media only #{$medium-screen} {
+		@include medium-screen-up {
 			font-size: 1.5rem;
 		}
 	}

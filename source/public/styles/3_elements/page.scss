@@ -25,10 +25,10 @@ body {
 	color: $dark-grey;
 	// counter-reset: section;
 
-	@media only #{$medium-screen} {
+	@include medium-screen-up {
 		font-size: $tablet-font-size;
 	}
-	@media only #{$large-screen} {
+	@include large-screen-up {
 		font-size: $desktop-font-size;
 	}
 }
@@ -52,10 +52,10 @@ p, .p {
 	display: block; //Otherwise the line height won't work
 	font-size: 2.0rem;
 
-	@media only #{$medium-screen} {
+	@include medium-screen-up {
 		font-size: 2.2rem;
 	}
-	@media only #{$large-screen} {
+	@include large-screen-up {
 		font-size: 2.4rem;
 	}
 }
@@ -69,11 +69,11 @@ small, .small, .has-small-font-size {
 	display: block; //Otherwise the line height won't work
 	font-size: 1.4rem;
 
-	@media only #{$medium-screen} {
+	@include medium-screen-up {
 		font-size: 1.5rem;
 		line-height: 1.375;
 	}
-	@media only #{$large-screen} {
+	@include large-screen-up {
 		font-size: 1.6rem;
 	}
 }

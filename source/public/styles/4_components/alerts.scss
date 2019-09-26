@@ -10,7 +10,7 @@
 	border-radius: 0.5rem;
 
 	// Desktop/Full
-	@media only #{$medium-screen} {
+	@include medium-screen-up {
 		margin-bottom: $row-margin-large;
 	}
 

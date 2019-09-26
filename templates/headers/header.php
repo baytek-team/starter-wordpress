@@ -33,11 +33,11 @@ $classes = ['site'];
 				<a href="<?php echo home_url('/'); ?>" class="logo-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo.svg" alt="<?php bloginfo('name') ?>" id="nav-logo" class="logo" width="200"></a>
 			</div>
 			<nav id="site-navigation" class="main-navigation" aria-label="<?php esc_attr_e( 'Primary Menu', THEMEL10N ); ?>">
-				<?php wp_nav_menu(['theme_location' => 'primary', 'menu_class' => 'menu']); ?>
+				<?php wp_nav_menu(['theme_location' => 'primary', 'menu_class' => 'menu inline']); ?>
 			</nav>
 
 			<nav id="secondary-navigation" aria-label="<?php esc_attr_e( 'Secondary Menu', THEMEL10N ); ?>">
-				<?php wp_nav_menu(['theme_location' => 'secondary', 'menu_class' => 'menu']); ?>
+				<?php wp_nav_menu(['theme_location' => 'secondary', 'menu_class' => 'menu inline']); ?>
 				<!-- mobile menu toggle -->
 				<input type="checkbox" id="toggle-right">
 				<div id="nav-icon" class="main-menu-toggle">

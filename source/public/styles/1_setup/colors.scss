@@ -36,3 +36,23 @@ $success-border-color: rgba($success-color, 0.7);
 $info-color: #31708f;
 $info-bg-color: #d9edf7;
 $info-border-color: rgba($info-color, 0.7);
+
+
+$has-colors: 	('white', $white),
+				('black', $black),
+				('dark-grey', $dark-grey),
+				('grey', $grey),
+				('light-grey', $light-grey),
+
+
+@each $color-scheme-name, $color in $has-colors {
+	#page{
+		.has-#{$color-scheme-name}-color {
+		color: $color;    
+		}
+		.has-#{$color-scheme-name}-background-color {
+			background-color: $color;
+		}
+	}
+
+}

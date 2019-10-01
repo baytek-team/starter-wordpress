@@ -27,6 +27,9 @@ class Setup extends Base
 		// Make the URLS relative
 		add_filter('image_send_to_editor', [$this, 'useRelativeUrl'], 10, 8);
 
+		// Prevent Gravity Forms from going to the top of the page on submit
+		add_filter( 'gform_confirmation_anchor', '__return_true' );
+
 		// Add support for SVGs in the media library
 		add_filter('upload_mimes', [$this, 'customMimeTypes']);
 

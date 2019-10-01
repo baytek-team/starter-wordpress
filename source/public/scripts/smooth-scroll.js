@@ -14,7 +14,7 @@
 
 			// Prevent default anchor click behavior
 			event.preventDefault();
-			headerHeight = $("header").height() + 100; // Get fixed header height
+			headerHeight = $(".is-sticky").height() + 100; // Get fixed header height
 
 			// Using jQuery's animate() method to add smooth page scroll
 			// The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
@@ -30,7 +30,8 @@
 
 	if(window.location.hash && $(window.location.hash).length) {
 		// smooth scroll to the anchor id
-		headerHeight = $("header").height() + 100; // Get fixed header height
+		event.preventDefault();
+		headerHeight = $(".is-sticky").height() + 100; // Get fixed header height
 
 		$('html, body').animate({
 			scrollTop: $(window.location.hash).offset().top - headerHeight

@@ -147,6 +147,11 @@ select {
 	// Add some extra padding to the right now that the caret image is there.
 	padding-right: calc(3em + 2.4rem);
 
+	option{
+		background: $black;
+		color:$white;
+	}
+	
 	&:hover {
 		border-color: rgba(#868686, 0.5);
 	}

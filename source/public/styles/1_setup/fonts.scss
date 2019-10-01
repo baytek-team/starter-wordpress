@@ -20,3 +20,17 @@ $a: 'a, a:link, a:visited';
 $hover: '&:hover, &:focus';
 $headings: 'h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6';
 $block-text: 'h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .p, .eyebrow, .button, small, .small, blockquote, ul, ol';
+
+
+$has-font-size: 	('smaller', $small-font-size),
+					('small', $tablet-font-size),
+					('regular', $desktop-font-size),
+					('large', $desktop-font-size);
+
+@each $font-size-class, $font-size in $has-font-size {
+  
+	.has-#{$font-size-class}-font-size {
+	font-size: $font-size;    
+	}
+
+}

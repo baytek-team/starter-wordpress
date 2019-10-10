@@ -18,6 +18,7 @@ class Queue extends Base
 		// Enqueue front end styles
 		add_action('wp_print_styles', [$this, 'enqueueStyles'], 20);
 		add_action('wp_enqueue_scripts', [$this, 'enqueueScript'], 20);
+		add_action( 'enqueue_block_editor_assets', [$this, 'ea_gutenberg_scripts'], 20);
 	}
 
 	/**
@@ -26,6 +27,9 @@ class Queue extends Base
 	 */
 	public function enqueueScript()
 	{
+		// Google Fonts Frontend
+		wp_enqueue_style( 'gutesting-fonts', $this->gutesting_fonts_url() );
+
 		// Enqueue the theme script
 		wp_enqueue_script('app', $this->getAssetsUri('scripts/app.js'), ['jquery'], THEME_VERSION, true);
 	}
@@ -39,8 +43,31 @@ class Queue extends Base
 		// Enqueue the theme style
 		wp_enqueue_style('theme', $this->getAssetsUri('styles/bundle.css'), [], THEME_VERSION);
 
-		// Enqueue the Google Fonts
-		wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700|Source+Serif+Pro:400,600&display=swap');
+	}
+
+	/**
+	 * Gutenberg scripts and styles
+	 *
+	 */
+	public function ea_gutenberg_scripts() {
+
+		// Google Fonts for Editor
+		wp_enqueue_style( 'gutenberg-fonts', $this->gutesting_fonts_url() );
+	}
+
+
+	/**
+	 * Theme Fonts URL
+	 *
+	 */
+	public function gutenberg_fonts_url() {
+		$font_families = apply_filters( 'gutenberg_fonts', array( 'Karla:400,700, 700i|Philosopher&display=swap' ) );
+		$query_args = array(
+			'family' => implode( '|', $font_families ),
+			'subset' => 'latin,latin-ext',
+		);
+		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+		return esc_url_raw( $fonts_url );
 	}
 
 	/**

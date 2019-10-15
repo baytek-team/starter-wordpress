@@ -28,7 +28,7 @@ class Queue extends Base
 	public function enqueueScript()
 	{
 		// Google Fonts Frontend
-		wp_enqueue_style( 'gutesting-fonts', $this->gutesting_fonts_url() );
+		wp_enqueue_style( 'gutenberg-fonts', $this->gutenberg_fonts_url() );
 
 		// Enqueue the theme script
 		wp_enqueue_script('app', $this->getAssetsUri('scripts/app.js'), ['jquery'], THEME_VERSION, true);
@@ -52,7 +52,7 @@ class Queue extends Base
 	public function ea_gutenberg_scripts() {
 
 		// Google Fonts for Editor
-		wp_enqueue_style( 'gutenberg-fonts', $this->gutesting_fonts_url() );
+		wp_enqueue_style( 'gutenberg-fonts', $this->gutenberg_fonts_url() );
 	}
 
 

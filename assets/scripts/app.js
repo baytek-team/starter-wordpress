@@ -112,6 +112,7 @@ __webpack_require__(/*! ./menu.js */ "./source/public/scripts/menu.js"); // requ
 // require('./sliders.js');
 // require('./smooth-scroll.js');
 // require('./tabs.js');
+// require('./smooth-scroll.js');
 
 /***/ }),
 
@@ -156,8 +157,8 @@ __webpack_require__(/*! ./menu.js */ "./source/public/scripts/menu.js"); // requ
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/chadsehn/Web/test/wordpress/wp-content/themes/starter-theme/source/public/scripts/app.js */"./source/public/scripts/app.js");
-module.exports = __webpack_require__(/*! /Users/chadsehn/Web/test/wordpress/wp-content/themes/starter-theme/source/public/styles/bundle.scss */"./source/public/styles/bundle.scss");
+__webpack_require__(/*! /Applications/MAMP/htdocs/megamenu/wp-content/themes/starterwp/source/public/scripts/app.js */"./source/public/scripts/app.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/megamenu/wp-content/themes/starterwp/source/public/styles/bundle.scss */"./source/public/styles/bundle.scss");
 
 
 /***/ })

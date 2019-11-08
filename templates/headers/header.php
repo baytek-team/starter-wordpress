@@ -36,6 +36,9 @@ $classes = ['site'];
 				<?php wp_nav_menu(['theme_location' => 'primary', 'menu_class' => 'menu inline']); ?>
 			</nav>
 
+			<!-- Adding Mega Menu, comment out above Primary nav -->
+			<?php //get_template_part('templates/menus/mega-menu'); ?>
+
 			<nav id="secondary-navigation" aria-label="<?php esc_attr_e( 'Secondary Menu', THEMEL10N ); ?>">
 				<?php wp_nav_menu(['theme_location' => 'secondary', 'menu_class' => 'menu inline']); ?>
 				<!-- mobile menu toggle -->

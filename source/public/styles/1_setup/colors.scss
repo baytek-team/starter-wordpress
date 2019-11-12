@@ -42,7 +42,7 @@ $has-colors: 	('white', $white),
 				('black', $black),
 				('dark-grey', $dark-grey),
 				('grey', $grey),
-				('light-grey', $light-grey),
+				('light-grey', $light-grey);
 
 
 @each $color-scheme-name, $color in $has-colors {

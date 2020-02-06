@@ -540,7 +540,6 @@ a {
   text-decoration: none;
   font-weight: 500;
   cursor: pointer;
-  -webkit-transition: opacity 0.2s ease-out;
   transition: opacity 0.2s ease-out;
 }
 
@@ -801,22 +800,10 @@ table tbody td {
   opacity: 0.8;
 }
 
-.gfield.has-error ::-webkit-input-placeholder, .gfield.gfield_error ::-webkit-input-placeholder, .form-field.has-error ::-webkit-input-placeholder, .form-field.gfield_error ::-webkit-input-placeholder {
-  color: inherit;
-  opacity: 0.8;
-}
-
-.gfield.has-error ::-moz-placeholder, .gfield.gfield_error ::-moz-placeholder, .form-field.has-error ::-moz-placeholder, .form-field.gfield_error ::-moz-placeholder {
-  color: inherit;
-  opacity: 0.8;
-}
-
-.gfield.has-error :-ms-input-placeholder, .gfield.gfield_error :-ms-input-placeholder, .form-field.has-error :-ms-input-placeholder, .form-field.gfield_error :-ms-input-placeholder {
-  color: inherit;
-  opacity: 0.8;
-}
-
-.gfield.has-error ::-ms-input-placeholder, .gfield.gfield_error ::-ms-input-placeholder, .form-field.has-error ::-ms-input-placeholder, .form-field.gfield_error ::-ms-input-placeholder {
+.gfield.has-error :-ms-input-placeholder,
+.gfield.gfield_error :-ms-input-placeholder,
+.form-field.has-error :-ms-input-placeholder,
+.form-field.gfield_error :-ms-input-placeholder {
   color: inherit;
   opacity: 0.8;
 }
@@ -1040,13 +1027,10 @@ input[type=reset]:active,
 }
 
 .menu.inline {
-  display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
-  -webkit-box-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-          align-items: center;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 #toggle-right {
@@ -1057,9 +1041,7 @@ input[type=reset]:active,
   width: 2.8rem;
   height: 1.9rem;
   position: relative;
-  -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
-  -webkit-transition: 0.5s ease-in-out;
+  transform: rotate(0deg);
   transition: 0.5s ease-in-out;
   cursor: pointer;
 }
@@ -1079,9 +1061,7 @@ input[type=reset]:active,
   border-radius: 0.3rem;
   opacity: 1;
   left: 0;
-  -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
-  -webkit-transition: 0.25s ease-in-out;
+  transform: rotate(0deg);
   transition: 0.25s ease-in-out;
 }
 
@@ -1099,8 +1079,7 @@ input[type=reset]:active,
 
 .main-menu-toggle.cross span:nth-child(1) {
   top: 0.95rem;
-  -webkit-transform: rotate(135deg);
-          transform: rotate(135deg);
+  transform: rotate(135deg);
 }
 
 .main-menu-toggle.cross span:nth-child(2) {
@@ -1110,8 +1089,7 @@ input[type=reset]:active,
 
 .main-menu-toggle.cross span:nth-child(3) {
   top: 0.95rem;
-  -webkit-transform: rotate(-135deg);
-          transform: rotate(-135deg);
+  transform: rotate(-135deg);
 }
 
 nav.previous-next {
@@ -1119,17 +1097,14 @@ nav.previous-next {
   padding-top: 4rem;
   margin-top: 4rem;
   margin-bottom: 12rem;
-  display: -webkit-box;
   display: flex;
   font-size: 1.6rem;
   font-family: "Source Sans Pro", "Helvetica", "Arial", sans-serif;
 }
 
 nav.previous-next a {
-  display: -webkit-box;
   display: flex;
-  -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   text-transform: uppercase;
   font-weight: 700;
   color: #9e9e9e;
@@ -1169,7 +1144,6 @@ nav.previous-next a[rel=next] i {
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .wp-block-media-text {
-    display: -webkit-box;
     display: flex;
   }
 
@@ -1178,8 +1152,7 @@ nav.previous-next a[rel=next] i {
   }
 
   .wp-block-media-text.is-vertically-aligned-top {
-    -webkit-box-align: start;
-            align-items: flex-start;
+    align-items: flex-start;
   }
 
   .wp-block-media-text.auto-grid .wp-block-media-text__media {
@@ -1485,8 +1458,7 @@ nav.previous-next a[rel=next] i {
 }
 
 .wp-block-cover.bottom-aligned {
-  -webkit-box-align: end;
-          align-items: flex-end;
+  align-items: flex-end;
 }
 
 .wp-block-cover.bottom-aligned .wp-block-cover__inner-container {
@@ -1527,16 +1499,11 @@ body.single article > header.wp-block-cover {
 }
 
 .legal-credits {
-  display: -webkit-box;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-          flex-direction: row;
+  flex-direction: row;
   flex-wrap: wrap;
-  -webkit-box-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto 2.4rem;
 }
 

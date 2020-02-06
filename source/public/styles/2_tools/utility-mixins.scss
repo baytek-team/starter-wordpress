@@ -1,5 +1,25 @@
 // TOOLS - UTILITY MIXINS
 
+// Box Shadow
+@mixin shadow($dX: 0, $dY: .5rem, $blur: 1rem, $spread: 0, $color: rgba($black, .66), $inset: false) {
+  @if $inset {
+    box-shadow:inset $dX $dY $blur $spread $color;
+  } @else {
+    box-shadow: $dX $dY $blur $spread $color;
+  }
+}
+
+// Text Shadow
+@mixin text-shadow($x: 0, $y: .5rem, $blur: 1rem, $color: rgba($black, .66)) {
+    text-shadow: $x $y $blur $color;
+}
+
+// Transition - Keep a consistant transition across the site
+@mixin transition($duration: 0.2s) {
+  transition: all $duration ease-out;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
 
 // Conversion specific to Adobe XD for those that don't know the unit conversion
 @mixin xdLetterSpacing($xdSize){

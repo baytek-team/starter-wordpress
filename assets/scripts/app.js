@@ -157,8 +157,8 @@ __webpack_require__(/*! ./menu.js */ "./source/public/scripts/menu.js"); // requ
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/megamenu/wp-content/themes/starterwp/source/public/scripts/app.js */"./source/public/scripts/app.js");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/megamenu/wp-content/themes/starterwp/source/public/styles/bundle.scss */"./source/public/styles/bundle.scss");
+__webpack_require__(/*! /Users/chris/Web/gutenberg-boiler/wp-content/themes/starter-wordpress/source/public/scripts/app.js */"./source/public/scripts/app.js");
+module.exports = __webpack_require__(/*! /Users/chris/Web/gutenberg-boiler/wp-content/themes/starter-wordpress/source/public/styles/bundle.scss */"./source/public/styles/bundle.scss");
 
 
 /***/ })

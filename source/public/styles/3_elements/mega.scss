@@ -1,150 +1,96 @@
-/*------------------------------------*\
-    #PRIMARY-MENU
-\*------------------------------------*/
-@media only #{$medium-screen} {
-	.primary-menu {
+// COMPONENTS - MEGA MENU
 
-		&__wrapper {
-			background: rgba(white, 0.3);
-		}
+@include medium-screen-up {
 
-		> .main-navigation > ul {
-			display: flex;
-			flex-direction: row;
-			justify-content: space-between;
-
-			> li {
-				border-top: 2px solid transparent;
-
-				&:hover {
-					background: white;
-					border-top: 2px solid $dark-grey;
-
-					/* show mega menu on rollover */
-					.mega-menu__wrapper {
-						display: block;
-					}
-				}
-
-				> a {
-					box-sizing: border-box;
-					color: $dark-grey;
-					display: block;
-					letter-spacing: 1px;
-					line-height: 40px;
-					padding: 10px 35px;
-					text-decoration: none;
-					text-transform: uppercase;
-				}
-
-			}
-		}
-		.sub-menu {
-			display: none;
-		}
-	}
-
-	/*------------------------------------*\
-	    #MEGA-MENU
-	\*------------------------------------*/
-	@keyframes reveal-mega-menu {
-		0% {
-			height: 0%;
-		}
-
-		100% {
-			height: auto;
-		}
-	}
-
-	@keyframes fadein-mega-menu {
-		0% {
-			opacity: 0;
-			top: -5px;
-		}
-
-		100% {
-			opacity: 1;
-			top: 0;
-		}
-	}
-
-	.mega-menu {
+	.primary > ul {
 		display: flex;
-		flex-direction: row;
-		animation: fadein-mega-menu .5s ease-in-out;
-		position: relative;
+		justify-content: right;
+	}
+	.primary {
+		.menu-item{
+			margin-bottom: 0;
+		    height: 6rem;
+			> a {
+				position: relative;
+				color:$grey;
+				display: block;
+				font-family: $fonts-secondary;
+				font-size: 1.2rem;
+				font-weight: 700;
+				@include transition;
+			    padding-right: 3rem;
+			    padding-left: 3rem;
+			    height: 100%;
+			    padding-top: 2rem;
+			    text-decoration: none;
+			    @include iconFontAwesome('\f078', $color: $black, $top: calc(100% - 3.8rem), $right: 1.5rem, $icon-size: 1rem, $font-weight: 500);
+				&:after{
 
-		&__wrapper {
-			animation: reveal-mega-menu .25s ease-in-out;
-			background: white;
-			box-shadow: 0 4px 4px -2px #777;
-			display: none;
-			left: 0;
-			min-height: 320px;
-			padding: 35px 0 45px;
+				}
+			}
+			&.highlighted > a, &.current-menu-item > a{
+				// color: $fc-green;
+				@include transition;
+				// &:after{
+				// 	background-image: url("/wp-content/themes/mihr/assets/images/green-chevron.svg");
+				// }
+			}
+		}
+		.menu-item:hover > .mega-menu,
+		.menu-item.submenu-active > .mega-menu {
+
+		}
+		.mega-menu {
 			position: absolute;
+			transition: opacity .4s ease-in-out;
 			width: 100%;
-		}
-
-		/* content within the mega menu */
-		&__content {
-			box-sizing: border-box;
-			border-right: 10px solid $dark-grey;
-			padding-left: 33px;
-			padding-right: 120px;
-			&:first-child{
-				flex-basis: 66.66%;
+			z-index: 99;
+			background: $white;
+			left:0;
+			@include shadow($dY: 2rem, $blur: 4rem, $spread: -2rem);
+			@include medium-screen-up {
+				display: none;
+				height: auto;
+				top: 6rem !important;
 			}
-			&:last-child{
-				flex-basis: 33.33%;
-			}
-			/* mega menu title */
-			h2 {
-				font-size: em(28px);
-				color: $dark-grey;
-				letter-spacing: 1px;
-				margin-bottom: 10px;
-				margin-top: 25px;
-			}
-
-			/* description */
-			p {
-				font-size: em(18px);
+			p a{
 				font-weight: normal;
-				line-height: em(28px, 18px);
-				margin-bottom: 30px;
 			}
-
-			/* learn more button */
-			.learn-more {
-				margin-bottom: 25px;
+			strong a{
+				font-weight:700;
 			}
-		}
-
-		/* subnavigation within the mega menu */
-		&__subnav {
-
-			.subnav {
-				padding: 0;
-				margin: 25px 0 25px 40px;
-
-				li {
-					font-size: em(16px);
-					line-height: em(20px, 16px);
-					margin-bottom: 20px;
-
-					a {
-						color: $dark-grey;
-						text-decoration: none;
-						text-transform: uppercase;
-
-						&:hover {
-							color: $dark-grey;
+			.top-mega-menu{
+				margin-bottom: 0;
+				justify-content: center;
+				height: 6rem;
+				.wp-block-column{
+					margin-left: 0;
+					.wp-block-columns{
+						margin-bottom: 0;
+						.wp-block-column{
+							p{
+								font-size: 1.2rem;
+								font-family: $fonts-secondary;
+								font-weight: 700;
+							}
 						}
 					}
 				}
 			}
 		}
+		.mega-content{
+			max-width: $max-width;
+			margin: 0 auto;
+			a{
+				&:before{
+					display: none;
+				}
+			}
+			.wp-block-cover{
+				min-height: 29.8rem;
+			}
+		}
 	}
 }
+
+

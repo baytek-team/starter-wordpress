@@ -2,3 +2,37 @@
 // Unique styles for the site header that could not be achieved through the
 // use of objects and components.
 
+.site-header{
+    width: 100%;
+	// position: fixed;
+    // z-index: 99;
+	.main-menu-wrapper{
+		width: 100%;
+		background: $white;
+		transition: all 0.4s ease;
+		border-bottom: 0.1rem solid $light-grey;
+		position: inherit;
+	}
+	&.is-sticky{
+		.main-menu-wrapper{
+			transition: all 0.4s ease;
+			position: fixed;
+			z-index: 15;
+		}
+	}
+	.container{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 2rem;
+		max-width: 100%;
+		@include medium-screen-up {
+			padding: 0 0 0 2rem;
+		}
+		.logo-wrapper{
+			@include large-screen-max {
+				max-width: 24rem;
+			}
+		}
+	}
+}

@@ -6,38 +6,27 @@ input[type="button"],
 input[type="reset"],
 .wp-block-button .wp-block-button__link {
 	display: inline-block;
-	padding: 0.75em 1.5em;
+	padding: 0.85rem 3.8rem;
 	text-align: center;
-	text-transform: uppercase;
-	background: $black;
-	border: $default-border-width solid $black;
-	border-radius: 0.5rem;
-	color: $white;
-	font-family: $fonts-secondary;
-	font-size: $base-font-size;
-	cursor: pointer;
-}
-
-.wp-block-button.is-style-squared .wp-block-button__link {
-	border-radius: 0;
-}
-
-button, .button,
-input[type="submit"],
-input[type="button"],
-input[type="reset"],
-.wp-block-button.is-style-outline .wp-block-button__link {
 	background: transparent;
 	border: $default-border-width solid $black;
+	border-radius: 5rem;
 	color: $black;
-
+	font-family: $fonts-secondary;
+	font-size: $small-font-size;
+	font-weight: 700;
+	cursor: pointer;
+	@include transition;
+	&:before, a:before{
+		display: none;
+	}
 	&:hover {
 		opacity: 1;
 		background: $black;
-		color: $white;
+		color: $white; 
 	}
 	&:active {
-		background: darken($black, 15);
-		border-color: darken($black, 15);
+		color: rgba($white, .5);
 	}
+
 }

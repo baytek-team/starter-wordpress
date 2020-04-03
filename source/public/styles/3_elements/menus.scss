@@ -15,6 +15,10 @@
 
 	.menu-item {
 		// styling for individual menu items
+		> a {
+		    padding-right: 1rem;
+		    padding-left: 1rem;
+		}
 	}
 }
 

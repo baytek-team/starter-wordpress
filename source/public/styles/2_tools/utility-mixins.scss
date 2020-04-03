@@ -33,3 +33,22 @@
 	width: 0.1rem;
 	overflow: hidden;
 }
+
+$font-gutter: 2rem;
+@mixin iconFontAwesome($content: '\f054', $icon-size: 1.4rem, $font-weight: 300, $right: 2rem, $top: calc(100% - 3.4rem), $color: $fc-gold) {
+  &:after {
+    display: inline-block;
+    font-family: "Font Awesome 5 Pro";
+    content: $content;
+    position: absolute;
+    top: $top;
+    right: $right;
+    z-index: 5;
+    font-size: $icon-size;
+    font-weight: $font-weight;
+    color: $color;
+    @include transition;
+
+    pointer-events: none;   
+  }
+}

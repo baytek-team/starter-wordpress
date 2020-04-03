@@ -16,25 +16,28 @@ $dark-grey: #4b4b4b;
 $grey: #9e9e9e;
 $light-grey: #e5e5e5;
 $white: #ffffff;
-
+$yellow: #EEB311;
+$red:#AB192D;
+$green:#6BA43A;
+$blue: #0093FF;
 
 // STATE & FEEDBACK COLORS
 // Colors for communicating state or feedback
 // ex. error, warning, success, etc.
-$error-color: #a94442;
+$error-color: $red;
 $error-bg-color: #f2dede;
 $error-border-color: rgba($error-color, 0.7);
 
-$warning-color: #8a6d3b;
-$warning-bg-color: #fcf8e3;
+$warning-color: $yellow;
+$warning-bg-color: #F4E9CD;
 $warning-border-color: rgba($warning-color, 0.7);
 
-$success-color: #3c763d;
-$success-bg-color: #dff0d8;
+$success-color: $green;
+$success-bg-color: #CAE8B0;
 $success-border-color: rgba($success-color, 0.7);
 
-$info-color: #31708f;
-$info-bg-color: #d9edf7;
+$info-color: $blue;
+$info-bg-color: #C2E2FA;
 $info-border-color: rgba($info-color, 0.7);
 
 

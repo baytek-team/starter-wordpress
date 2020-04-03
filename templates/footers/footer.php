@@ -11,7 +11,10 @@
 use Baytek\Wordpress\Theme;
 
 ?>
-		<footer>
+
+		<?php get_template_part('templates/blocks/cta', 'post'); ?>
+		
+		<footer class="footer">
 			<div class="container legal-credits">
 				<div class="copyright">
 					<p><?php printf("&copy;&nbsp;%s %s.", date('Y'), get_bloginfo('name')); ?></p>

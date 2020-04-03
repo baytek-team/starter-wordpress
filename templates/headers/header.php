@@ -28,28 +28,54 @@ $classes = ['site'];
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', THEMEL10N ); ?></a>
 
 	<header class="site-header">
+		<?php if ( has_nav_menu( 'secondary' ) ) : ?>
+			<div class="header-top-menu">
+				<nav id="secondary-navigation" class="secondary-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Secondary Menu', THEMEL10N ); ?>">
+					<?php wp_nav_menu(['theme_location' => 'secondary', 'menu_class' => 'menu inline secondary']); ?>
+					<?php wp_nav_menu(['theme_location' => 'search', 'menu_class' => 'menu inline search']); ?>
+				</nav>
+			</div>
+		<?php endif; ?>
 		<div class="container">
 			<div class="logo-wrapper">
 				<a href="<?php echo home_url('/'); ?>" class="logo-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo.svg" alt="<?php bloginfo('name') ?>" id="nav-logo" class="logo" width="200"></a>
 			</div>
-			<nav id="site-navigation" class="main-navigation" aria-label="<?php esc_attr_e( 'Primary Menu', THEMEL10N ); ?>">
-				<?php wp_nav_menu(['theme_location' => 'primary', 'menu_class' => 'menu inline']); ?>
-			</nav>
 
-			<!-- Adding Mega Menu, comment out above Primary nav -->
-			<?php //get_template_part('templates/menus/mega-menu'); ?>
+			<?php if ( has_nav_menu( 'primary' ) ) : ?>
+				<nav id="site-navigation" class="menu inline" aria-label="<?php esc_attr_e( 'Primary Menu', THEMEL10N ); ?>">
+					<?php wp_nav_menu(['theme_location' => 'primary', 'menu_class' => 'menu inline']); ?>
+				</nav>
+			<?php endif; ?>
 
-			<nav id="secondary-navigation" aria-label="<?php esc_attr_e( 'Secondary Menu', THEMEL10N ); ?>">
-				<?php wp_nav_menu(['theme_location' => 'secondary', 'menu_class' => 'menu inline']); ?>
-				<!-- mobile menu toggle -->
-				<input type="checkbox" id="toggle-right">
+			<?php if ( has_nav_menu( 'primary-mobile' ) ) : ?>
+				<nav id="mobile-navigation" role="navigation">
+					<div class="mobile-navigation-wrapper">
+						<?php wp_nav_menu(['theme_location' => 'primary-mobile', 'container_class' => 'mobile-primary']); ?>
+
+
+						<div class="search-mobile">
+							<form id="search-form" method="GET" action="<?php echo home_url(); ?>">
+								<input type="text" name="s" id="search-input" placeholder="<?php _e('Keyword', THEMEL10N); ?>" autocomplete="off" value="<?php echo isset($_GET['s']) ? $_GET['s'] : ''; ?>">
+							</form>
+							<div class="footer-socials">
+								<div class="socials"><a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a><a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a></div>
+							</div>
+						</div>
+
+					</div>
+				</nav>
+			<?php endif; ?>
+		
+			<!-- mobile menu toggle -->
+			<input type="checkbox" id="toggle-right">
+			<div class="mobile-wrapper">
 				<div id="nav-icon" class="main-menu-toggle">
 					<span></span>
 					<span></span>
 					<span></span>
 				</div>
-				<!-- /mobile menu toggle -->
-			</nav>
+			</div>
+			<!-- /mobile menu toggle -->
 		</div>
 	</header>
 

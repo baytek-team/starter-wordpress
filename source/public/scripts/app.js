@@ -19,3 +19,4 @@ require('./menu.js');
 // require('./smooth-scroll.js');
 // require('./tabs.js');
 // require('./smooth-scroll.js');
+// require('./archive.js');

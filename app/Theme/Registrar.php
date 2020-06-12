@@ -14,7 +14,7 @@ class Registrar extends Base
 	 */
 	public function addHooks() {
 		// Init widget areas - uncomment if you have sidebars
-		// add_action('widgets_init', [$this, 'widgetsInit']);
+		add_action('widgets_init', [$this, 'widgetsInit']);
 
 		//Init menus
 		$this->registerMenus();
@@ -26,17 +26,17 @@ class Registrar extends Base
 	 * @see https://developer.wordpress.org/reference/functions/register_sidebar/
 	 */
 	public function widgetsInit() {
-		// register_sidebar(
-		// 	[
-		// 		'name'          => esc_html__( 'Sidebar', THEMEL10N ),
-		// 		'id'            => 'sidebar-1',
-		// 		'description'   => '',
-		// 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		// 		'after_widget'  => '</div>',
-		// 		'before_title'  => '<div class="h2 widget-title">',
-		// 		'after_title'   => '</div>',
-		// 	]
-		// );
+		register_sidebar(
+			[
+				'name'          => esc_html__( 'Archive Filter', THEMEL10N ),
+				'id'            => 'archive-filter',
+				'description'   => '',
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			]
+		);
 	}
 
 	/**

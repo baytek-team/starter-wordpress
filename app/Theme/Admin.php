@@ -28,6 +28,9 @@ class Admin extends Base
 		//Create admin settings pages
 		add_action('admin_menu', [$this, 'settingsPageMenu']);
 		add_action('admin_init', [$this, 'settings']);
+
+		//Hook into attachment upload to create a database entry for the PDF auto-generated images
+		add_filter('wp_generate_attachment_metadata', [$this, 'generatePdfThumbnailEntry'], 10, 3);
 	}
 
 	/**
@@ -136,5 +139,115 @@ class Admin extends Base
 		foreach ($this->postSettings as $option) {
 			register_setting( 'post-settings', 'post-settings-'.$option );
 		}
+	}
+
+	/**
+	 * Listen for PDF file uploads and create database entries for their corresponding image files
+	 *
+	 * @param array  $metadata      An array of attachment meta data.
+	 * @param int    $attachment_id Current attachment ID.
+	 * @param string $context       Additional context: 'create' or 'update'
+	 */
+	public function generatePdfThumbnailEntry($metadata, $attachment_id, $context) {
+		//Make sure we're dealing with a PDF
+		if (get_post_mime_type($attachment_id) == 'application/pdf') {
+			//Make sure we have sizes for thumbnails (therefore images)
+			if (isset($metadata['sizes']) && count($metadata['sizes']) && isset($metadata['sizes']['full'])) {
+				//We will use the full size thumbnail as our original image, but need to build some missing info
+				global $wpdb;
+
+				//Get the PDF for reference
+				$pdf = get_post($attachment_id);
+				$pdf_file = get_post_meta($attachment_id, '_wp_attached_file', true);
+
+				//Find out whether we're using year/month folders
+				$using_subfolders = (int) get_option('uploads_use_yearmonth_folders') == 1;
+
+				//Save a copy of the metadata we can modify
+				$copy = $metadata;
+				$full = $copy['sizes']['full'];
+				unset($copy['sizes']['full']);
+
+				//Insert the new post data
+				$wpdb->insert(
+					$wpdb->posts,
+					[
+						'post_author' => $pdf->post_author,
+						'post_date' => $pdf->post_date,
+						'post_date_gmt' => $pdf->post_date_gmt,
+						'post_content' => '',
+						'post_title' => sprintf(__('%s Cover Image', THEMEL10N), $pdf->post_title),
+						'post_status' => $pdf->post_status,
+						'comment_status' => $pdf->comment_status,
+						'ping_status' => $pdf->ping_status,
+						'post_password' => $pdf->post_password,
+						'post_name' => sprintf('%s-thumb-%s', $pdf->post_name, time()),
+						'to_ping' => $pdf->to_ping,
+						'pinged' => $pdf->pinged,
+						'post_modified' => $pdf->post_modified,
+						'post_modified_gmt' => $pdf->post_modified_gmt,
+						'post_content_filtered' => $pdf->post_content_filtered,
+						'post_parent' => $pdf->post_parent,
+						'guid' => str_replace($pdf_file, sprintf('%s%s', $using_subfolders ? date('Y/m/') : '', $full['file']), $pdf->guid),
+						'menu_order' => $pdf->menu_order,
+						'post_type' => $pdf->post_type,
+						'post_mime_type' => 'image/jpeg',
+						'comment_count' => $pdf->comment_count
+					]
+				);
+
+				//Save the new attachment ID
+				$thumbnail_id = $wpdb->insert_id;
+
+				//If we successfully added the attachment, now add the metadata
+				if ($thumbnail_id) {
+					//Update the copy with additional data
+					$new_meta = [
+						'width' => $full['width'],
+						'height' => $full['height'],
+						'file' => sprintf('%s%s', $using_subfolders ? date('Y/m/') : '', $full['file']),
+						'sizes' => $copy['sizes'],
+						'image_meta' => [
+							'aperture' => 0,
+				            'credit' => '',
+				            'camera' => '',
+				            'caption' => '',
+				            'created_timestamp' => 0,
+				            'copyright' => '',
+				            'focal_length' => 0,
+				            'iso' => 0,
+				            'shutter_speed' => 0,
+				            'title' => '',
+				            'orientation' => 0,
+				            'keywords' => []
+						]
+					];
+
+					//Attached file meta
+					$wpdb->insert(
+						$wpdb->postmeta,
+						[
+							'post_id' => $thumbnail_id,
+							'meta_key' => '_wp_attached_file',
+							'meta_value' => $new_meta['file']
+						]
+					);
+
+					//Attachment meta
+					$wpdb->insert(
+						$wpdb->postmeta,
+						[
+							'post_id' => $thumbnail_id,
+							'meta_key' => '_wp_attachment_metadata',
+							'meta_value' => serialize($new_meta)
+						]
+					);
+
+					//Voila!
+				}
+			}
+		}
+
+		return $metadata;
 	}
 }

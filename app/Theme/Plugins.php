@@ -14,10 +14,14 @@ class Plugins extends Base
 	public function addHooks()
 	{
 		// Add pagination summary and links at the bottom of the archive results
-		// add_filter('daft_ajax_output', [$this, 'paginateArchives']);
+		//add_filter('daft_ajax_output', [$this, 'paginateArchives']);
 
 		// Filter the dynamic archive filter to use the eventDate meta for events
-		// add_filter('daft_query_args', [$this, 'filterDaftQueryArgs']);
+		//add_filter('daft_query_args', [$this, 'filterDaftQueryArgs']);
+
+		// Filter before/after labels for events
+		//add_filter('daft-date-after-label', [$this, 'filterDaftDateAfterLabel']);
+		//add_filter('daft-date-before-label', [$this, 'filterDaftDateBeforeLabel']);
 	}
 
 	/**
@@ -45,47 +49,98 @@ class Plugins extends Base
 	 */
 	public function filterDaftQueryArgs($args) {
 		if (isset($args['post_type']) && $args['post_type'] == 'event') {
-			// Reset orderby
-			$args['orderby'] = ['meta_value' => 'ASC'];
+			//Upcoming by default
+			$compare = '>=';
 
-			$args['meta_key'] = 'eventDate';
-			$args['meta_type'] = 'DATE';
+			//Check the order/orderby to show past or upcoming correctly
+			if (isset($args['orderby']) && isset($args['orderby']['meta_value']) && strtoupper($args['orderby']['meta_value']) == 'DESC') {
+				//Show past events
+				$compare = '<=';
+			}
 
-			// Ensure they are upcoming events by default
+			//Set the meta query
 			$args['meta_query'] = [
+				'relation' => 'AND',
 				[
-					'key' => 'eventEndDate',
-					'value' => date('Y-m-d'),
-					'compare' => '>='
+					'relation' => 'OR',
+					[
+						'key' => 'eventEndDate',
+						'value' => date('Y-m-d'),
+						'compare' => $compare
+					],
+					[
+						'key' => 'eventDate',
+						'value' => date('Y-m-d'),
+						'compare' => $compare
+					],
 				]
 			];
+
+			//Make sure the meta keys are set
+			$args['meta_key'] = 'eventDate';
+			$args['meta_type'] = 'DATE';
 
 			// If there is a date query (Event Before/After), replace it with a meta query
 			if ( isset( $args['date_query'] ) && !empty( $args['date_query'] ) ) {
 
-				// If doing a date query don't do the upcoming events filter
-				unset($args['meta_value']);
-				unset($args['meta_compare']);
-
-				$args['meta_query'] = [
-					'relation' => 'AND'
-				];
-
 				// Populate the meta query with the 'before' and/or 'after' info
 				foreach ( $args['date_query'][0] as $filter => $date ) {
 					$args['meta_query'][] = [
-						'key' => 'eventDate',
-						'value' => $date,
-						'compare' => $filter == 'before' ? '<=' : '>=',
-						'type' => 'DATE',
+						'relation' => 'OR',
+						[
+							'key' => 'eventDate',
+							'value' => $date,
+							'compare' => $filter == 'before' ? '<=' : '>=',
+							'type' => 'DATE',
+						],
+						[
+							'key' => 'eventEndDate',
+							'value' => $date,
+							'compare' => $filter == 'before' ? '<=' : '>=',
+							'type' => 'DATE',
+						]
 					];
 				}
 
 				// Remove the date query since it's been replaced with a meta query
-				unset( $args['date_query'] );
+				unset($args['date_query']);
 			}
 		}
 
 		return $args;
+	}
+
+	/**
+	 * Filter the DAFT date after label
+	 *
+	 * @param  string  $label
+	 *
+	 * @return string  $label  The updated label
+	 */
+	public function filterDaftDateAfterLabel($label) {
+		global $wp_query;
+
+		if (isset($wp_query->query_vars['post_type']) && $wp_query->query_vars['post_type'] == 'event') {
+			$label = __('Event After', THEMEL10N);
+		}
+
+		return $label;
+	}
+
+	/**
+	 * Filter the DAFT date after label
+	 *
+	 * @param  string  $label
+	 *
+	 * @return string  $label  The updated label
+	 */
+	public function filterDaftDateBeforeLabel($label) {
+		global $wp_query;
+
+		if (isset($wp_query->query_vars['post_type']) && $wp_query->query_vars['post_type'] == 'event') {
+			$label = __('Event Before', THEMEL10N);
+		}
+
+		return $label;
 	}
 }

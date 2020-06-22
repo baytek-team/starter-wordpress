@@ -22,6 +22,9 @@ class Plugins extends Base
 		// Filter before/after labels for events
 		//add_filter('daft-date-after-label', [$this, 'filterDaftDateAfterLabel']);
 		//add_filter('daft-date-before-label', [$this, 'filterDaftDateBeforeLabel']);
+
+		//Filter the privacy policy link (multilingual)
+		//add_filter('the_privacy_policy_link', [$this, 'filterPrivacyPolicyLink'], 10, 2);
 	}
 
 	/**
@@ -142,5 +145,33 @@ class Plugins extends Base
 		}
 
 		return $label;
+	}
+
+	/**
+	 * Filter the privacy policy link for translations
+	 *
+	 * @param  string  $link               The privacy policy link. Empty string if it
+	 *                                     doesn't exist.
+	 * @param  string  $privacy_policy_url The URL of the privacy policy. Empty string
+	 *                                     if it doesn't exist.
+	 *
+	 * @return string  $link 			   The updated link
+	 *
+	 * @see get_the_privacy_policy_link()
+	 */
+	public function filterPrivacyPolicyLink($link, $privacy_policy_url) {
+		$privacy_policy_url = get_privacy_policy_url();
+		$policy_page_id     = apply_filters('wpml_object_id', (int) get_option('wp_page_for_privacy_policy'), 'page', true);
+		$page_title         = ( $policy_page_id ) ? get_the_title( $policy_page_id ) : '';
+
+		if ( $privacy_policy_url && $page_title ) {
+			$link = sprintf(
+				'<a class="privacy-policy-link" href="%s">%s</a>',
+				esc_url( $privacy_policy_url ),
+				esc_html( $page_title )
+			);
+		}
+
+		return $link;
 	}
 }

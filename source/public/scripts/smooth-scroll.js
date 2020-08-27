@@ -2,10 +2,15 @@
 // Uses jQuery animate() method - https://api.jquery.com/animate/
 (function($) {
 	// Add smooth scrolling to all links
-	$('a').on('click', function(event) {
+	$("a").not('.open-popup-link, .gform_button').on('click', function(event) {
 
+		//Exclude anchors inside p.open-popup-link
+		let parent = $(this).parent();
+		if (parent.hasClass('open-popup-link')) {
+			return;
+		}
 		// Make sure this.hash has a value before overriding default behavior
-		if (this.hash !== '') {
+		if (this.hash !== '' && this.hash != '#search') {
 			// Store hash
 			var hash = this.hash;
 

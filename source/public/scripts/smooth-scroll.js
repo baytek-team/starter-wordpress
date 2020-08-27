@@ -23,7 +23,9 @@
 			}, 800, function() {
 
 				// Add hash (#) to URL when done scrolling (default click behavior)
-				window.location.hash = hash;
+				//window.location.hash = hash;
+				history.pushState(null, window.title, window.location.href.split('#')[0]+hash);
+				
 			});
 		} // End if
 	});

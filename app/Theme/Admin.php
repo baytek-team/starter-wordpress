@@ -169,38 +169,33 @@ class Admin extends Base
 				unset($copy['sizes']['full']);
 
 				//Insert the new post data
-				$wpdb->insert(
-					$wpdb->posts,
-					[
-						'post_author' => $pdf->post_author,
-						'post_date' => $pdf->post_date,
-						'post_date_gmt' => $pdf->post_date_gmt,
-						'post_content' => '',
-						'post_title' => sprintf(__('%s Cover Image', THEMEL10N), $pdf->post_title),
-						'post_status' => $pdf->post_status,
-						'comment_status' => $pdf->comment_status,
-						'ping_status' => $pdf->ping_status,
-						'post_password' => $pdf->post_password,
-						'post_name' => sprintf('%s-thumb-%s', $pdf->post_name, time()),
-						'to_ping' => $pdf->to_ping,
-						'pinged' => $pdf->pinged,
-						'post_modified' => $pdf->post_modified,
-						'post_modified_gmt' => $pdf->post_modified_gmt,
-						'post_content_filtered' => $pdf->post_content_filtered,
-						'post_parent' => $pdf->post_parent,
-						'guid' => str_replace($pdf_file, sprintf('%s%s', $using_subfolders ? date('Y/m/') : '', $full['file']), $pdf->guid),
-						'menu_order' => $pdf->menu_order,
-						'post_type' => $pdf->post_type,
-						'post_mime_type' => 'image/jpeg',
-						'comment_count' => $pdf->comment_count
-					]
-				);
-
 				//Save the new attachment ID
-				$thumbnail_id = $wpdb->insert_id;
+				$thumbnail_id = wp_insert_post([
+					'post_author' => $pdf->post_author,
+					'post_date' => $pdf->post_date,
+					'post_date_gmt' => $pdf->post_date_gmt,
+					'post_content' => '',
+					'post_title' => sprintf(__('%s Cover Image', THEMEL10N), $pdf->post_title),
+					'post_status' => $pdf->post_status,
+					'comment_status' => $pdf->comment_status,
+					'ping_status' => $pdf->ping_status,
+					'post_password' => $pdf->post_password,
+					'post_name' => sprintf('%s-thumb-%s', $pdf->post_name, time()),
+					'to_ping' => $pdf->to_ping,
+					'pinged' => $pdf->pinged,
+					'post_modified' => $pdf->post_modified,
+					'post_modified_gmt' => $pdf->post_modified_gmt,
+					'post_content_filtered' => $pdf->post_content_filtered,
+					'post_parent' => $pdf->post_parent,
+					'guid' => str_replace($pdf_file, sprintf('%s%s', $using_subfolders ? date('Y/m/') : '', $full['file']), $pdf->guid),
+					'menu_order' => $pdf->menu_order,
+					'post_type' => $pdf->post_type,
+					'post_mime_type' => 'image/jpeg',
+					'comment_count' => $pdf->comment_count
+				]);
 
 				//If we successfully added the attachment, now add the metadata
-				if ($thumbnail_id) {
+				if ($thumbnail_id && !is_wp_error($thumbnail_id)) {
 					//Update the copy with additional data
 					$new_meta = [
 						'width' => $full['width'],

@@ -18,5 +18,5 @@ require('./menu.js');
 // require('./sliders.js');
 // require('./smooth-scroll.js');
 // require('./tabs.js');
-// require('./smooth-scroll.js');
+// require('./toggle.js');
 // require('./archive.js');

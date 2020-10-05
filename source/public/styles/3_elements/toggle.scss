@@ -1,0 +1,36 @@
+// Styles for the Front End and Editor Views
+.wp-block-theme-blocks-toggle {
+	margin-bottom: 1em;
+	border-bottom: 2px solid;
+
+	.toggle-header {
+		position: relative;
+		cursor: pointer;
+		padding-right: 30px;
+
+		&:after {
+		    position: absolute;
+		    right: 1rem;
+		    top: calc(100% - 6rem);
+			content: '\f107';
+			font-weight: 400;
+			font-size: $desktop-font-size;
+			font-family: "Font Awesome 5 Pro";
+			color: $black;
+		}
+	}
+	.toggle-body {
+		display: none;
+		margin-top: 1em;
+	}
+
+	&.expanded,
+	&.is-selected {
+		.toggle-header:after {
+			transform: rotate(180deg);
+		}
+		.toggle-body {
+			display: block;
+		}
+	}
+}

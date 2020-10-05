@@ -112,7 +112,7 @@ __webpack_require__(/*! ./menu.js */ "./source/public/scripts/menu.js"); // requ
 // require('./sliders.js');
 // require('./smooth-scroll.js');
 // require('./tabs.js');
-// require('./smooth-scroll.js');
+// require('./toggle.js');
 // require('./archive.js');
 
 /***/ }),

@@ -15,6 +15,9 @@ class Setup extends Base
 	{
 		add_action('after_setup_theme', [$this, 'setup']);
 
+		// Filter maximum image resolution
+		add_filter('big_image_size_threshold', [$this, 'filterMaxImageResolution'], 10, 4);
+
 		// Remove default link on attached images
 		add_action('admin_init', [$this, 'removeImageLink']);
 
@@ -138,6 +141,21 @@ class Setup extends Base
 				'caption',
 			]
 		);
+	}
+
+	/**
+	 * Reduce the threshold for large images, so Wordpress can optimize
+	 *
+	 * @param  int     $threshold  	   The default big image threshold, in pixels (2560)
+	 * @param  array   $imagesize  	   Indexed array of the image width and height in pixels.
+	 * @param  string  $file 	       Full path to the uploaded image file.
+	 * @param  int 	   $attachment_id  Attachment post ID
+	 *
+	 * @return int     $threshold      The modified threshold, in pixels
+	 */
+	public function filterMaxImageResolution(int $threshold, array $imagesize, string $file, int $attachment_id)
+	{
+		return 1980;
 	}
 
 	/**

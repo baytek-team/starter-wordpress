@@ -50,6 +50,9 @@ class Template extends Base
 
     	// Filter default excerpt length
     	add_filter('excerpt_length', [$this, 'filterExcerptLength'], 999);
+
+    	//Remove empty p tags from content
+    	add_filter('the_content', [$this, 'remove_empty_p'], 20, 1);
 	}
 
 	/**
@@ -195,5 +198,17 @@ class Template extends Base
 	 */
 	public function filterExcerptLength($length) {
 		return 20;
+	}
+
+	/**
+	 * Remove empty paragraphs created by wpautop()
+	 * @author Ryan Hamilton
+	 * @link https://gist.github.com/Fantikerz/5557617
+	 */
+	public function remove_empty_p( $content ) {
+		$content = force_balance_tags( $content );
+		$content = preg_replace( '#<p>\s*+(<br\s*/*>)?\s*</p>#i', '', $content );
+		$content = preg_replace( '~\s?<p>(\s|&nbsp;)+</p>\s?~', '', $content );
+		return $content;
 	}
 }

@@ -31,6 +31,9 @@ class Admin extends Base
 
 		//Hook into attachment upload to create a database entry for the PDF auto-generated images
 		add_filter('wp_generate_attachment_metadata', [$this, 'generatePdfThumbnailEntry'], 10, 3);
+
+		// Reusable Blocks accessible in backend
+		add_action( 'admin_menu', [$this, 'be_reusable_blocks_admin_menu'] );
 	}
 
 	/**
@@ -244,5 +247,12 @@ class Admin extends Base
 		}
 
 		return $metadata;
+	}
+
+	/**
+	 * Reusable Blocks accessible in backend
+	 */
+	public function be_reusable_blocks_admin_menu() {
+	    add_menu_page( 'Reusable Blocks', 'Reusable Blocks', 'edit_posts', 'edit.php?post_type=wp_block', '', 'dashicons-editor-table', 22 );
 	}
 }

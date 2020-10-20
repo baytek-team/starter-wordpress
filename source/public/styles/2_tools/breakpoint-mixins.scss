@@ -8,6 +8,7 @@ $large-width: 980px;
 $small-width: 720px;
 $tiny-width: 480px;
 $content-width: 63.6rem;
+$wp-column-break-width: 600px;
 
 // $row-margin is 2.4rem (aka 24px)
 $max-padded-content-width: $max-width + (24px * 2);
@@ -53,6 +54,13 @@ $narrow-width: 624px;
 
 @mixin max-content-screen-up {
   @media (min-width: $max-padded-content-width) { @content; }
+}
+
+@mixin multi-column-up {
+  @media (min-width: $wp-column-break-width) { @content; }
+}
+@mixin single-column-max {
+  @media (max-width: $wp-column-break-width - 1px) { @content; }
 }
 
 // IE Specific Media Query

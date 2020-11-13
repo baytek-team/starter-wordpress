@@ -1,0 +1,66 @@
+// ELEMENTS - IMAGE COPYRIGHTS
+
+figure,
+figure.wp-block-image {
+	position: relative;
+
+	figcaption {
+		width: auto;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		margin: 2.4rem;
+		margin-top: 2.4rem;
+		margin-bottom: 2.4rem;
+		background-color: transparent;
+		color: transparent;
+
+		&:not(.open) {
+			width: 1.4rem;
+			height: 1.9rem;
+			cursor: pointer;
+			overflow: hidden;
+
+			&:hover {
+				&:before {
+					color: rgba($white, 0.75);
+				}
+			}
+		}
+
+		&.open {
+			right: 0;
+			padding: 2.4rem;
+			padding-right: 6rem;
+			background-color: rgba($black, 0.5);
+			color: $white;
+
+			&:before {
+				color: rgba($white, 0.1);
+			}
+
+			&:after {
+				content: '\f00d';
+				font-weight: 300;
+				font-family: 'Font Awesome 5 Pro';
+				color: $white;
+				position: absolute;
+				top: 1.4rem;
+				right: 2.4rem;
+				font-size: 2.4rem;
+				cursor: pointer;
+			}
+		}
+
+		&:before {
+			content: '\f05a';
+			font-weight: 700;
+			font-family: 'Font Awesome 5 Pro';
+			color: rgba($white, 0.5);
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			font-size: 1.4rem;
+		}
+	}
+}

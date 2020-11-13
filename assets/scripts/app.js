@@ -126,6 +126,25 @@ __webpack_require__(/*! ./menu.js */ "./source/public/scripts/menu.js"); // requ
 // require('./toggle.js');
 // require('./archive.js');
 
+
+__webpack_require__(/*! ./copyrights.js */ "./source/public/scripts/copyrights.js");
+
+/***/ }),
+
+/***/ "./source/public/scripts/copyrights.js":
+/*!*********************************************!*\
+  !*** ./source/public/scripts/copyrights.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+//Scripting for image copyright toggling
+(function ($) {
+  $('figure.wp-block-image figcaption').click(function (e) {
+    $(this).toggleClass('open');
+  });
+})(jQuery);
+
 /***/ }),
 
 /***/ "./source/public/scripts/menu.js":

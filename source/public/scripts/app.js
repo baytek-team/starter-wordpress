@@ -20,3 +20,4 @@ require('./menu.js');
 // require('./tabs.js');
 // require('./toggle.js');
 // require('./archive.js');
+require('./copyrights.js');

@@ -18,7 +18,7 @@ class Queue extends Base
 		// Enqueue front end styles
 		add_action('wp_print_styles', [$this, 'enqueueStyles'], 20);
 		add_action('wp_enqueue_scripts', [$this, 'enqueueScript'], 20);
-		add_action( 'enqueue_block_editor_assets', [$this, 'ea_gutenberg_scripts'], 20);
+		add_action('enqueue_block_editor_assets', [$this, 'ea_gutenberg_scripts'], 20);
 	}
 
 	/**
@@ -50,6 +50,8 @@ class Queue extends Base
 	 *
 	 */
 	public function ea_gutenberg_scripts() {
+		// Enqueue the theme script
+		wp_enqueue_script('baytek-admin', $this->getAssetsUri('scripts/admin.js'), [], THEME_VERSION, true);
 
 		// Google Fonts for Editor
 		wp_enqueue_style( 'gutenberg-fonts', $this->gutenberg_fonts_url() );

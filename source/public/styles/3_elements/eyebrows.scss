@@ -2,13 +2,14 @@
 
 
 // Eyebrow
-.eyebrow, #main .eyebrow {
+.eyebrow,
+.is-style-eyebrow {
 	position: relative;
 	display: block;
 	text-transform: uppercase;
 	color: $grey;
 	font-weight: 600;
-	font-size: 1.6rem;
+	font-size: 1.4rem;
 	line-height: 2.0rem;
 	margin-bottom: $default-margin;
 	font-family: $fonts-secondary;
@@ -17,7 +18,7 @@
 
 	// Tablet
 	@include small-screen-up {
-		//
+		font-size: 1.4rem;
 	}
 
 	// Desktop/Full
@@ -26,10 +27,15 @@
 	}
 }
 
-#main .wp-block-cover .eyebrow {
-	color: inherit;
+.wp-block-cover {
+	.is-style-eyebrow,
+	.eyebrow {
+		color: inherit;
+	}
 }
 
+h2.is-style-eyebrow,
+.h2.is-style-eyebrow,
 h2.eyebrow:after,
 .h2.eyebrow:after {
 	display: none;

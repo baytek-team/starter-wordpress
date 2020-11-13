@@ -2,5 +2,149 @@
  * Admin Styles for the Gutenberg Editor
  */
 
+.has-smaller-font-size {
+  font-size: 1.6rem;
+}
+
+.has-small-font-size {
+  font-size: 1.7rem;
+}
+
+.has-regular-font-size {
+  font-size: 1.9rem;
+}
+
+.has-large-font-size {
+  font-size: 1.9rem;
+}
+
+#page .has-white-color {
+  color: #ffffff;
+}
+
+#page .has-white-background-color {
+  background-color: #ffffff;
+}
+
+#page .has-black-color {
+  color: #000000;
+}
+
+#page .has-black-background-color {
+  background-color: #000000;
+}
+
+#page .has-dark-grey-color {
+  color: #4b4b4b;
+}
+
+#page .has-dark-grey-background-color {
+  background-color: #4b4b4b;
+}
+
+#page .has-grey-color {
+  color: #9e9e9e;
+}
+
+#page .has-grey-background-color {
+  background-color: #9e9e9e;
+}
+
+#page .has-light-grey-color {
+  color: #e5e5e5;
+}
+
+#page .has-light-grey-background-color {
+  background-color: #e5e5e5;
+}
+
+.wp-block:not(.editor-post-title) {
+  width: 100%;
+}
+
+.wp-block:not(.editor-post-title).wp-block-group,
+.wp-block:not(.editor-post-title).wp-block-cover,
+.wp-block:not(.editor-post-title).wp-block-columns {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wp-block[data-align=narrow] {
+  max-width: 100%;
+}
+
+.wp-block[data-align=narrow] > .wp-block-group {
+  max-width: 624px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wp-block[data-align=wide] {
+  max-width: 100%;
+}
+
+.wp-block[data-align=wide] > .wp-block-group,
+.wp-block[data-align=wide] > .wp-block-cover,
+.wp-block[data-align=wide] > .wp-block-columns {
+  max-width: 1296px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wp-block[data-align=full] {
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.wp-block[data-align=full] > .wp-block-group,
+.wp-block[data-align=full] > .wp-block-cover,
+.wp-block[data-align=full] > .wp-block-columns {
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wp-block-group .wp-block:not([data-align]):not(.wp-block-group):not(.wp-block-cover):not(.wp-block-columns) {
+  max-width: 100%;
+}
+
+.eyebrow,
+.is-style-eyebrow {
+  position: relative;
+  display: block;
+  text-transform: uppercase;
+  color: #9e9e9e;
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  margin-bottom: 1.6rem;
+  font-family: "Source Sans Pro", "Helvetica", "Arial", sans-serif;
+  letter-spacing: 0.1rem;
+  padding: 0;
+}
+
+@media (min-width: 480px) {
+  .eyebrow,
+  .is-style-eyebrow {
+    font-size: 1.4rem;
+  }
+}
+
+.wp-block-cover .is-style-eyebrow,
+.wp-block-cover .eyebrow {
+  color: inherit;
+}
+
+h2.is-style-eyebrow,
+.h2.is-style-eyebrow,
+h2.eyebrow:after,
+.h2.eyebrow:after {
+  display: none;
+}
+
 
 /*# sourceMappingURL=bundle-editor.css.map*/

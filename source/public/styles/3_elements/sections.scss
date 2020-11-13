@@ -1,12 +1,66 @@
 // OBJECTS - SECTIONS
 
-.alignfull {
-	width: 100%;
-	max-width: 100%;
+//Standard widths for layout elements
+.wp-block-group,
+.wp-block-cover,
+.wp-block-columns {
+	max-width: $cover-width;
+	margin-left: auto;
+	margin-right: auto;
 
-	&.wp-block-group .wp-block-group__inner-container {
-		width: 100%;
+	&.alignnarrow {
+		max-width: $narrow-width;
+	}
+
+	&.alignwide {
+		max-width: $wide-width;
+	}
+
+	&.alignfull {
 		max-width: 100%;
+	}
+
+	//Everything within is fluid
+	* {
+		width: 100%;
+	}
+
+	//Background padding?
+	&.has-background {
+		padding-top: 4rem;
+		padding-bottom: 4rem;
+		padding-left: 4rem;
+		padding-right: 4rem;
+
+		// @include medium-screen-up {
+		// 	padding-top: 8rem;
+		// 	padding-bottom: 8rem;
+		// 	padding-left: 8rem;
+		// 	padding-right: 8rem;
+		// }
+	}
+}
+
+//Padding for top-level elements
+#main,
+.final-cta,
+.related-resources {
+	> * {
+		padding-left: $row-margin;
+		padding-right: $row-margin;
+		max-width: calc(#{$cover-width} + (#{$row-margin} * 2));
+
+		&.alignnarrow {
+			max-width: calc(#{$narrow-width} + (#{$row-margin} * 2));
+		}
+
+		&.alignwide {
+			max-width: calc(#{$wide-width} + (#{$row-margin} * 2));
+		}
+
+		&.alignfull {
+			max-width: 100%;
+		}
 	}
 }
 
@@ -25,19 +79,12 @@
 		margin-bottom: $section-margin-large;
 	}
 
-	// Max Width
-	@include max-content-screen-up {
-		padding-left: 0;
-		padding-right: 0;
-	}
-
 	&.no-margin {
 		margin-bottom: 0;
 	}
 
-	&.alignfull {
-		padding-left: 0;
-		padding-right: 0;
+	&.low-margin {
+		margin-bottom: 4.8rem;
 	}
 
 	&.is-padded {
@@ -59,6 +106,12 @@
 	&.no-margin {
 		margin-bottom: 0;
 	}
+
+	&.no-mobile-margin {
+		@include single-column-max {
+			margin-bottom: 0 !important;
+		}
+	}
 }
 
 // Inside content spacing
@@ -66,8 +119,8 @@
 .container,
 .wp-block-group .wp-block-group__inner-container,
 .wp-block-cover .wp-block-cover__inner-container  {
-	width: 100%;
-	max-width: $max-width;
+	// width: 100%;
+	// max-width: $max-width;
 	margin: 0 auto;
 
 	> .wp-block-group,
@@ -97,12 +150,12 @@
 	}
 }
 
-.alignwide.narrow,
-.container.narrow,
-.wp-block-group.narrow .wp-block-group__inner-container,
-.wp-block-cover.narrow .wp-block-cover__inner-container {
-	max-width: $narrow-width;
-}
+// .alignwide.narrow,
+// .container.narrow,
+// .wp-block-group.narrow .wp-block-group__inner-container,
+// .wp-block-cover.narrow .wp-block-cover__inner-container {
+// 	max-width: $narrow-width;
+// }
 
 //The cover block content actually has a narrower max width
 .wp-block-cover {

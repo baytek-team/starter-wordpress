@@ -15,6 +15,7 @@ $max-padded-content-width: $max-width + (24px * 2);
 
 $cover-width: 960px;
 $narrow-width: 624px;
+$wide-width: 1296px;
 
 // Breakpoint mixins
 @mixin small-screen-up {
@@ -65,7 +66,7 @@ $narrow-width: 624px;
 
 // IE Specific Media Query
 @mixin internet-explorer-only {
-	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { @content; }
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { @content; }
 }
 
 
@@ -74,5 +75,5 @@ $narrow-width: 624px;
 // so the rem to pixel ratio is still 1:16, rather than 1:10
 // like all the other variables
 @function calcScreenRem($size) {
-	@return $size * 0.625;
+  @return $size * 0.625;
 }

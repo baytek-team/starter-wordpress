@@ -15,7 +15,7 @@
 //
 // TOOLS
 // Site wide mixins and functions
-@import "tools/mixins";
+// @import "tools/mixins";
 
 
 //
@@ -23,6 +23,7 @@
 // Low-specificity, far-reaching rulesets
 // - ex. resets
 // @import "generic/reset";
+@import "generic/blocks";
 
 
 //
@@ -43,7 +44,7 @@
 // - ex. rows and columns, different table layouts, list variations, form variations, etc
 // @import "objects/sections";
 // @import "objects/rows-columns";
-// @import "objects/eyebrows";
+@import "objects/eyebrows";
 
 
 //

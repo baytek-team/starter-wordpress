@@ -29,8 +29,11 @@ mix
 	.js([
 		'source/public/scripts/app.js'
 	], 'assets/scripts/app.js')
+	.js([
+		'source/admin/scripts/admin.js'
+	], 'assets/scripts/admin.js')
 	.sass('source/public/styles/bundle.scss', 'assets/styles')
-	// .sass('source/admin/styles/bundle-editor.scss', 'assets/styles')
+	.sass('source/admin/styles/bundle-editor.scss', 'assets/styles')
 
 
 /*

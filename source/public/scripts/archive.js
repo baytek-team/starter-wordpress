@@ -71,11 +71,21 @@
 			}
 		});
 
-		// Mobile filter term reveal
-		$( '.filter-sidebar-mobile' ).click( function( e ) {
-			$( '.filter-sidebar' ).slideToggle( "slow" );
-			$(this).toggleClass('active');
-		});
+		/**
+		 * Toggle filter form
+		 */
+		 $('.toggle-header').click(function(e) {
+		 	//If visible now, we are hiding it
+		 	if ($(this).next('.toggle-body').is(':visible')) {
+		 		$(this).next('.toggle-body').slideUp();
+		 		$(this).removeClass('open').addClass('closed');
+		 	}
+		 	//Otherwise, we are showing it
+		 	else {
+		 		$(this).next('.toggle-body').slideDown();
+		 		$(this).removeClass('closed').addClass('open');
+		 	}
+		 });
 
 		/**
 		 * Manage push state

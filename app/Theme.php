@@ -53,6 +53,11 @@ class Theme
 
 		//Uncomment to enable REST
 		//new Theme\Rest();
+
+		//Init shortcodes
+        new Theme\Shortcodes\Breadcrumbs;
+        new Theme\Shortcodes\Menu;
+        new Theme\Shortcodes\Icon;
 	}
 
 	public static function config() {

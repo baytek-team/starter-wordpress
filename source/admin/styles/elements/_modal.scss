@@ -1,0 +1,19 @@
+
+// Editor modal
+.wp-block-theme-blocks-modal {
+	margin-bottom: 1em;
+	.block-editor-inner-blocks {
+		padding: 1rem;
+		border-bottom: 2px solid;
+		border: 1px solid;
+	}
+}
+
+.is-selected {
+	.wp-block-theme-blocks-modal{
+		// .modal-header:after {
+		// 	transform: rotate(180deg);
+		// }
+	}
+
+}

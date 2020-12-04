@@ -30,13 +30,19 @@
 // ELEMENTS
 // Simple Unclassed HTML elements
 // - ex. a, blockquote, address, form, table, etc.
-// @import "elements/page-gutenberg";
+@import "elements/page-gutenberg";
+@import "elements/slider";
+@import "elements/toggle";
+@import "elements/modal";
+@import "elements/buttons";
 // @import "elements/headings";
 // @import "elements/links";
 // @import "elements/lists";
 // @import "elements/quotes";
 // @import "elements/tables";
-
+// @import "elements/menus";
+// @import "elements/media-text";
+// @import "elements/cover-backgrounds";
 
 //
 // OBJECTS
@@ -45,18 +51,6 @@
 // @import "objects/sections";
 // @import "objects/rows-columns";
 @import "objects/eyebrows";
-
-
-//
-// COMPONENTS
-// Discrete, complete reusable chunks of UI
-// - ex. buttons, menus, modals, sliders, tabs, accordions, etc.
-// @import "components/buttons";
-// @import "components/menus";
-// @import "components/modals";
-// @import "components/sliders";
-// @import "components/media-text";
-// @import "components/cover-backgrounds";
 
 
 //

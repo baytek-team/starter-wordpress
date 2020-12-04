@@ -177,6 +177,18 @@ wp.blocks.registerBlockStyle('core/heading', {
   name: 'eyebrow',
   label: 'Eyebrow'
 });
+/**
+ * Remove unused button styles and add a custom View More variation
+ */
+
+wp.blocks.unregisterBlockStyle('core/button', ['default', 'squared', 'fill']);
+wp.blocks.registerBlockVariation('core/buttons', [{
+  name: 'more',
+  title: 'View More Button',
+  attributes: {
+    className: 'view-more'
+  }
+}]);
 
 /***/ }),
 
@@ -187,7 +199,7 @@ wp.blocks.registerBlockStyle('core/heading', {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /www/glutening/public_html/wp-content/themes/starter/source/admin/scripts/admin.js */"./source/admin/scripts/admin.js");
+module.exports = __webpack_require__(/*! /Users/chris/Web/gutenberg-boiler/wp-content/themes/starter-wordpress/source/admin/scripts/admin.js */"./source/admin/scripts/admin.js");
 
 
 /***/ })

@@ -1,0 +1,22 @@
+// COMPONENTS - BUTTONS
+
+@import "../../public/styles/3_elements/buttons";
+
+
+// COMPONENTS - BUTTONS
+
+.wp-block-button .wp-block-button__link{
+	font-size: 14px!important;
+	padding: 16px 40px!important;
+    line-height: 20px!important;
+}
+
+.view-more{
+	.wp-block-button__link {
+		padding: 5px 10px!important;
+		background-color: rgba($black, 0.1);
+		&:before{
+			bottom: calc(100% - 30px);
+		}
+	}
+}

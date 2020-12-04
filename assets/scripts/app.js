@@ -188,9 +188,9 @@ __webpack_require__(/*! ./copyrights.js */ "./source/public/scripts/copyrights.j
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /www/glutening/public_html/wp-content/themes/starter/source/public/scripts/app.js */"./source/public/scripts/app.js");
-__webpack_require__(/*! /www/glutening/public_html/wp-content/themes/starter/source/public/styles/bundle.scss */"./source/public/styles/bundle.scss");
-module.exports = __webpack_require__(/*! /www/glutening/public_html/wp-content/themes/starter/source/admin/styles/bundle-editor.scss */"./source/admin/styles/bundle-editor.scss");
+__webpack_require__(/*! /Users/chris/Web/gutenberg-boiler/wp-content/themes/starter-wordpress/source/public/scripts/app.js */"./source/public/scripts/app.js");
+__webpack_require__(/*! /Users/chris/Web/gutenberg-boiler/wp-content/themes/starter-wordpress/source/public/styles/bundle.scss */"./source/public/styles/bundle.scss");
+module.exports = __webpack_require__(/*! /Users/chris/Web/gutenberg-boiler/wp-content/themes/starter-wordpress/source/admin/styles/bundle-editor.scss */"./source/admin/styles/bundle-editor.scss");
 
 
 /***/ })

@@ -15,7 +15,7 @@ import {
 
 registerBlockType( 'theme-blocks/slider', {
   title: __( 'Slider' ),
-  icon: 'slides', // https://developer.wordpress.org/resource/dashicons
+  icon: 'buddicons-activity', // https://developer.wordpress.org/resource/dashicons
   category: 'theme-blocks', // Custom category: see index.php
 
   attributes: {

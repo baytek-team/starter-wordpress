@@ -1,22 +1,30 @@
 // COMPONENTS - BUTTONS
 
-button, .button,
+button:not(.components-button), .button,
 input[type="submit"],
 input[type="button"],
 input[type="reset"],
-.wp-block-button .wp-block-button__link {
+.gform_wrapper .gform_footer input.button,
+.gform_wrapper .gform_footer input[type=submit],
+.gform_wrapper .gform_page_footer input.button,
+.gform_wrapper .gform_page_footer input[type=submit],
+.wp-block-buttons:not(.view-more) .wp-block-button .wp-block-button__link  {
+	width: fit-content !important;
 	display: inline-block;
-	padding: 0.85rem 3.8rem;
+	padding: 1.6rem 4rem;
+	line-height: 2rem;
 	text-align: center;
-	background: transparent;
+	background: $black;
 	border: $default-border-width solid $black;
 	border-radius: 5rem;
-	color: $black;
-	font-family: $fonts-secondary;
+	color: $white;
+	font-family: $fonts-main;
 	font-size: $small-font-size;
-	font-weight: 700;
+	font-weight: 600;
 	cursor: pointer;
-	@include transition;
+	transition: all 0.2s ease-out;
+	transform-style: preserve-3d;
+	backface-visibility: hidden;
 	&:before, a:before{
 		display: none;
 	}
@@ -26,7 +34,41 @@ input[type="reset"],
 		color: $white; 
 	}
 	&:active {
-		color: rgba($white, .5);
+		text-decoration: underline;
 	}
 
 }
+
+.wp-block-buttons:not(.view-more) .wp-block-button.is-style-outline .wp-block-button__link{
+	border: $default-border-width solid $light-grey;
+	background: transparent;
+	color: $light-grey;
+	&:hover {
+		background: $light-grey;
+		color: $white; 
+	}
+}
+
+
+// .view-more{
+// 	.wp-block-button__link {
+// 		border-radius: 0;
+// 		color: $black;
+// 		background-color: transparent;
+// 		position:relative;
+// 		padding: 0;
+// 		font-family: $fonts-main;
+// 		font-size: $small-font-size;
+// 		transition: all 0.2s ease-out;
+// 		&:hover {
+// 			color: $light-grey;
+// 			opacity: 1;
+// 		}
+// 		&:active {
+// 			color: $black;
+// 			&:after {
+// 		    	right: -4rem;
+// 		    }
+// 		}
+// 	}
+// }

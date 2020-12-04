@@ -64,7 +64,7 @@ function wordpress_blocks_starter_block_categories( $categories, $post ) {
 		array(
 			array(
 				'slug' => 'theme-blocks',
-				'title' => __( 'Theme Blocks', 'cfa' ),
+				'title' => __( 'Theme Blocks', 'starter-wordpress' ),
 			),
 		)
 	);

@@ -976,22 +976,30 @@ h2.eyebrow:after,
   display: none;
 }
 
-button,
+button:not(.components-button),
 .button,
 input[type=submit],
 input[type=button],
 input[type=reset],
-.wp-block-button .wp-block-button__link {
+.gform_wrapper .gform_footer input.button,
+.gform_wrapper .gform_footer input[type=submit],
+.gform_wrapper .gform_page_footer input.button,
+.gform_wrapper .gform_page_footer input[type=submit],
+.wp-block-buttons:not(.view-more) .wp-block-button .wp-block-button__link {
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
   display: inline-block;
-  padding: 0.85rem 3.8rem;
+  padding: 1.6rem 4rem;
+  line-height: 2rem;
   text-align: center;
-  background: transparent;
+  background: #000000;
   border: 0.2rem solid #000000;
   border-radius: 5rem;
-  color: #000000;
-  font-family: "Source Sans Pro", "Helvetica", "Arial", sans-serif;
+  color: #ffffff;
+  font-family: "Source Serif Pro", "Palatino", serif;
   font-size: 1.4rem;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease-out;
   transform-style: preserve-3d;
@@ -999,8 +1007,8 @@ input[type=reset],
           backface-visibility: hidden;
 }
 
-button:before,
-button a:before,
+button:not(.components-button):before,
+button:not(.components-button) a:before,
 .button:before,
 .button a:before,
 input[type=submit]:before,
@@ -1009,29 +1017,56 @@ input[type=button]:before,
 input[type=button] a:before,
 input[type=reset]:before,
 input[type=reset] a:before,
-.wp-block-button .wp-block-button__link:before,
-.wp-block-button .wp-block-button__link a:before {
+.gform_wrapper .gform_footer input.button:before,
+.gform_wrapper .gform_footer input.button a:before,
+.gform_wrapper .gform_footer input[type=submit]:before,
+.gform_wrapper .gform_footer input[type=submit] a:before,
+.gform_wrapper .gform_page_footer input.button:before,
+.gform_wrapper .gform_page_footer input.button a:before,
+.gform_wrapper .gform_page_footer input[type=submit]:before,
+.gform_wrapper .gform_page_footer input[type=submit] a:before,
+.wp-block-buttons:not(.view-more) .wp-block-button .wp-block-button__link:before,
+.wp-block-buttons:not(.view-more) .wp-block-button .wp-block-button__link a:before {
   display: none;
 }
 
-button:hover,
+button:not(.components-button):hover,
 .button:hover,
 input[type=submit]:hover,
 input[type=button]:hover,
 input[type=reset]:hover,
-.wp-block-button .wp-block-button__link:hover {
+.gform_wrapper .gform_footer input.button:hover,
+.gform_wrapper .gform_footer input[type=submit]:hover,
+.gform_wrapper .gform_page_footer input.button:hover,
+.gform_wrapper .gform_page_footer input[type=submit]:hover,
+.wp-block-buttons:not(.view-more) .wp-block-button .wp-block-button__link:hover {
   opacity: 1;
   background: #000000;
   color: #ffffff;
 }
 
-button:active,
+button:not(.components-button):active,
 .button:active,
 input[type=submit]:active,
 input[type=button]:active,
 input[type=reset]:active,
-.wp-block-button .wp-block-button__link:active {
-  color: rgba(255, 255, 255, 0.5);
+.gform_wrapper .gform_footer input.button:active,
+.gform_wrapper .gform_footer input[type=submit]:active,
+.gform_wrapper .gform_page_footer input.button:active,
+.gform_wrapper .gform_page_footer input[type=submit]:active,
+.wp-block-buttons:not(.view-more) .wp-block-button .wp-block-button__link:active {
+  text-decoration: underline;
+}
+
+.wp-block-buttons:not(.view-more) .wp-block-button.is-style-outline .wp-block-button__link {
+  border: 0.2rem solid #e5e5e5;
+  background: transparent;
+  color: #e5e5e5;
+}
+
+.wp-block-buttons:not(.view-more) .wp-block-button.is-style-outline .wp-block-button__link:hover {
+  background: #e5e5e5;
+  color: #ffffff;
 }
 
 .menu {

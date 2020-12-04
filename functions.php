@@ -23,3 +23,10 @@ use Baytek\Wordpress\Theme;
 global $theme;
 $theme = new Theme;
 $theme->run();
+
+
+$theme_blocks = __DIR__ . '/blocks/index.php';
+if ( is_readable( $theme_blocks ) ) :
+	require_once $theme_blocks;
+endif;
+

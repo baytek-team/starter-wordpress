@@ -1,201 +1,306 @@
-
+/**
+ * BLOCK: Modal Block
+ *
+ * Allows modal / popup block for use in the Gutenberg editor. 
+ */
 
 import { __ } from '@wordpress/i18n';
 import { registerBlockType } from '@wordpress/blocks';
 
 import {
-	RichText,
+	InspectorControls, 
+	MediaUpload, 
+	PlainText, 
 	InnerBlocks,
-	BlockControls,
-	InspectorControls,
 } from '@wordpress/blockEditor';
 
 import {
+	CheckboxControl, 
+	SelectControl, 
+	ColorPicker, 
 	PanelBody,
-	PanelRow,
-	FormToggle,
-	Toolbar,
 } from '@wordpress/components';
 
 import {
 	Component,
 } from '@wordpress/element';
 
-const { range } = lodash;
 
 
-
-class HeadingToolbar extends Component {
-	createLevelControl( targetLevel, selectedLevel, onChange ) {
-		return {
-			// translators: %s: heading level e.g: "1", "2", "3"
-			title: (targetLevel === 1) ? __( 'Paragraph' ) : sprintf( __( 'Heading %d' ), targetLevel ),
-			isActive: targetLevel === selectedLevel,
-			onClick: () => onChange( targetLevel ),
-		};
-	}
-
-	render() {
-		const { isCollapsed = true, minLevel, maxLevel, selectedLevel, onChange } = this.props;
-
-		return (
-			<Toolbar
-				isCollapsed={ isCollapsed }
-				controls={ range( minLevel, maxLevel ).map(
-					( index ) => this.createLevelControl( index, selectedLevel, onChange )
-				) } 
-				/>
-		);
-	}
-}
-
-export default HeadingToolbar;
-
-
-
-registerBlockType( 'theme-blocks/modal', {
-	title: __( 'Modal' ),
-	icon: 'visibility', // https://developer.wordpress.org/resource/dashicons
-	category: 'theme-blocks', // Custom category: see index.php
+/**
+ * Register: Gutenberg Block.
+ *
+ * Registers a new block provided a unique name and an object defining its
+ * behavior. Once registered, the block is made editor as an option to any
+ * editor interface where blocks are implemented.
+ *
+ * @link https://wordpress.org/gutenberg/handbook/block-api/
+ * @param  {string}   name     Block name.
+ * @param  {Object}   settings Block settings.
+ * @return {?WPBlock}          The block, if it has been successfully
+ *                             registered; otherwise `undefined`.
+ */
+registerBlockType( 'baytek/modal-block', {
+	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
+	title: __( 'Modal Block', 'baytek-modal' ), // Block title.
+	icon: 'format-gallery', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
+	category: 'widgets', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
-		__( 'Modal' ),
-		__( 'Pop Up' ),
-		__( 'Trigger/Open' ),
+		__( 'modal' , 'baytek-modal' ),
+		__( 'popup' , 'baytek-modal' ),
+		__( 'window' , 'baytek-modal' )
 	],
-	supports: {
-		anchor: true,
-	},
+
 	attributes: {
-		content: {
-			type: 'string',
-			source: 'html',
-			selector: 'p,h2,h3,h4,h5,h6',
-			default: ''
+		title: {
+			type: "string",
+			default: "Modal Title"	
 		},
-		level: {
-			type: 'number',
-			default: 1
+		showOn: {
+			type: "string",
+			default: "btn"
 		},
-		expandedDefault: {
-			type: 'boolean',
-			default: false,
+		triggerText: {
+			type: "string",
+			source: "text",
+			selector: ".type_text",
+			default: "Click Me"
+		},	
+		triggerSelector: {
+			type: "string",
+			default: "triggerclass"
 		},
 	},
 
+	
 
-
-	edit: props => {
-		const {
-			className,
-			attributes: {
-				content, 
-				level,
-				expandedDefault,
-			},
-			setAttributes,
-			isSelected,
-		} = props;
-
+	/**
+	 * The edit function describes the structure of your block in the context of the editor.
+	 * This represents what the editor will render when the block is used.
+	 *
+	 * The "edit" property must be a valid function.
+	 *
+	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
+	 */
+	edit: function( {attributes, className, setAttributes, isSelected, clientId} ) {
 		
-	// Level 1 is paragraph (default), otherwise a heading level
-	const tagName = level === 1 ? 'p' : 'h' + level;
 
-	const modalExpandedDefault = () => setAttributes( { expandedDefault: ! expandedDefault } );
+		// If innerblock is selected then we want to keep parent modal block open
+		// returns true if child innerblock is selected
 
-	return [
-		<BlockControls>
-			<HeadingToolbar 
-				minLevel={ 1 } 
-				maxLevel={ 7 } 
-				selectedLevel={ level } 
-				onChange={ ( newLevel ) => setAttributes( { level: newLevel } ) } 
-			/>
-		</BlockControls>,
-		<InspectorControls>
-			<PanelBody title={ __( 'Settings' ) }>
-				<PanelRow>
-					<label htmlFor="expanded-default-form-modal">
-						{ __( 'Expanded by default' ) }
-					</label>
-					<FormToggle
-						id="expanded-default-form-modal"
-						label={ __( 'Expanded by default' ) }
-						checked={ expandedDefault }
-						onChange={ modalExpandedDefault }
-					/>
-				</PanelRow>
-			</PanelBody>
-			<PanelBody title={ __( 'Header Settings' ) } initialOpen={ false }>
-				<p>{ __( 'HTML Element' ) }</p>
-				<HeadingToolbar 
-					isCollapsed={ false } 
-					minLevel={ 1 } 
-					maxLevel={ 7 } 
-					selectedLevel={ level } 
-					onChange={ ( newLevel ) => setAttributes( { level: newLevel } ) } 
-				/>
-			</PanelBody>
-		</InspectorControls>,
+		function checkInnerblockSelected () {
+			const select = wp.data.select('core/editor');
+			const selected = select.getBlockSelectionStart();
+			const inner = select.getBlock(clientId).innerBlocks;
+			for (let i = 0; i < inner.length; i++) {
+				if (inner[i].clientId === selected) {
+					return true;
+				}
+			}
+			return false;
+		}
 
-		<div className="wp-block-theme-blocks-modal">
-			<RichText
-				identifier="content"
-				tagName={ tagName }
-				wrapperClassName="modal-header"
-				placeholder={ __( 'Add the modal trigger' ) }
-				keepPlaceholderOnFocus={ true }
-				allowedFormats={ [ 'core/bold', 'core/italic', ] }
-				onChange={ content => setAttributes( { content } ) }
-				value={ content }
-			/>
-			<InnerBlocks 
-				allowedBlocks={ [ 
-					'core-embed/facebook',
-					'core-embed/instagram',
-					'core-embed/twitter',
-					'core-embed/vimeo',
-					'core-embed/youtube',
-					'core/button',
-					'core/file',
-					'core/gallery',
-					'core/heading',
-					'core/image',
-					'core/list',
-					'core/media-text',
-					'core/paragraph',
-					'core/quote',
-					'core/table',
-					'core/video',
-				] } 
-			/>
-		</div>
-	];
+		// hide fields if fieldtype does not match the one passed in
+		// fieldvalue string or boolean
+		// trigger string - trigger field to check against
+		// e.g. of use fieldvalue - image - trigger showOn
+		// if the value in the field showOn is != image then hide field
+		// e.g. fieldvalue true - trigger  overrideLinkColor
+		// if value of overrideLinkColor != true then hide
+
+		function hideFields(fieldvalue , trigger) {
+			if (Array.isArray(fieldvalue)) {
+				return !fieldvalue.includes(attributes[trigger]) ? "hide" : "";
+			} else {
+				return attributes[trigger] !== fieldvalue ? "hide" : "";		
+			}
+		}
+
+
+		// format the trigger content which is either an image, link text, onload, class or btn
+
+		const trigger = () => {
+			if (attributes.showOn === 'text') {
+				return (
+					<a href="javascript:void(0)" className="baytek-block-popup-trigger type_text">
+						{ attributes.triggerText }
+					</a>					
+				);
+			} else if (attributes.showOn === 'load') {
+				return (
+					<span className = "baytek-block-popup-trigger type_load" data-delay={attributes.showDelay}>{__('Modal on screen load','baytek-modal')}</span>
+				);
+			} else if (attributes.showOn === 'selector') {
+				return (
+					<span className="baytek-block-popup-trigger type_selector" data-selector={attributes.triggerSelector}>{__('Modal on class selector','baytek-modal')}</span>
+				);
+			} else {
+				return (
+					<span className="baytek-block-popup-trigger type_btn baytek-btn">
+						{attributes.btnLabel}
+					</span>
+				);
+			}
+			
+		}
+
+		// Figure out if we need to display the title and innerblocks fields
+		// we only display if block is currently selected 
+
+		const dispTitleInnerBlock = (blockSelected) => {
+			if (blockSelected || checkInnerblockSelected()) {
+				return (
+					<div>
+						<PlainText
+							onChange={ content => setAttributes({ title: content})}
+							value={attributes.title}
+							placeholder={__('Modal Title Text','baytek-modal')}
+						/>
+				
+						<label>{__('Modal Content:','baytek-modal')}</label>
+						<div className="baytek-form-innerblock">
+							<InnerBlocks />
+						</div>
+					</div>
+				);
+			} else {
+				return null;
+			}
+		}
+		
+		return (
+			<div>
+			
+
+				<div className="baytek-block-popup">
+					{trigger()}
+				
+					{/* Modal Overlay */}
+					<div className="baytek-block-popup-overlay"></div>
+				
+					{/* Modal Content */}
+					<div  role="dialog" aria-modal="false" aria-labelledby="" aria-describedby="" className="baytek-block-popup-wrap">
+						<div id="" className = "baytek-modal-title">
+							<h2>{attributes.title}</h2>
+						</div> {/* end title */}
+						<div id="" className="baytek-modal-content">
+							{/*<InnerBlocks.Content/>*/}
+						</div> {/* end content */}
+						<div className="baytek-block-popup-closer"></div>
+					</div> {/* end modal content */}
+
+				</div>
+
+
+				<div className="baytek-form">
+
+					{dispTitleInnerBlock(isSelected)}
+
+					<InspectorControls>
+						<PanelBody
+							title={__('Trigger','baytek-modal')}
+							initialOpen={true}
+							className="baytek-form"
+						>					
+									{/*******************/}
+									{/*    Trigger Tab  */}
+									{/*******************/}
+
+							<SelectControl
+								label={__('Show On','baytek-modal')}
+								value={ attributes.showOn }
+								options= {[
+									{ label: __('Button Click','baytek-modal'), value: 'btn' },
+									{ label: __('Text Click','baytek-modal'), value: 'text' },
+									{ label: __('Custom Element Click','baytek-modal'), value: 'selector' },
+								]}
+								onChange={ content => setAttributes({ showOn: content }) }
+								/>
+
+
+							<div className={hideFields('selector', 'showOn')}>
+
+								{/* Trigger Class Selector */}
+
+								<label>{__('Trigger Class Selector:','baytek-modal')}</label>	
+								<PlainText
+									onChange={ content => setAttributes({ triggerSelector: content }) }
+									value={ attributes.triggerSelector }
+									placeholder={__('Trigger Class Selector','baytek-modal')}
+								/>
+							</div>
+
+						</PanelBody>
+						
+					</InspectorControls>
+				</div> {/* end baytek-form */}
+
+
+			</div>
+		);
+
 	},
 
-	save: props => {
-		const {
-			className,
-			attributes: {
-				content, 
-				level,
-				expandedDefault,
-			},
-		} = props;
+	/**
+	 * The save function defines the way in which the different attributes should be combined
+	 * into the final markup, which is then serialized by Gutenberg into post_content.
+	 *
+	 * The "save" property must be specified and must be a valid function.
+	 *
+	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
+	 */
+	save: function( {attributes} ) {
 
-		const tagName = level === 1 ? 'p' : 'h' + level;
-	 
+
+		// format the trigger content which is either an image, link text, 
+
+		const trigger = () => {
+			if (attributes.showOn === 'text') {
+				return (
+					<a href="javascript:void(0)" className="baytek-block-popup-trigger type_text">
+						{ attributes.triggerText }
+					</a>					
+				);
+			} else if (attributes.showOn === 'load') {
+				return (
+					<span className = "baytek-block-popup-trigger type_load" data-delay={attributes.showDelay}></span>
+				);
+			} else if (attributes.showOn === 'selector') {
+				return (
+					<span className="baytek-block-popup-trigger type_selector" data-selector={attributes.triggerSelector}></span>
+				);
+			} else {
+				return (
+					<span className="baytek-block-popup-trigger type_btn baytek-btn">
+						{attributes.btnLabel}
+					</span>
+				);
+			}
+			
+		}
+
 		return (
-			<div className="modal-header-wrapper">
-				<div className="modal-header">
-					<RichText.Content
-						tagName={ tagName }
-						value={ content }
-					/>
+			<div className= {'baytek-block-popup ' + 'align-' + attributes.textAlign}>
+				{trigger()}
+			
+				{/* Modal Overlay */}
+				<div className="baytek-block-popup-overlay"></div>
+			
+				<div role="dialog" aria-modal="false" aria-labelledby="" aria-describedby="" className={"baytek-block-popup-wrap"}>
+					{/* Modal Content */}
+					<div className={"baytek-block-popup " + attributes.modalSize}>
+						<div id="" className = "baytek-modal-title">
+							<h2>{attributes.title}</h2>
+						</div> {/* end title */}
+						<div id="" className="baytek-modal-content">
+							{<InnerBlocks.Content/>}
+						</div> {/* end content */}
+						
+					</div> {/* end modal content */}
+					<div className="baytek-block-popup-closer"></div>
 				</div>
-				<div className="modal-body">
-					<InnerBlocks.Content />
-				</div>
+
 			</div>
 		);
 	},
-});
+} );

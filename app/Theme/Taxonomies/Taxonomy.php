@@ -25,6 +25,7 @@ abstract class Taxonomy {
 	protected $slug = 'custom-taxonomy';
 	protected $hierarchical = false;
 	protected $show_ui = true;
+	protected $show_in_rest = true;
 	protected $show_admin_columm = true;
 	protected $update_count_callback = '_update_post_term_count';
 	protected $query_var = true;
@@ -93,6 +94,7 @@ abstract class Taxonomy {
 			'hierarchical'          => $this->hierarchical,
 			'labels'                => $this->labels,
 			'show_ui'               => $this->show_ui,
+			'show_in_rest'          => $this->show_in_rest,
 			'show_admin_column'     => $this->show_admin_columm,
 			'update_count_callback' => '_update_post_term_count',
 			'query_var'             => $this->query_var,

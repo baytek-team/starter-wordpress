@@ -19,7 +19,7 @@
 
 			// Prevent default anchor click behavior
 			event.preventDefault();
-			headerHeight = $(".is-sticky").height() + 100; // Get fixed header height
+			headerHeight = $("header.site-header").height() + 100; // Get fixed header height
 
 			// Using jQuery's animate() method to add smooth page scroll
 			// The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
@@ -30,7 +30,7 @@
 				// Add hash (#) to URL when done scrolling (default click behavior)
 				//window.location.hash = hash;
 				history.pushState(null, window.title, window.location.href.split('#')[0]+hash);
-				
+
 			});
 		} // End if
 	});
@@ -38,7 +38,7 @@
 	if(window.location.hash && $(window.location.hash).length) {
 		// smooth scroll to the anchor id
 		event.preventDefault();
-		headerHeight = $(".is-sticky").height() + 100; // Get fixed header height
+		headerHeight = $("header.site-header").height() + 100; // Get fixed header height
 
 		$('html, body').animate({
 			scrollTop: $(window.location.hash).offset().top - headerHeight

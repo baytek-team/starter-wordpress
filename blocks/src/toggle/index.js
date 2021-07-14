@@ -1,208 +1,57 @@
-
-
-import { __ } from '@wordpress/i18n';
-import { registerBlockType } from '@wordpress/blocks';
-
-import {
-	RichText,
-	InnerBlocks,
-	BlockControls,
-	InspectorControls,
-} from '@wordpress/blockEditor';
-
-import {
-	PanelBody,
-	PanelRow,
-	FormToggle,
-	Toolbar,
-} from '@wordpress/components';
-
-import {
-	Component,
-} from '@wordpress/element';
-
-const { range } = lodash;
-
+/**
+ * External dependencies
+ */
+// import classnames from 'classnames';
 
 /**
  * Internal dependencies
  */
-import HeadingLevelIcon from './lib/heading-level-icon';
+import icon from './icon';
+import edit from './edit'
+import save from './save'
 
+/**
+ * WordPress dependencies
+ */
+import { __ } from '@wordpress/i18n';
+import { registerBlockType } from '@wordpress/blocks';
 
-class HeadingToolbar extends Component {
-	createLevelControl( targetLevel, selectedLevel, onChange ) {
-		return {
-			icon: <HeadingLevelIcon level={ targetLevel } />,
-			// translators: %s: heading level e.g: "1", "2", "3"
-			title: (targetLevel === 1) ? __( 'Paragraph' ) : sprintf( __( 'Heading %d' ), targetLevel ),
-			isActive: targetLevel === selectedLevel,
-			onClick: () => onChange( targetLevel ),
-		};
-	}
-
-	render() {
-		const { isCollapsed = true, minLevel, maxLevel, selectedLevel, onChange } = this.props;
-
-		return (
-			<Toolbar
-				isCollapsed={ isCollapsed }
-				icon={ <HeadingLevelIcon level={ selectedLevel } /> }
-				controls={ range( minLevel, maxLevel ).map(
-					( index ) => this.createLevelControl( index, selectedLevel, onChange )
-				) } 
-				/>
-		);
-	}
-}
-
-export default HeadingToolbar;
-
-
-
-registerBlockType( 'theme-blocks/toggle', {
-	title: __( 'Toggle' ),
-	icon: 'arrow-down', // https://developer.wordpress.org/resource/dashicons
-	category: 'theme-blocks', // Custom category: see index.php
-	keywords: [
-		__( 'Accordion' ),
-		__( 'Expand and Collapse' ),
-		__( 'Showy Hidy' ),
-	],
-	supports: {
-		anchor: true,
-	},
-	attributes: {
-		content: {
-			type: 'string',
-			source: 'html',
-			selector: 'p,h2,h3,h4,h5,h6',
-			default: ''
+/**
+ * Register block
+ * @see https://developer.wordpress.org/block-editor/developers/block-api/block-registration/
+ */
+export default registerBlockType(
+	'baytek/toggle',
+	{
+		title: __( 'Toggle 2', 'baytek-gutenberg' ),
+		description: __( 'An expandable and collapsible content block. Toggle open and closed by clicking the header.', 'baytek-gutenberg' ),
+		category: 'layout',
+		icon: icon,
+		keywords: [
+			__( 'Accordion', 'baytek-gutenberg' ),
+			__( 'Expand and Collapse', 'baytek-gutenberg' ),
+			__( 'Showy Hidy', 'baytek-gutenberg' ),
+		],
+		supports: {
+			anchor: true,
 		},
-		level: {
-			type: 'number',
-			default: 1
-		},
-		expandedDefault: {
-			type: 'boolean',
-			default: false,
-		},
-	},
-
-
-
-	edit: props => {
-		const {
-			className,
-			attributes: {
-				content, 
-				level,
-				expandedDefault,
+		attributes: {
+			content: {
+				type: 'string',
+				source: 'html',
+				selector: 'p,h2,h3,h4,h5,h6',
+				default: ''
 			},
-			setAttributes,
-			isSelected,
-		} = props;
-
-		
-	// Level 1 is paragraph (default), otherwise a heading level
-	const tagName = level === 1 ? 'p' : 'h' + level;
-
-	const toggleExpandedDefault = () => setAttributes( { expandedDefault: ! expandedDefault } );
-
-	return [
-		<BlockControls>
-			<HeadingToolbar 
-				minLevel={ 1 } 
-				maxLevel={ 7 } 
-				selectedLevel={ level } 
-				onChange={ ( newLevel ) => setAttributes( { level: newLevel } ) } 
-			/>
-		</BlockControls>,
-		<InspectorControls>
-			<PanelBody title={ __( 'Settings' ) }>
-				<PanelRow>
-					<label htmlFor="expanded-default-form-toggle">
-						{ __( 'Expanded by default' ) }
-					</label>
-					<FormToggle
-						id="expanded-default-form-toggle"
-						label={ __( 'Expanded by default' ) }
-						checked={ expandedDefault }
-						onChange={ toggleExpandedDefault }
-					/>
-				</PanelRow>
-			</PanelBody>
-			<PanelBody title={ __( 'Header Settings' ) } initialOpen={ false }>
-				<p>{ __( 'HTML Element' ) }</p>
-				<HeadingToolbar 
-					isCollapsed={ false } 
-					minLevel={ 1 } 
-					maxLevel={ 7 } 
-					selectedLevel={ level } 
-					onChange={ ( newLevel ) => setAttributes( { level: newLevel } ) } 
-				/>
-			</PanelBody>
-		</InspectorControls>,
-
-		<div className="wp-block-theme-blocks-toggle">
-			<RichText
-				identifier="content"
-				tagName={ tagName }
-				wrapperClassName="toggle-header"
-				placeholder={ __( 'Add a toggle header' ) }
-				keepPlaceholderOnFocus={ true }
-				allowedFormats={ [ 'core/bold', 'core/italic', ] }
-				onChange={ content => setAttributes( { content } ) }
-				value={ content }
-			/>
-			<InnerBlocks 
-				allowedBlocks={ [ 
-					'core-embed/facebook',
-					'core-embed/instagram',
-					'core-embed/twitter',
-					'core-embed/vimeo',
-					'core-embed/youtube',
-					'core/button',
-					'core/file',
-					'core/gallery',
-					'core/heading',
-					'core/image',
-					'core/list',
-					'core/media-text',
-					'core/paragraph',
-					'core/quote',
-					'core/table',
-					'core/video',
-				] } 
-			/>
-		</div>
-	];
-	},
-
-	save: props => {
-		const {
-			className,
-			attributes: {
-				content, 
-				level,
-				expandedDefault,
+			level: {
+				type: 'number',
+				default: 1
 			},
-		} = props;
-
-		const tagName = level === 1 ? 'p' : 'h' + level;
-	 
-		return (
-			<div className="toggle-header-wrapper">
-				<div className="toggle-header">
-					<RichText.Content
-						tagName={ tagName }
-						value={ content }
-					/>
-				</div>
-				<div className="toggle-body">
-					<InnerBlocks.Content />
-				</div>
-			</div>
-		);
+			expandedDefault: {
+				type: 'boolean',
+				default: false,
+			},
+		},
+		edit,
+		save,
 	},
-});
+);

@@ -1,0 +1,38 @@
+// Styles for the Front End and Editor Views
+.wp-block-baytek-toggle {
+	margin-bottom: 1em;
+	border-bottom: 2px solid;
+
+	.toggle-header {
+		position: relative;
+		cursor: pointer;
+		padding-right: 30px;
+
+		&:after {
+			position: absolute;
+			bottom: 5px;
+			right: 0;
+			content: ' ';
+			width: 20px;
+			height: 20px;
+			background-image: url("../images/chevron-down.svg");
+			background-repeat: no-repeat;
+			background-size: contain;
+			transition: transform 0.2s ease;
+		}
+	}
+	.toggle-body {
+		display: none;
+		margin-top: 1em;
+	}
+
+	&.expanded,
+	&.is-selected {
+		.toggle-header:after {
+			transform: rotate(180deg);
+		}
+		.toggle-body {
+			display: block;
+		}
+	}
+}

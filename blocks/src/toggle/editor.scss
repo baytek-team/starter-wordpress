@@ -1,0 +1,12 @@
+// Admin Editor Specific Styling
+.wp-block.is-selected .wp-block-baytek-toggle {
+	.toggle-header:after {
+		transform: rotate(180deg);
+	}
+}
+
+.wp-block-baytek-toggle {
+	.toggle-body {
+		margin-top: 1.1em;
+	}
+}

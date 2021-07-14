@@ -62,14 +62,6 @@ $background-colors: (
 		}
 	}
 
-	&.has-background-linear-gradient-dark-grey {
-		background-color: transparent;
-
-		&:before {
-			@include linearGradient(rgba($dark-grey, 0), rgba($dark-grey, 0.6));
-		}
-	}
-
 	.editor-block-list__block {
 		color: $white;
 

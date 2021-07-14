@@ -100,7 +100,7 @@ form {
 	input[type="number"] {
 		height: 5.0rem;
 		width: 100%;
-		border: .1rem solid rgba($trado-grey, 0.2);
+		border: .1rem solid rgba($black, 0.2);
 		border-radius: 0;
 		background-color: $input-bg-color;
 		padding-left: 1.0rem;
@@ -113,7 +113,7 @@ form {
 	select {
 		height: 5.0rem;
 		width: 100%;
-		border: .1rem solid rgba($trado-grey, 0.2);
+		border: .1rem solid rgba($black, 0.2);
 		border-radius: 0;
 		background-color: $input-bg-color;
 		padding-left: 1.0rem;
@@ -136,7 +136,7 @@ form {
 		height: 20.0rem;
 		width: 100%;
 		padding: 1.0rem;
-		border: .1rem solid rgba($trado-grey, 0.2);
+		border: .1rem solid rgba($black, 0.2);
 		border-radius: 0;
 		background-color: $input-bg-color;
 		font-size: 1.7rem;
@@ -212,7 +212,7 @@ form {
 	input[type="datetime-local"], {
 		height: 5.0rem;
 		width: 100%;
-		border: .1rem solid rgba($trado-grey, 0.2);
+		border: .1rem solid rgba($black, 0.2);
 		border-radius: 0;
 		background-color: $input-bg-color;
 		padding-left: 1.0rem;
@@ -233,7 +233,7 @@ form {
 	    font-size: 1.25em;
 	    font-weight: 700;
 	    color: white;
-	    background-color: black;
+	    background-color: $black;
 	    display: inline-block;
 	}
 

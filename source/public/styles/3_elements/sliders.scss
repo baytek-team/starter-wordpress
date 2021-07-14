@@ -4,8 +4,8 @@
 // Baytek Slider Blocks
 .carousel-wrapper{
 	padding: 6rem 2rem 10rem 2rem;
-	border-top: 0.1rem solid $light-grey;
-	border-bottom: 0.1rem solid $light-grey;
+	border-top: 0.1rem solid $black;
+	border-bottom: 0.1rem solid $black;
 	width: 100%;
     max-width: calc( 100% + (2 * 2rem)) !important;
     clear: both;
@@ -78,7 +78,7 @@
     left: 3rem;
     width: 5rem;
     height: 4.8rem;
-    background-color: $light-grey;
+    background-color: $black;
 	.slick-new-arrow {
 		z-index: 1;
 		position: absolute;
@@ -86,14 +86,14 @@
 	    height: 4.8rem;
 		padding: 0;
 		cursor: pointer;
-		background-color: $light-grey;
+		background-color: $black;
     	border-radius: 50%;
 		a{
 			display: none;
 		}
 
 		&.left {
-			@include iconFontAwesome('\F177', $color: $grey, $top: calc(100% - 3.5rem), $right: 2.2rem, $icon-size: 1.4rem, $font-weight: 400);
+			@include iconFontAwesome('\F177', $color: $black, $top: calc(100% - 3.5rem), $right: 2.2rem, $icon-size: 1.4rem, $font-weight: 400);
 			right: 2rem;
 			&:after{
 				left: 1.8rem;
@@ -101,13 +101,13 @@
 			&:hover, &:active, &:focus{
 				@include transition;
 				&:after{
-					color: $black;
+					color: rgba($black, 0.5);
 				}
 			}
 		}
 
 		&.right {
-			@include iconFontAwesome('\F178', $color: $grey, $top: calc(100% - 3.5rem), $right: 1.8rem, $icon-size: 1.4rem, $font-weight: 400);
+			@include iconFontAwesome('\F178', $color: $black, $top: calc(100% - 3.5rem), $right: 1.8rem, $icon-size: 1.4rem, $font-weight: 400);
 			right: -3rem;
 			&:after{
 				right: 1.8rem;
@@ -115,7 +115,7 @@
 			&:hover, &:active, &:focus{
 				@include transition;
 				&:after{
-					color: $black;
+					color: rgba($black, 0.5);
 				}
 			}
 		}

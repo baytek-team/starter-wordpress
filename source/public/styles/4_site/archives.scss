@@ -9,7 +9,7 @@
 	}
 
 	+ article {
-		border-top: $default-border-width solid $light-grey;
+		border-top: $default-border-width solid $black;
 		padding-top: $row-margin;
 
 		// Desktop/Full
@@ -22,7 +22,7 @@
 
 //Load more button
 .bis-load-more-wrapper {
-	border-top: $default-border-width solid $light-grey;
+	border-top: $default-border-width solid $black;
 	padding-top: $row-margin;
 	margin-bottom: $section-margin;
 

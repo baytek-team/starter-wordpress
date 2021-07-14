@@ -1,9 +1,9 @@
 // ELEMENTS - PAGE
 
 html {
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
-	font-smoothing: antialiased;
+	// -moz-osx-font-smoothing: grayscale;
+	// -webkit-font-smoothing: antialiased;
+	// font-smoothing: antialiased;
 	font-weight: 400;
 
 	font-size: 62.5%;
@@ -19,10 +19,10 @@ html {
 
 body {
 	font-family: $fonts-main;
-	font-weight: 400;
+	font-weight: 300;
 	font-size: $base-font-size;
 	line-height: $base-line-height;
-	color: $dark-grey;
+	color: $black;
 	// counter-reset: section;
 
 	@include medium-screen-up {

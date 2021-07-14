@@ -21,6 +21,7 @@ $base-font-size: 1.6rem;
 $base-line-height: 1.42;
 $tablet-font-size: 1.7rem;
 $desktop-font-size: 1.9rem;
+$lead-font-size: 2.4rem;
 
 // Default border width (ex. buttons, dividers, etc)
 $default-border-width: 0.2rem;
@@ -36,7 +37,7 @@ $block-text: 'h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .p, .eyeb
 $has-font-size: 	('smaller', $base-font-size),
 					('small', $tablet-font-size),
 					('regular', $desktop-font-size),
-					('large', $desktop-font-size);
+					('large', $lead-font-size);
 
 @each $font-size-class, $font-size in $has-font-size {
   

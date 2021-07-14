@@ -40,11 +40,11 @@ input[type="reset"],
 }
 
 .wp-block-buttons:not(.view-more) .wp-block-button.is-style-outline .wp-block-button__link{
-	border: $default-border-width solid $light-grey;
+	border: $default-border-width solid $black;
 	background: transparent;
-	color: $light-grey;
+	color: $black;
 	&:hover {
-		background: $light-grey;
+		background: $black;
 		color: $white; 
 	}
 }
@@ -61,7 +61,7 @@ input[type="reset"],
 // 		font-size: $small-font-size;
 // 		transition: all 0.2s ease-out;
 // 		&:hover {
-// 			color: $light-grey;
+// 			color: $black;
 // 			opacity: 1;
 // 		}
 // 		&:active {

@@ -1,18 +1,26 @@
 // Styles for the Front End and Editor Views
-.wp-block-theme-blocks-toggle {
-	margin-bottom: 1em;
-	border-bottom: 2px solid;
-
+.wp-block-baytek-toggle {
+	border-bottom: 2px solid $black;
 	.toggle-header {
 		position: relative;
 		cursor: pointer;
-		padding-right: 30px;
+		padding-right: 5rem;
+		padding-top: 3.2rem;
+    	padding-bottom: 3.2rem;
+		p{
+			font-size: 2.6rem;
+			line-height: 3.2rem;
+			font-family: $fonts-secondary;
+			strong{
+				font-weight: 500;
+			}
+		}
 
 		&:after {
 		    position: absolute;
 		    right: 1rem;
-		    top: calc(100% - 6rem);
-			content: '\f107';
+		    top: calc(50% - 1.6rem);
+			content: "\F063";
 			font-weight: 400;
 			font-size: $desktop-font-size;
 			font-family: "Font Awesome 5 Pro";
@@ -22,6 +30,11 @@
 	.toggle-body {
 		display: none;
 		margin-top: 1em;
+		ul{
+			li{
+				font-size: 1.4rem;
+			}
+		}
 	}
 
 	&.expanded,
@@ -33,4 +46,8 @@
 			display: block;
 		}
 	}
+	&.top-border{
+		border-top: 2px solid $black;
+	}
 }
+

@@ -17,7 +17,7 @@
 }
 
 .has-large-font-size {
-  font-size: 1.9rem;
+  font-size: 2.4rem;
 }
 
 #page .has-white-color {
@@ -387,7 +387,6 @@ input[type=reset],
 .gform_wrapper .gform_page_footer input.button,
 .gform_wrapper .gform_page_footer input[type=submit],
 .wp-block-buttons:not(.view-more) .wp-block-button .wp-block-button__link {
-  width: -webkit-fit-content !important;
   width: -moz-fit-content !important;
   width: fit-content !important;
   display: inline-block;
@@ -404,8 +403,7 @@ input[type=reset],
   cursor: pointer;
   transition: all 0.2s ease-out;
   transform-style: preserve-3d;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 button:not(.components-button):before,
@@ -460,13 +458,13 @@ input[type=reset]:active,
 }
 
 .wp-block-buttons:not(.view-more) .wp-block-button.is-style-outline .wp-block-button__link {
-  border: 0.2rem solid #e5e5e5;
+  border: 0.2rem solid #000000;
   background: transparent;
-  color: #e5e5e5;
+  color: #000000;
 }
 
 .wp-block-buttons:not(.view-more) .wp-block-button.is-style-outline .wp-block-button__link:hover {
-  background: #e5e5e5;
+  background: #000000;
   color: #ffffff;
 }
 
@@ -490,7 +488,7 @@ input[type=reset]:active,
   position: relative;
   display: block;
   text-transform: uppercase;
-  color: #9e9e9e;
+  color: #000000;
   font-weight: 600;
   font-size: 1.4rem;
   line-height: 2rem;
@@ -504,6 +502,8 @@ input[type=reset]:active,
   .eyebrow,
   .is-style-eyebrow {
     font-size: 1.4rem;
+    line-height: 1.6rem;
+    margin-bottom: 1.8rem;
   }
 }
 

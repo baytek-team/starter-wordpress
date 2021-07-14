@@ -35,7 +35,7 @@
 }
 
 $font-gutter: 2rem;
-@mixin iconFontAwesome($content: '\f054', $icon-size: 1.4rem, $font-weight: 300, $right: 2rem, $top: calc(100% - 3.4rem), $color: $fc-gold) {
+@mixin iconFontAwesome($content: '\f054', $icon-size: 1.4rem, $font-weight: 300, $right: 2rem, $top: calc(100% - 3.4rem), $color: $black) {
   &:after {
     display: inline-block;
     font-family: "Font Awesome 5 Pro";

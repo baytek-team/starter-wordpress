@@ -18,12 +18,12 @@ h1, .h1, #main .ht {
 	font-weight: 400;
 
 	// Tablet
-	@media only #{$small-screen} {
+	@media (min-width: $tiny-width) {
 		font-size: calcScreenRem(4.8rem);
 	}
 
 	// Desktop/Full
-	@media only #{$medium-screen} {
+	@media (min-width: $large-width) {
 		font-size: calcScreenRem(7.0rem);
 	}
 }
@@ -33,12 +33,12 @@ h2, .h2 {
 	font-weight: 400;
 
 	// Tablet
-	@media only #{$small-screen} {
+	@media (min-width: $tiny-width) {
 		font-size: calcScreenRem(3.8rem);
 	}
 
 	// Desktop/Full
-	@media only #{$medium-screen} {
+	@media (min-width: $large-width) {
 		font-size: calcScreenRem(5.2rem);
 	}
 
@@ -68,12 +68,12 @@ h3, .h3 {
 	font-weight: 600;
 
 	// Tablet
-	@media only #{$small-screen} {
+	@media (min-width: $tiny-width) {
 		font-size: calcScreenRem(3.0rem);
 	}
 
 	// Desktop/Full
-	@media only #{$medium-screen} {
+	@media (min-width: $large-width) {
 		font-size: calcScreenRem(2.6rem);
 	}
 }
@@ -83,12 +83,12 @@ h4, .h4 {
 	font-weight: 400;
 
 	// Tablet
-	@media only #{$small-screen} {
+	@media (min-width: $tiny-width) {
 		font-size: calcScreenRem(2.6rem);
 	}
 
 	// Desktop/Full
-	@media only #{$medium-screen} {
+	@media (min-width: $large-width) {
 		font-size: calcScreenRem(2.4rem);
 	}
 }
@@ -98,12 +98,12 @@ h5, .h5 {
 	font-weight: 600;
 
 	// Tablet
-	@media only #{$small-screen} {
+	@media (min-width: $tiny-width) {
 		font-size: calcScreenRem(2.2rem);
 	}
 
 	// Desktop/Full
-	@media only #{$medium-screen} {
+	@media (min-width: $large-width) {
 		font-size: calcScreenRem(2.0rem);
 	}
 }

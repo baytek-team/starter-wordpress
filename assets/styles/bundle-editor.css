@@ -114,30 +114,6 @@
   max-width: 100%;
 }
 
-.slider-block {
-  padding: 1rem;
-  background: #f3f3f3;
-  margin-bottom: 1rem;
-  border-radius: 0 !important;
-  min-height: 16rem;
-}
-
-.slider-block .wp-block-quote {
-  border-left: 0 solid #000;
-}
-
-.slider-block .row {
-  margin-bottom: 4rem;
-}
-
-.slider-block.baytek_carousel-slider {
-  background: #f3f3f3;
-  padding: 1rem;
-  border-radius: 0 !important;
-  margin-bottom: 1rem;
-  min-height: 16rem;
-}
-
 .wp-block-theme-blocks-slider {
   display: grid;
   grid-gap: 10px;
@@ -145,10 +121,10 @@
 }
 
 .wp-block-theme-blocks-slider .slider-block {
-  background: #fafafa;
+  background: #ffffff;
   border-radius: 0.4rem;
   border: 1px solid #cacaca;
-  padding: 2rem;
+  padding: 1rem;
   position: relative;
 }
 
@@ -157,22 +133,17 @@
   margin-bottom: 1rem;
 }
 
-.content-plain-text {
-  min-height: 70px !important;
+.wp-block-theme-blocks-slider .slider-block .content-plain-text {
+  min-height: 12rem !important;
+  resize: vertical !important;
+  overflow: auto;
 }
 
-button.add-more-slides {
-  height: 35px;
-  width: 35px;
-  background: #939393;
-  position: relative;
-  border: none;
-  font-size: 2em;
-  color: white;
-  line-height: 1;
+.wp-block-theme-blocks-slider .slider-block .button-link {
+  cursor: inherit;
 }
 
-span.remove-slide {
+.wp-block-theme-blocks-slider .slider-block span.remove-slide {
   right: 1rem;
   top: 1rem;
   position: absolute;
@@ -180,47 +151,69 @@ span.remove-slide {
   width: 1rem;
 }
 
-span.remove-slide i {
+.wp-block-theme-blocks-slider .slider-block span.remove-slide i {
   height: 1rem;
   width: 1rem;
 }
 
-textarea.block-editor-plain-text.content-plain-text,
-textarea.block-editor-plain-text,
-textarea.block-editor-plain-text.link-plain-text {
+.wp-block-theme-blocks-slider .slider-block textarea.block-editor-plain-text.content-plain-text,
+.wp-block-theme-blocks-slider .slider-block textarea.block-editor-plain-text,
+.wp-block-theme-blocks-slider .slider-block textarea.block-editor-plain-text.link-plain-text {
   background: #fafafa;
   border: 1px solid #dadada;
   border-radius: 0;
   padding: 0.5rem;
 }
 
-.slide__image__wrapper {
+.wp-block-theme-blocks-slider .slider-block .slide__image__wrapper {
   position: relative;
 }
 
-.slide__image__wrapper .slide__image__inner {
-  height: 15rem;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.slide__image__wrapper a {
+.wp-block-theme-blocks-slider .slider-block .slide__image__wrapper a {
   cursor: pointer;
+  color: #ffffff;
 }
 
-.slide__image__wrapper .slide__image__wrapper__actions {
+.wp-block-theme-blocks-slider .slider-block .slide__image__wrapper a svg {
+  fill: #ffffff;
+}
+
+.wp-block-theme-blocks-slider .slider-block .slide__image__wrapper .slide__image__inner {
+  height: 8rem;
+  width: 8rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.wp-block-theme-blocks-slider .slider-block .slide__image__wrapper .slide__image__wrapper__actions {
   position: absolute;
-  bottom: 1rem;
-  left: 0;
+  top: 0;
+  left: 0.5rem;
   font-size: 0.8em;
   text-align: center;
 }
 
-.slide__image__inner {
+.wp-block-theme-blocks-slider .slider-block .slide__image__inner {
   display: block;
   cursor: pointer;
   line-height: 100px;
   text-align: center;
+}
+
+.wp-block-theme-blocks-slider button.add-more-slides {
+  height: 22px;
+  width: 100%;
+  padding: 1.8rem;
+  border-radius: 0.5rem;
+  background: #027cba;
+  position: relative;
+  border: none;
+  font-size: 2em;
+  color: white;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .wp-block-theme-blocks-toggle {
@@ -362,6 +355,159 @@ input[type=reset]:active,
 
 .view-more .wp-block-button__link:before {
   bottom: calc(100% - 30px);
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  font-family: "Source Sans Pro", "Helvetica", "Arial", sans-serif;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 0.015625rem;
+  line-height: 1.25;
+}
+
+h1,
+.h1,
+#main .ht {
+  font-size: 1.875rem;
+  font-weight: 400;
+}
+
+@media (min-width: 480px) {
+  h1,
+  .h1,
+  #main .ht {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 980px) {
+  h1,
+  .h1,
+  #main .ht {
+    font-size: 4.375rem;
+  }
+}
+
+h2,
+.h2 {
+  font-size: 1.625rem;
+  font-weight: 400;
+}
+
+@media (min-width: 480px) {
+  h2,
+  .h2 {
+    font-size: 2.375rem;
+  }
+}
+
+@media (min-width: 980px) {
+  h2,
+  .h2 {
+    font-size: 3.25rem;
+  }
+}
+
+h2:after,
+.h2:after {
+  display: block;
+  content: "";
+  margin-top: 0.625rem;
+  width: 4rem;
+  height: 0.125rem;
+  background: #000000;
+}
+
+h2.has-text-align-center:after,
+.h2.has-text-align-center:after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h2.has-text-align-right:after,
+.h2.has-text-align-right:after {
+  margin-left: auto;
+}
+
+h2.has-no-line:after,
+.h2.has-no-line:after {
+  display: none;
+}
+
+h3,
+.h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+@media (min-width: 480px) {
+  h3,
+  .h3 {
+    font-size: 1.875rem;
+  }
+}
+
+@media (min-width: 980px) {
+  h3,
+  .h3 {
+    font-size: 1.625rem;
+  }
+}
+
+h4,
+.h4 {
+  font-size: 1.375rem;
+  font-weight: 400;
+}
+
+@media (min-width: 480px) {
+  h4,
+  .h4 {
+    font-size: 1.625rem;
+  }
+}
+
+@media (min-width: 980px) {
+  h4,
+  .h4 {
+    font-size: 1.5rem;
+  }
+}
+
+h5,
+.h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+@media (min-width: 480px) {
+  h5,
+  .h5 {
+    font-size: 1.375rem;
+  }
+}
+
+@media (min-width: 980px) {
+  h5,
+  .h5 {
+    font-size: 1.25rem;
+  }
+}
+
+h6,
+.h6 {
+  font-size: 1.25rem;
 }
 
 .eyebrow,

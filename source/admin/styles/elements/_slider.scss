@@ -54,6 +54,10 @@
 				width: 8rem;
 				background-repeat: no-repeat;
 				background-size: cover;
+				background-color: #027cba;
+			    display: flex;
+			    align-items: center;
+			    justify-content: center;
 			}
 
 			.slide__image__wrapper__actions {
@@ -63,12 +67,6 @@
 			    font-size: 0.8em;
 			    text-align: center;
 			}
-		}
-		.slide__image__inner {
-			display: block;
-			cursor: pointer;
-			line-height: 100px;
-			text-align: center;
 		}
 	}
 	button.add-more-slides {

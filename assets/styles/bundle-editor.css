@@ -183,6 +183,10 @@
   width: 8rem;
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: #027cba;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .wp-block-theme-blocks-slider .slider-block .slide__image__wrapper .slide__image__wrapper__actions {
@@ -190,13 +194,6 @@
   top: 0;
   left: 0.5rem;
   font-size: 0.8em;
-  text-align: center;
-}
-
-.wp-block-theme-blocks-slider .slider-block .slide__image__inner {
-  display: block;
-  cursor: pointer;
-  line-height: 100px;
   text-align: center;
 }
 

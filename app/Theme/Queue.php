@@ -30,8 +30,12 @@ class Queue extends Base
 		// Google Fonts Frontend
 		wp_enqueue_style( 'gutenberg-fonts', $this->gutenberg_fonts_url() );
 
+		//Enqueue slick
+		wp_enqueue_script('slick', $this->getAssetsUri('libraries/slick/slick.min.js'), ['jquery'], THEME_VERSION, true);
+
+
 		// Enqueue the theme script
-		wp_enqueue_script('app', $this->getAssetsUri('scripts/app.js'), ['jquery'], THEME_VERSION, true);
+		wp_enqueue_script('app', $this->getAssetsUri('scripts/app.js'), ['jquery', 'slick'], THEME_VERSION, true);
 	}
 
 	/**

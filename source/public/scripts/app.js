@@ -15,7 +15,7 @@ String.prototype.toProperCase = function () {
 // require('./animations.js');
 require('./menu.js');
 require('./modals.js');
-// require('./sliders.js');
+require('./sliders.js');
 // require('./smooth-scroll.js');
 // require('./tabs.js');
 // require('./toggle.js');

@@ -162,8 +162,8 @@ registerBlockType( 'theme-blocks/slider', {
                 <div className="slide__image__wrapper">
                   <MediaUpload
                     onSelect={media => {
-                      const image = media.sizes.medium
-                        ? media.sizes.medium.url
+                      const image = media.sizes.full
+                        ? media.sizes.full.url
                         : media.url;
                       const newObject = Object.assign({}, baytek_carousel, {
                         image: image

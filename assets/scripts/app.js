@@ -121,8 +121,9 @@ String.prototype.toProperCase = function () {
 
 __webpack_require__(/*! ./menu.js */ "./source/public/scripts/menu.js");
 
-__webpack_require__(/*! ./modals.js */ "./source/public/scripts/modals.js"); // require('./sliders.js');
-// require('./smooth-scroll.js');
+__webpack_require__(/*! ./modals.js */ "./source/public/scripts/modals.js");
+
+__webpack_require__(/*! ./sliders.js */ "./source/public/scripts/sliders.js"); // require('./smooth-scroll.js');
 // require('./tabs.js');
 // require('./toggle.js');
 // require('./archive.js');
@@ -186,6 +187,41 @@ __webpack_require__(/*! ./copyrights.js */ "./source/public/scripts/copyrights.j
 
 // Scripting of modals and interactions
 (function ($) {// Code here
+})(jQuery);
+
+/***/ }),
+
+/***/ "./source/public/scripts/sliders.js":
+/*!******************************************!*\
+  !*** ./source/public/scripts/sliders.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// Scripting for sliders or carousels (Baytek gutenblocks plugin includes a slider block that uses slick slider)
+(function ($) {
+  // Baytek Slider Block
+  $('.carousel-slider').each(function () {
+    var slickIndividual = $(this);
+    slickIndividual.slick({
+      slidesToShow: 2,
+      slidesToScroll: 1,
+      arrows: true,
+      dots: false,
+      variableWidth: true,
+      nextArrow: slickIndividual.next().find('.right'),
+      prevArrow: slickIndividual.next().find('.left'),
+      draggable: true,
+      infinite: true,
+      responsive: [{
+        breakpoint: 720,
+        // breakpoint: 1000,
+        settings: {
+          slidesToShow: 2
+        }
+      }]
+    });
+  });
 })(jQuery);
 
 /***/ }),

@@ -4,7 +4,6 @@
 // Baytek Slider Blocks
 .carousel-wrapper{
 	width: 100%;
-    max-width: calc( 100% + (2 * 2rem)) !important;
     clear: both;
 	.wp-block-group__inner-container{
 		position:relative;
@@ -17,10 +16,6 @@
 				display: flex;
 			}
 			.baytek-carousel-item{
-				margin-top: 0;
-				@include small-screen-up {
-					margin-top: 4.8rem;
-				}
 				.baytek_carousel {
 					max-width: 96rem;
 				    display: grid;
@@ -37,48 +32,14 @@
 			    		grid-area: slide_image;
 			    	}
 					.baytek_carousel-text-container {
-						font-size: $small-font-size;
-						line-height: 2rem;
 						position:relative;
-
-						@include large-screen-up {
-							font-size: $base-font-size;
-							line-height: 2.2rem;
-						}
-					}
-					h5{
-						font-size: 2.4rem;
-						line-height: 2.6rem;
-						margin-top: 2.4rem !important;
-
-						// Tablet
-						@include small-screen-up {
-							font-size: 3.0rem;
-							line-height: 3.4rem;
-						}
-
-						// Desktop/Full
-						@include medium-screen-up {
-							font-size: 3.6rem;
-							line-height: 4.2rem;
-						}
-					}
-					p{
-						margin-top: 1.6rem;
-						margin-bottom: 1.6rem;
 					}
 					.slide__image__wrapper {
 						.slide__image__inner {
-							height: 18.4rem;
-							width: 18.4rem;
-							margin-left: 0;
+							height: 25rem;
 							overflow: hidden;
 							background-size: cover;
 							background-position: center;
-							@include medium-screen-up {
-								height: 33.6rem;
-								width: 33.6rem
-							}
 						}
 					}
 				}

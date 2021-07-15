@@ -1147,7 +1147,6 @@ nav.previous-next a[rel=next] i {
 
 .carousel-wrapper {
   width: 100%;
-  max-width: calc( 100% + (2 * 2rem)) !important;
   clear: both;
 }
 
@@ -1162,16 +1161,6 @@ nav.previous-next a[rel=next] i {
 
 .carousel-wrapper .wp-block-group__inner-container .carousel-slider .slick-track {
   display: flex;
-}
-
-.carousel-wrapper .wp-block-group__inner-container .carousel-slider .baytek-carousel-item {
-  margin-top: 0;
-}
-
-@media (min-width: 480px) {
-  .carousel-wrapper .wp-block-group__inner-container .carousel-slider .baytek-carousel-item {
-    margin-top: 4.8rem;
-  }
 }
 
 .carousel-wrapper .wp-block-group__inner-container .carousel-slider .baytek-carousel-item .baytek_carousel {
@@ -1192,57 +1181,14 @@ nav.previous-next a[rel=next] i {
 }
 
 .carousel-wrapper .wp-block-group__inner-container .carousel-slider .baytek-carousel-item .baytek_carousel .baytek_carousel-text-container {
-  font-size: 1.4rem;
-  line-height: 2rem;
   position: relative;
 }
 
-@media (min-width: 1100px) {
-  .carousel-wrapper .wp-block-group__inner-container .carousel-slider .baytek-carousel-item .baytek_carousel .baytek_carousel-text-container {
-    font-size: 1.6rem;
-    line-height: 2.2rem;
-  }
-}
-
-.carousel-wrapper .wp-block-group__inner-container .carousel-slider .baytek-carousel-item .baytek_carousel h5 {
-  font-size: 2.4rem;
-  line-height: 2.6rem;
-  margin-top: 2.4rem !important;
-}
-
-@media (min-width: 480px) {
-  .carousel-wrapper .wp-block-group__inner-container .carousel-slider .baytek-carousel-item .baytek_carousel h5 {
-    font-size: 3rem;
-    line-height: 3.4rem;
-  }
-}
-
-@media (min-width: 980px) {
-  .carousel-wrapper .wp-block-group__inner-container .carousel-slider .baytek-carousel-item .baytek_carousel h5 {
-    font-size: 3.6rem;
-    line-height: 4.2rem;
-  }
-}
-
-.carousel-wrapper .wp-block-group__inner-container .carousel-slider .baytek-carousel-item .baytek_carousel p {
-  margin-top: 1.6rem;
-  margin-bottom: 1.6rem;
-}
-
 .carousel-wrapper .wp-block-group__inner-container .carousel-slider .baytek-carousel-item .baytek_carousel .slide__image__wrapper .slide__image__inner {
-  height: 18.4rem;
-  width: 18.4rem;
-  margin-left: 0;
+  height: 25rem;
   overflow: hidden;
   background-size: cover;
   background-position: center;
-}
-
-@media (min-width: 980px) {
-  .carousel-wrapper .wp-block-group__inner-container .carousel-slider .baytek-carousel-item .baytek_carousel .slide__image__wrapper .slide__image__inner {
-    height: 33.6rem;
-    width: 33.6rem;
-  }
 }
 
 .wp-block-media-text {

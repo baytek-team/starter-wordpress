@@ -248,6 +248,125 @@
   padding: 1rem;
 }
 
+.baytek-form {
+  color: #000000;
+  margin: 0 auto;
+  max-width: 740px;
+  padding: 0;
+}
+
+.baytek-form .baytek-form-row {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.baytek-form .baytek-form-row .baytek-col-sm-6 {
+  padding: 0 15px 15px;
+  width: 50%;
+  float: left;
+}
+
+.baytek-form .baytek-form-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.baytek-form .my-tab-panel {
+  border: 1px solid #dadada;
+  padding: 0;
+}
+
+.baytek-form .my-tab-panel .components-tab-panel__tabs {
+  background-color: #F8F8F8;
+  border: 1px solid #dadada;
+}
+
+.baytek-form .my-tab-panel .components-tab-panel__tabs button {
+  background-color: #F5F5F5;
+  border: none;
+  font-weight: bold;
+  padding: 0.5rem 0.75rem;
+}
+
+.baytek-form .my-tab-panel .components-tab-panel__tabs button:hover {
+  background-color: white;
+  border: none;
+}
+
+.baytek-form .my-tab-panel .components-tab-panel__tabs .active-tab,
+.baytek-form .my-tab-panel .components-tab-panel__tabs button:hover.active-tab {
+  border-bottom: 3px solid #06F;
+}
+
+.baytek-form .my-tab-panel .components-tab-panel__tab-content {
+  padding: 0 0.5rem;
+  background-color: white;
+}
+
+.baytek-form label {
+  font-weight: bold;
+  margin: 0.5rem 0 0.25rem;
+}
+
+.baytek-form .editor-plain-text {
+  border: 1px solid #dadada;
+  padding: 0 0.25rem;
+}
+
+.baytek-form .baytek-form-innerblock {
+  background-color: #DFDFBF;
+  border: 1px solid #dadada;
+  padding: 0 0.25rem;
+}
+
+.baytek-form .baytek-trigger-image-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: solid 2px #dadada;
+  display: block;
+}
+
+.baytek-form .baytek-trigger-image-container:hover {
+  border: solid 4px #dadada;
+}
+
+.baytek-form .baytek-trigger-image-container:hover img {
+  opacity: 0.3;
+}
+
+.baytek-form .baytek-trigger-image-container:after {
+  content: "+";
+  font-weight: bold;
+  font-size: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.baytek-form .baytek-trigger-image-container img {
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.baytek-form .hide {
+  display: none;
+}
+
+@media (max-width: 400px) {
+  .baytek-col-sm-6 {
+    width: 100%;
+    float: none;
+  }
+}
+
 button:not(.components-button),
 .button,
 input[type=submit],

@@ -55,16 +55,6 @@ registerBlockType( 'baytek/modal-block', {
 		title: {
 			type: "string",
 			default: "Modal Title"	
-		},
-		showOn: {
-			type: "string",
-			default: "btn"
-		},
-		triggerText: {
-			type: "string",
-			source: "text",
-			selector: ".type_text",
-			default: "Click Me"
 		},	
 		triggerSelector: {
 			type: "string",
@@ -89,7 +79,7 @@ registerBlockType( 'baytek/modal-block', {
 		// returns true if child innerblock is selected
 
 		function checkInnerblockSelected () {
-			const select = wp.data.select('core/editor');
+			const select = wp.data.select('core/block-editor');
 			const selected = select.getBlockSelectionStart();
 			const inner = select.getBlock(clientId).innerBlocks;
 			for (let i = 0; i < inner.length; i++) {
@@ -120,25 +110,9 @@ registerBlockType( 'baytek/modal-block', {
 		// format the trigger content which is either an image, link text, onload, class or btn
 
 		const trigger = () => {
-			if (attributes.showOn === 'text') {
+			if (attributes.showOn === 'selector') {
 				return (
-					<a href="javascript:void(0)" className="baytek-block-popup-trigger type_text">
-						{ attributes.triggerText }
-					</a>					
-				);
-			} else if (attributes.showOn === 'load') {
-				return (
-					<span className = "baytek-block-popup-trigger type_load" data-delay={attributes.showDelay}>{__('Modal on screen load','baytek-modal')}</span>
-				);
-			} else if (attributes.showOn === 'selector') {
-				return (
-					<span className="baytek-block-popup-trigger type_selector" data-selector={attributes.triggerSelector}>{__('Modal on class selector','baytek-modal')}</span>
-				);
-			} else {
-				return (
-					<span className="baytek-block-popup-trigger type_btn baytek-btn">
-						{attributes.btnLabel}
-					</span>
+					<span className="baytek-block-popup-trigger type_selector" data-selector={attributes.triggerSelector}>{__('Modal using trigger class selector','baytek-modal')}</span>
 				);
 			}
 			
@@ -154,7 +128,7 @@ registerBlockType( 'baytek/modal-block', {
 						<PlainText
 							onChange={ content => setAttributes({ title: content})}
 							value={attributes.title}
-							placeholder={__('Modal Title Text','baytek-modal')}
+							placeholder={__('Modal Title - for admin reference','baytek-modal')}
 						/>
 				
 						<label>{__('Modal Content:','baytek-modal')}</label>
@@ -181,7 +155,7 @@ registerBlockType( 'baytek/modal-block', {
 					{/* Modal Content */}
 					<div  role="dialog" aria-modal="false" aria-labelledby="" aria-describedby="" className="baytek-block-popup-wrap">
 						<div id="" className = "baytek-modal-title">
-							<h2>{attributes.title}</h2>
+							<h2 class="h4">{attributes.title}</h2>
 						</div> {/* end title */}
 						<div id="" className="baytek-modal-content">
 							{/*<InnerBlocks.Content/>*/}
@@ -208,17 +182,11 @@ registerBlockType( 'baytek/modal-block', {
 
 							<SelectControl
 								label={__('Show On','baytek-modal')}
-								value={ attributes.showOn }
-								options= {[
-									{ label: __('Button Click','baytek-modal'), value: 'btn' },
-									{ label: __('Text Click','baytek-modal'), value: 'text' },
-									{ label: __('Custom Element Click','baytek-modal'), value: 'selector' },
-								]}
-								onChange={ content => setAttributes({ showOn: content }) }
+								value={ attributes.selector }
 								/>
 
 
-							<div className={hideFields('selector', 'showOn')}>
+							<div className={hideFields('selector')}>
 
 								{/* Trigger Class Selector */}
 
@@ -255,32 +223,15 @@ registerBlockType( 'baytek/modal-block', {
 		// format the trigger content which is either an image, link text, 
 
 		const trigger = () => {
-			if (attributes.showOn === 'text') {
-				return (
-					<a href="javascript:void(0)" className="baytek-block-popup-trigger type_text">
-						{ attributes.triggerText }
-					</a>					
-				);
-			} else if (attributes.showOn === 'load') {
-				return (
-					<span className = "baytek-block-popup-trigger type_load" data-delay={attributes.showDelay}></span>
-				);
-			} else if (attributes.showOn === 'selector') {
+			if (attributes.showOn === 'selector') {
 				return (
 					<span className="baytek-block-popup-trigger type_selector" data-selector={attributes.triggerSelector}></span>
 				);
-			} else {
-				return (
-					<span className="baytek-block-popup-trigger type_btn baytek-btn">
-						{attributes.btnLabel}
-					</span>
-				);
 			}
-			
 		}
 
 		return (
-			<div className= {'baytek-block-popup ' + 'align-' + attributes.textAlign}>
+			<div className="baytek-block-popup">
 				{trigger()}
 			
 				{/* Modal Overlay */}
@@ -288,10 +239,7 @@ registerBlockType( 'baytek/modal-block', {
 			
 				<div role="dialog" aria-modal="false" aria-labelledby="" aria-describedby="" className={"baytek-block-popup-wrap"}>
 					{/* Modal Content */}
-					<div className={"baytek-block-popup " + attributes.modalSize}>
-						<div id="" className = "baytek-modal-title">
-							<h2>{attributes.title}</h2>
-						</div> {/* end title */}
+					<div className="baytek-block-popup">
 						<div id="" className="baytek-modal-content">
 							{<InnerBlocks.Content/>}
 						</div> {/* end content */}

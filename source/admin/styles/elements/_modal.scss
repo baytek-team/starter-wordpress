@@ -7,17 +7,17 @@ $tab-menu-color: #F8F8F8;
 $tab-panel-color: white;
 $field-indent: 0.25rem;
 
-.bod-form  {
+.baytek-form  {
   color: $black;
   margin: 0 auto;
   max-width: 740px;
   padding: 0;
 
-  .bod-form-row {
+  .baytek-form-row {
 	width: 100%;
 	box-sizing: border-box;
 
-	.bod-col-sm-6 {
+	.baytek-col-sm-6 {
 		padding: 0 15px 15px;
 		width: 50%;
 		float: left;
@@ -25,7 +25,7 @@ $field-indent: 0.25rem;
 
   }
 
-  .bod-form-row:after {
+  .baytek-form-row:after {
 	  content: "";
 	  display:table;
 	  clear: both;
@@ -72,13 +72,13 @@ $field-indent: 0.25rem;
 	  padding: 0 $field-indent;
   }
   
-  .bod-form-innerblock {
+  .baytek-form-innerblock {
 	  background-color: #DFDFBF;
 	  border: 1px solid $border-color;
 	  padding: 0 $field-indent;
   }
 
-  .bod-trigger-image-container {
+  .baytek-trigger-image-container {
 	  position: relative;
 	  width: 150px;
 	  height: 150px;
@@ -120,7 +120,7 @@ $field-indent: 0.25rem;
 }
 
 @media (max-width: 400px) {
-	.bod-col-sm-6 {
+	.baytek-col-sm-6 {
 	  width: 100%;
 	  float:none;
 	}

@@ -544,7 +544,7 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__["registerBlockType"])('bay
     // If innerblock is selected then we want to keep parent modal block open
     // returns true if child innerblock is selected
     function checkInnerblockSelected() {
-      var select = wp.data.select('core/block-editor');
+      var select = wp.data.select('core/editor');
       var selected = select.getBlockSelectionStart();
       var inner = select.getBlock(clientId).innerBlocks;
 
@@ -574,12 +574,10 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__["registerBlockType"])('bay
 
 
     var trigger = function trigger() {
-      if (attributes.showOn === 'selector') {
-        return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
-          className: "baytek-block-popup-trigger type_selector",
-          "data-selector": attributes.triggerSelector
-        }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Modal using trigger class selector', 'baytek-modal'));
-      }
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
+        className: "baytek-block-popup-trigger type_selector",
+        "data-selector": attributes.triggerSelector
+      }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Modal: remember to create a tigger class selector', 'baytek-modal'));
     }; // Figure out if we need to display the title and innerblocks fields
     // we only display if block is currently selected 
 
@@ -593,7 +591,7 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__["registerBlockType"])('bay
             });
           },
           value: attributes.title,
-          placeholder: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Modal Title - for admin reference', 'baytek-modal')
+          placeholder: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Modal Title Text', 'baytek-modal')
         }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("label", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Modal Content:', 'baytek-modal')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
           className: "baytek-form-innerblock"
         }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_blockEditor__WEBPACK_IMPORTED_MODULE_3__["InnerBlocks"], null)));
@@ -602,7 +600,9 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__["registerBlockType"])('bay
       }
     };
 
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+      className: "baytek-form-outer"
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
       className: "baytek-block-popup"
     }, trigger(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
       className: "baytek-block-popup-overlay"
@@ -616,7 +616,7 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__["registerBlockType"])('bay
       id: "",
       className: "baytek-modal-title"
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h2", {
-      class: "h4"
+      className: "h4"
     }, attributes.title)), " ", Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
       id: "",
       className: "baytek-modal-content"
@@ -657,12 +657,10 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__["registerBlockType"])('bay
 
     // format the trigger content which is either an image, link text, 
     var trigger = function trigger() {
-      if (attributes.showOn === 'selector') {
-        return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
-          className: "baytek-block-popup-trigger type_selector",
-          "data-selector": attributes.triggerSelector
-        });
-      }
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
+        className: "baytek-block-popup-trigger type_selector",
+        "data-selector": attributes.triggerSelector
+      });
     };
 
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {

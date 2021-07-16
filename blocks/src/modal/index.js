@@ -79,7 +79,7 @@ registerBlockType( 'baytek/modal-block', {
 		// returns true if child innerblock is selected
 
 		function checkInnerblockSelected () {
-			const select = wp.data.select('core/block-editor');
+			const select = wp.data.select('core/editor');
 			const selected = select.getBlockSelectionStart();
 			const inner = select.getBlock(clientId).innerBlocks;
 			for (let i = 0; i < inner.length; i++) {
@@ -110,12 +110,9 @@ registerBlockType( 'baytek/modal-block', {
 		// format the trigger content which is either an image, link text, onload, class or btn
 
 		const trigger = () => {
-			if (attributes.showOn === 'selector') {
-				return (
-					<span className="baytek-block-popup-trigger type_selector" data-selector={attributes.triggerSelector}>{__('Modal using trigger class selector','baytek-modal')}</span>
-				);
-			}
-			
+			return (
+				<span className="baytek-block-popup-trigger type_selector" data-selector={attributes.triggerSelector}>{__('Modal: remember to create a tigger class selector','baytek-modal')}</span>
+			);
 		}
 
 		// Figure out if we need to display the title and innerblocks fields
@@ -128,7 +125,7 @@ registerBlockType( 'baytek/modal-block', {
 						<PlainText
 							onChange={ content => setAttributes({ title: content})}
 							value={attributes.title}
-							placeholder={__('Modal Title - for admin reference','baytek-modal')}
+							placeholder={__('Modal Title Text','baytek-modal')}
 						/>
 				
 						<label>{__('Modal Content:','baytek-modal')}</label>
@@ -143,7 +140,7 @@ registerBlockType( 'baytek/modal-block', {
 		}
 		
 		return (
-			<div>
+			<div className="baytek-form-outer">
 			
 
 				<div className="baytek-block-popup">
@@ -155,7 +152,7 @@ registerBlockType( 'baytek/modal-block', {
 					{/* Modal Content */}
 					<div  role="dialog" aria-modal="false" aria-labelledby="" aria-describedby="" className="baytek-block-popup-wrap">
 						<div id="" className = "baytek-modal-title">
-							<h2 class="h4">{attributes.title}</h2>
+							<h2 className="h4">{attributes.title}</h2>
 						</div> {/* end title */}
 						<div id="" className="baytek-modal-content">
 							{/*<InnerBlocks.Content/>*/}
@@ -182,7 +179,7 @@ registerBlockType( 'baytek/modal-block', {
 
 							<SelectControl
 								label={__('Show On','baytek-modal')}
-								value={ attributes.selector }
+								value={ attributes.selector}
 								/>
 
 
@@ -223,11 +220,9 @@ registerBlockType( 'baytek/modal-block', {
 		// format the trigger content which is either an image, link text, 
 
 		const trigger = () => {
-			if (attributes.showOn === 'selector') {
-				return (
-					<span className="baytek-block-popup-trigger type_selector" data-selector={attributes.triggerSelector}></span>
-				);
-			}
+			return (
+				<span className="baytek-block-popup-trigger type_selector" data-selector={attributes.triggerSelector}></span>
+			);
 		}
 
 		return (

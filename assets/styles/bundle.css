@@ -1145,12 +1145,6 @@ nav.previous-next a[rel=next] i {
   margin-left: 0.5em;
 }
 
-/**
- * #.# Styles
- *
- * CSS for both Frontend.
- */
-
 .baytek-block-popup-overlay,
 .baytek-block-popup-wrap {
   position: fixed;
@@ -1158,6 +1152,8 @@ nav.previous-next a[rel=next] i {
   top: 0;
   left: 0;
   width: 100%;
+  background: #000000;
+  opacity: 0.9;
 }
 
 .baytek-block-popup-overlay {
@@ -1191,6 +1187,7 @@ nav.previous-next a[rel=next] i {
   max-width: 100%;
   max-height: 100%;
   overflow: auto;
+  background-color: #ffffff;
 }
 
 .baytek-block-popup-wrap .baytek-block-popup .baytek-modal-title h2 {

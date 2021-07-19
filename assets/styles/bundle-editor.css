@@ -301,7 +301,7 @@ input[type=reset],
   border: 0.2rem solid #000000;
   border-radius: 5rem;
   color: #ffffff;
-  font-family: "Source Serif Pro", "Palatino", serif;
+  font-family: "Source Serif Pro", serif;
   font-size: 1.4rem;
   font-weight: 600;
   cursor: pointer;

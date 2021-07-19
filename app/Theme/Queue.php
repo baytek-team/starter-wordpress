@@ -27,8 +27,6 @@ class Queue extends Base
 	 */
 	public function enqueueScript()
 	{
-		// Google Fonts Frontend
-		wp_enqueue_style( 'gutenberg-fonts', $this->gutenberg_fonts_url() );
 
 		//Enqueue slick
 		wp_enqueue_script('slick', $this->getAssetsUri('libraries/slick/slick.min.js'), ['jquery'], THEME_VERSION, true);
@@ -47,6 +45,10 @@ class Queue extends Base
 		// Enqueue the theme style
 		wp_enqueue_style('theme', $this->getAssetsUri('styles/bundle.css'), [], THEME_VERSION);
 
+		//Enqueue google fonts
+		wp_enqueue_style( 'gutenberg-main-fonts', 'https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@200;300;400;600;700;900&display=swap');
+
+		wp_enqueue_style( 'gutenberg-secondary-fonts', 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
 	}
 
 	/**
@@ -67,7 +69,7 @@ class Queue extends Base
 	 *
 	 */
 	public function gutenberg_fonts_url() {
-		$font_families = apply_filters( 'gutenberg_fonts', array( 'Karla:400,700, 700i|Philosopher&display=swap' ) );
+		$font_families = apply_filters( 'gutenberg_fonts', array( 'Source+Serif+Pro:wght@200;300;400;600;700;900|Source+Sans+Pro' ) );
 		$query_args = array(
 			'family' => implode( '|', $font_families ),
 			'subset' => 'latin,latin-ext',

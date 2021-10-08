@@ -40,6 +40,9 @@ class Setup extends Base
 		if (defined('MAILTRAP_IT') && MAILTRAP_IT) {
 			add_action('phpmailer_init', [$this, 'mailtrap']);
 		}
+
+		//Archive redirects (disable default archives)
+		add_action('wp', [$this, 'archiveRedirects']);
 	}
 
 	/**
@@ -240,5 +243,16 @@ class Setup extends Base
 		$html = str_replace($imageurl[0], $relativeurl, $html);
 
 		return $html;
+	}
+
+	/**
+	 * Disable all default archives (author, date, taxonomy, post type)
+	 * Search is unaffected
+	 */ 
+	public function archiveRedirects() {
+		if (is_archive()) {
+			wp_safe_redirect(home_url(), 301, 'Baytek Theme');
+			exit;
+		}
 	}
 }

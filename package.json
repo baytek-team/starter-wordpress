@@ -5,34 +5,34 @@
   "main": "source/scripts/app.js",
   "scripts": {
     "dev": "npm run development",
-    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch-poll": "npm run watch -- --watch-poll",
     "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "npm run production",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@hapi/boom": "^7.4.10",
-    "@hapi/cryptiles": "^4.2.1",
-    "@hapi/hoek": "^8.2.4",
-    "browser-sync": "^2.26.3",
-    "browser-sync-webpack-plugin": "^2.0.1",
-    "cross-env": "^3.2.3",
-    "deep-extend": ">=0.5.1",
-    "js-yaml": ">=3.13.1",
-    "laravel-mix": "^5.0.0",
-    "macaddress": ">=0.2.9",
-    "resolve-url-loader": "^3.1.0",
-    "sass": "^1.22.12",
-    "sass-loader": "^8.0.0",
-    "url-parse": ">=1.4.3",
-    "vue-template-compiler": "^2.6.10"
+    "@hapi/boom": "^9.1.4",
+    "@hapi/cryptiles": "^5.1.0",
+    "@hapi/hoek": "^9.2.1",
+    "browser-sync": "^2.27",
+    "browser-sync-webpack-plugin": "^2.3",
+    "cross-env": "^7.0",
+    "deep-extend": ">=0.6.0",
+    "js-yaml": ">=4.1.0",
+    "laravel-mix": "^6.0.37",
+    "macaddress": ">=0.5.2",
+    "resolve-url-loader": "^4.0.0",
+    "sass": "^1.43.4",
+    "sass-loader": "^12.3.0",
+    "url-parse": ">=1.5.3",
+    "vue-template-compiler": "^2.6.14"
   },
   "dependencies": {
-    "ajv": "^6.10.2",
-    "imagemin": "^6.1.0"
+    "ajv": "^8.6.3",
+    "imagemin": "^8.0.1"
   }
 }

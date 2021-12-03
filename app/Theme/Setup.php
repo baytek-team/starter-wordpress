@@ -15,6 +15,9 @@ class Setup extends Base
 	{
 		add_action('after_setup_theme', [$this, 'setup']);
 
+		// Disable Automatic Updates
+		add_filter( 'automatic_updater_disabled', '__return_true' );
+
 		// Filter maximum image resolution
 		add_filter('big_image_size_threshold', [$this, 'filterMaxImageResolution'], 10, 4);
 

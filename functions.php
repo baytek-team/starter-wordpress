@@ -30,3 +30,19 @@ if ( is_readable( $theme_blocks ) ) :
 	require_once $theme_blocks;
 endif;
 
+
+// Block Patterns.
+require get_template_directory() . '/inc/block-patterns.php';
+
+add_action('init', function() {
+	remove_theme_support('core-block-patterns');
+
+	unregister_block_pattern_category('buttons');
+	unregister_block_pattern_category('columns');
+	unregister_block_pattern_category('gallery');
+	unregister_block_pattern_category('header');
+	unregister_block_pattern_category('text');
+	unregister_block_pattern_category('query');
+});
+
+

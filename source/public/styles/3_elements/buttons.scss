@@ -8,7 +8,7 @@ input[type="reset"],
 .gform_wrapper .gform_footer input[type=submit],
 .gform_wrapper .gform_page_footer input.button,
 .gform_wrapper .gform_page_footer input[type=submit],
-.wp-block-buttons:not(.view-more) .wp-block-button .wp-block-button__link  {
+.wp-block-button .wp-block-button__link  {
 	width: fit-content !important;
 	display: inline-block;
 	padding: 1.6rem 4rem;
@@ -39,7 +39,7 @@ input[type="reset"],
 
 }
 
-.wp-block-buttons:not(.view-more) .wp-block-button.is-style-outline .wp-block-button__link{
+.wp-block-button.is-style-outline .wp-block-button__link{
 	border: $default-border-width solid $black;
 	background: transparent;
 	color: $black;

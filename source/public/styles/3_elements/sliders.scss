@@ -5,42 +5,40 @@
 .carousel-wrapper{
 	width: 100%;
     clear: both;
-	.wp-block-group__inner-container{
-		position:relative;
-		.carousel-slider {
-			.slick-list{ 
-				overflow: inherit;
-				z-index: 0; 
-			}
-			.slick-track{
-				display: flex;
-			}
-			.baytek-carousel-item{
-				.baytek_carousel {
-					max-width: 96rem;
-				    display: grid;
-			    	grid-template-rows: auto;
-			    	grid-template-columns: 1fr;
-			    	grid-template-areas:
-			    	"slide_image"
-			    	"slide_content";
-			    	.content{
-			    		grid-area: slide_content;
-			    		position: relative;
-			    	}
-			    	.slide__image__wrapper{
-			    		grid-area: slide_image;
-			    	}
-					.baytek_carousel-text-container {
-						position:relative;
-					}
-					.slide__image__wrapper {
-						.slide__image__inner {
-							height: 25rem;
-							overflow: hidden;
-							background-size: cover;
-							background-position: center;
-						}
+	position:relative;
+	.carousel-slider {
+		.slick-list{ 
+			overflow: inherit;
+			z-index: 0; 
+		}
+		.slick-track{
+			display: flex;
+		}
+		.baytek-carousel-item{
+			.baytek_carousel {
+				max-width: 96rem;
+			    display: grid;
+		    	grid-template-rows: auto;
+		    	grid-template-columns: 1fr;
+		    	grid-template-areas:
+		    	"slide_image"
+		    	"slide_content";
+		    	.content{
+		    		grid-area: slide_content;
+		    		position: relative;
+		    	}
+		    	.slide__image__wrapper{
+		    		grid-area: slide_image;
+		    	}
+				.baytek_carousel-text-container {
+					position:relative;
+				}
+				.slide__image__wrapper {
+					.slide__image__inner {
+						height: 25rem;
+						overflow: hidden;
+						background-size: cover;
+						background-position: center;
 					}
 				}
 			}

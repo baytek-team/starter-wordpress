@@ -15,7 +15,10 @@
 	}
 
 	&.alignwide {
-		max-width: $wide-width;
+		max-width: $widest-width;
+		&.twelve-ninety{
+			max-width: $wide-width;
+		}
 	}
 
 	&.alignfull {
@@ -57,7 +60,10 @@
 		}
 
 		&.alignwide {
-			max-width: calc(#{$wide-width} + (#{$row-margin} * 2));
+			max-width: calc(#{$widest-width} + (#{$row-margin} * 2));
+			&.twelve-ninety{
+				max-width: calc(#{$wide-width} + (#{$row-margin} * 2));
+			}
 		}
 
 		&.alignfull {

@@ -1581,6 +1581,11 @@ body.single article > header.wp-block-cover {
 .wp-block-group.alignwide,
 .wp-block-cover.alignwide,
 .wp-block-columns.alignwide {
+  max-width: 1920px;
+}
+.wp-block-group.alignwide.twelve-ninety,
+.wp-block-cover.alignwide.twelve-ninety,
+.wp-block-columns.alignwide.twelve-ninety {
   max-width: 1296px;
 }
 .wp-block-group.alignfull,
@@ -1617,6 +1622,11 @@ body.single article > header.wp-block-cover {
 #main > *.alignwide,
 .final-cta > *.alignwide,
 .related-resources > *.alignwide {
+  max-width: calc(1920px + (2.4rem * 2));
+}
+#main > *.alignwide.twelve-ninety,
+.final-cta > *.alignwide.twelve-ninety,
+.related-resources > *.alignwide.twelve-ninety {
   max-width: calc(1296px + (2.4rem * 2));
 }
 #main > *.alignfull,

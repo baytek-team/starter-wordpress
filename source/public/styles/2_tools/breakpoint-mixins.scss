@@ -16,6 +16,7 @@ $max-padded-content-width: $max-width + (24px * 2);
 $cover-width: 960px;
 $narrow-width: 624px;
 $wide-width: 1296px;
+$widest-width: 1920px;
 
 // Breakpoint mixins
 @mixin small-screen-up {

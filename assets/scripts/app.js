@@ -20,13 +20,13 @@ String.prototype.toProperCase = function () {
 // Include as needed on your project. All scripts will be bundled together.
 // Some sample files are included for ideas to get you started.
 // require('./animations.js');
+// require('./hoverintent.js');
 
 
 __webpack_require__(/*! ./menu.js */ "./source/public/scripts/menu.js");
 
-__webpack_require__(/*! ./modals.js */ "./source/public/scripts/modals.js");
-
-__webpack_require__(/*! ./sliders.js */ "./source/public/scripts/sliders.js"); // require('./smooth-scroll.js');
+__webpack_require__(/*! ./modals.js */ "./source/public/scripts/modals.js"); // require('./sliders.js');
+// require('./smooth-scroll.js');
 // require('./tabs.js');
 // require('./toggle.js');
 // require('./archive.js');
@@ -66,9 +66,29 @@ __webpack_require__(/*! ./copyrights.js */ "./source/public/scripts/copyrights.j
 
   function mainNav() {
     $(".main-menu-toggle").toggleClass("cross");
-    $("body").toggleClass("modal-open");
-    $("#site-navigation").toggleClass("open");
-  } // (just an example below change it to suit your needs)
+    $("body").toggleClass("no-scroll");
+    $("#site-navigation").parent().toggleClass("open");
+    $("header").toggleClass("menu-open");
+  } // Mega Menu when needed
+  // $('a.expand').click(function() {
+  // 	$(this).toggleClass('open');
+  // 	$(this).parents('li').find('.mega-menu').slideToggle();
+  // });
+  // $('li.has-mega-menu').hoverIntent({
+  // 	over() {
+  // 		$(this).addClass('has-mega-menu-open');
+  // 		$('#menu-main').addClass('mega-menu-open');
+  // 		$('#menu-main-fr').addClass('mega-menu-open');
+  // 	},
+  // 	out() {
+  // 		$(this).removeClass('has-mega-menu-open');
+  // 		$('#menu-main').removeClass('mega-menu-open');
+  // 		$('#menu-main-fr').removeClass('mega-menu-open');
+  // 	},
+  // 	sensitivity: 5,
+  // 	timeout: 200
+  // });
+  // (just an example below change it to suit your needs)
   //Listen for menu clicks with anchors, to close the menu 
 
 
@@ -188,71 +208,6 @@ __webpack_require__(/*! ./copyrights.js */ "./source/public/scripts/copyrights.j
   window.bodModalCount = 0; // global count of modals
 
   initElements();
-})(jQuery);
-
-/***/ }),
-
-/***/ "./source/public/scripts/sliders.js":
-/*!******************************************!*\
-  !*** ./source/public/scripts/sliders.js ***!
-  \******************************************/
-/***/ (() => {
-
-// Scripting for sliders or carousels (Baytek gutenblocks plugin includes a slider block that uses slick slider)
-(function ($) {
-  // Simple Slider Block using Slick.js
-  $('.carousel-slider').slick({
-    arrows: true,
-    dots: true,
-    slidesToScroll: 1,
-    slidesToShow: 4,
-    infinite: true,
-    // variableWidth: true,
-    draggable: true,
-    prevArrow: '<button type="button" class="slick-prev slick-arrow"><i class="fal fa-chevron-left"></i></button>',
-    nextArrow: '<button type="button" class="slick-next slick-arrow"><i class="fal fa-chevron-right"></i></button>',
-    responsive: [{
-      breakpoint: 1600,
-      settings: {
-        slidesToShow: 3
-      }
-    }, {
-      breakpoint: 1000,
-      settings: {
-        slidesToShow: 2
-      }
-    }, {
-      breakpoint: 500,
-      settings: {
-        slidesToShow: 1
-      }
-    }]
-  }); // If you need multiple Slider Blocks on one page use this instead of above:
-  ///// 1. Create a Group Block with the class: carousel-wrapper
-  ///// 2. Add the Slider Block in this new Group
-  ///// 3. Below the Slider and in the same Group add the Buttons Block for the custom Arrows
-  ///// 4. Add 2 buttons:  1st will have '.left' class. 2nd will have '.right' class.
-  // $('.carousel-wrapper .wp-block-group__inner-container .carousel-slider').each(function(){
-  // 	var slickIndividual = $(this);
-  // 	slickIndividual.slick({
-  // 		slidesToShow: 3,
-  // 		slidesToScroll: 1,
-  // 		arrows: true,
-  // 		dots: false,
-  // 		nextArrow: slickIndividual.next().find('.right'),
-  // 		prevArrow: slickIndividual.next().find('.left'),
-  // 		draggable: true,
-  // 		infinite: true,
-  // 	  	responsive: [
-  // 	  		{
-  // 				breakpoint: 720,
-  // 				settings: {
-  // 					slidesToShow: 2
-  // 				}
-  // 			}
-  // 		]
-  // 	});
-  // });
 })(jQuery);
 
 /***/ }),

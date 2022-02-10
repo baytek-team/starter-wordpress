@@ -7,10 +7,34 @@
 
 	function mainNav() {
 		$(".main-menu-toggle").toggleClass("cross");
-		$("body").toggleClass("modal-open");
-		$("#site-navigation").toggleClass("open");
+		$("body").toggleClass("no-scroll");
+		$("#site-navigation").parent().toggleClass("open");
+		$("header").toggleClass("menu-open");
 	}
 
+
+	// Mega Menu when needed
+	// $('a.expand').click(function() {
+	// 	$(this).toggleClass('open');
+	// 	$(this).parents('li').find('.mega-menu').slideToggle();
+	// });
+
+	// $('li.has-mega-menu').hoverIntent({
+	// 	over() {
+	// 		$(this).addClass('has-mega-menu-open');
+	// 		$('#menu-main').addClass('mega-menu-open');
+	// 		$('#menu-main-fr').addClass('mega-menu-open');
+
+	// 	},
+	// 	out() {
+	// 		$(this).removeClass('has-mega-menu-open');
+	// 		$('#menu-main').removeClass('mega-menu-open');
+	// 		$('#menu-main-fr').removeClass('mega-menu-open');
+
+	// 	},
+	// 	sensitivity: 5,
+	// 	timeout: 200
+	// });
 
 
 	// (just an example below change it to suit your needs)

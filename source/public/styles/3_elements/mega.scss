@@ -1,0 +1,410 @@
+// COMPONENTS - MENUS / NAVIGATION
+
+@use 'sass:math';
+
+
+// Mega Menu Starting point
+nav.menu,
+ul.menu:not(.footer) {
+	li {
+		margin-bottom: 0;
+		@include medium-screen-up {
+			margin-right: 3.2rem;
+			display: flex;
+		}
+		&:last-child{
+			@include medium-large-screen-max {
+				border-bottom: solid 0.1rem $grey;
+			}
+		}
+		a {
+			display: inline-block;
+			padding: 1.4rem 2.4rem;
+			width: 100%;
+			font-size: 1.4rem;
+			line-height: 2.4rem;
+			font-weight: 500;
+			color: $grey;
+			@include medium-large-screen-up {
+				padding: 0;
+			}
+		}
+		&:hover{
+			position:relative;
+			> a, > span > a{
+				text-decoration: none;
+				@include transition;
+			}
+			@include medium-screen-up {
+				> a, > span > a{
+					opacity:1 !important;
+					color: $green;
+				}
+			}
+		}
+		&.has-mega-menu {
+			@include medium-large-screen-up {
+				display: inline-flex;
+				align-items: center;
+			}
+			span:after {
+				display: none;
+				content: '\f107';
+				font-family: "Font Awesome 5 Pro";
+				margin-left: 0.4rem;
+				font-size: 1rem;
+				line-height: 2.2rem;
+				color: $green;
+				font-weight: 400;
+
+				@include medium-large-screen-up {
+					display: inline-block;
+					cursor: pointer;
+				}
+			}
+			span.anchors {
+				display: flex;
+				align-items: flex-end;
+				flex-wrap: nowrap;
+				width: 100%;
+				a {
+					@include medium-large-screen-max {
+						display: flex;
+    					align-items: center;
+					}
+				}
+			}
+			&:hover{
+				@include medium-screen-up {
+					span:after {
+						color:$green;
+					}
+				}
+			}
+			a.expand {
+				width: auto;
+				border-left: solid 0.1rem $grey;
+			    padding-top: 1.4rem;
+			    padding-bottom: 1.4rem;
+			    opacity: 1;
+			    text-decoration: none;
+
+				i {
+					display: flex;
+					&:before {
+						line-height: 2;
+						font-size: 1.4rem;
+					    display: table-cell;
+					    vertical-align: middle;
+						color: $green;
+						transition: transform 0.2s ease-in-out;
+					}
+				}
+
+				@include medium-screen-up {
+					display: none;
+					visibility: hidden;
+				}
+
+				&.open {
+					i {
+						&:before {
+							transform: rotate(-180deg);
+						}
+					}
+				}
+			}
+
+			&.has-mega-menu-open {
+				position: relative;
+
+				.anchors a {
+					@include medium-large-screen-up {
+						padding: 0;
+					}
+				}
+				.mega-menu {
+					@include medium-large-screen-up {
+						visibility: visible;
+					    opacity: 1;
+					    top: 9rem;
+					}
+				}
+			}
+		}
+
+		&.mobile-hidden {
+			> a {
+				@include medium-screen-max {
+					display: none;
+				}
+			}
+		}
+	}
+
+	.mega-menu {
+		@include medium-large-screen-up {
+			visibility: hidden;
+	    	opacity: 0;
+			position: fixed;
+			margin: 0 auto;
+			top: -999rem;
+			left: 0;
+			right: 0;
+			transition: visibility 2s, opacity 0.2s ease-in-out;
+			background-color: $white;
+			border-bottom: 0.1rem solid $grey;
+			.wrap{
+		    	.wp-block-group{
+		    		max-width: 44.5rem;
+		    		// max-width: 52.5rem;  Use when FR button is added
+				    padding-top: 2.4rem;
+				    padding-bottom: 2.4rem;
+				    padding-right: 0;
+				    margin-right: 0;
+				    .menu-services-container{
+				    	padding-left: 0;
+				    }
+		    	}
+		    }
+	    }
+		@include medium-screen-max {
+			.wp-block-group{
+				background-color: $grey !important;
+				padding:0;
+			}
+		}
+		ul.mega-menu-links {
+			> li {
+				@include medium-large-screen-up {
+					position: relative;
+
+				}
+				a {
+					@include medium-large-screen-up {
+						padding: 0;
+						width: auto;
+					}
+				}
+				&:hover{
+					@include medium-large-screen-up {
+						a{
+							color: $blue !important;
+							opacity: 1;
+							&:after{
+								display: none;
+							}
+						}
+					}
+				}
+			}
+		}
+    	@include medium-large-screen-max {
+    		display: none;
+    	}
+	}
+}
+
+
+nav#site-navigation {
+	@include medium-large-screen-up {
+		margin-top: 0;
+	    margin-right: 0;
+	    margin-bottom: 0;
+	    margin-left: auto;
+		height: inherit;
+		// border-right: 0.1rem solid $grey;
+	}
+	> .menu-main-container, > .menu-main-fr-container{
+		@include medium-screen-up {
+			height: inherit;
+		}
+		> .menu{
+			@include medium-screen-up {
+				height: inherit;
+				display: flex;
+				align-items: center;
+			}
+			> .menu-item{
+				@include medium-screen-max {
+					border-bottom: solid 0.1rem $grey;
+				}
+				&.current_page_item >, &.current-page-ancestor .anchors >, &.current_page_item .anchors >{
+					a{
+						position:relative;
+						@include medium-large-screen-up {
+							&:after {
+							    border-bottom: 0.2rem solid $green;
+							    content: "";
+							    position: absolute;
+							    width: 100%;
+							    bottom: 0;
+							    left: 0;
+							}
+						}
+					}
+				}
+				.mega-menu{
+					.current-menu-item{
+						a{
+							position:relative;
+							color: $blue;
+						}
+					}
+					.menu-item:first-child{
+						@include medium-screen-max {
+							border-top: solid 0.1rem $grey;
+						}
+					}
+					.menu-item:not(:last-child){
+						@include medium-screen-max {
+							border-bottom: solid 0.1rem $grey;
+						}
+					}
+
+				}
+			}
+		}
+	}
+}
+
+//Styling the main menus
+header {
+	.menus {
+		position: fixed;
+		top: 8.9rem;
+		left: 100%;
+		width: 100%;
+		bottom: 0;
+		overflow: auto;
+		transition: left 0.5s ease-in-out;
+		@include medium-screen-up {
+			height: inherit;
+		}
+		@include medium-screen-max {
+			background-color: $white;
+			.wpml-ls-item{
+				border-bottom: 0 solid $grey !important;
+				padding-top: 1.4rem;
+				padding-bottom: 1rem;
+			}
+		}
+		@include medium-large-screen-up {
+			position: relative;
+			left: auto;
+			bottom: auto;
+			top: auto;
+			display: flex;
+			width: 100%;
+			overflow: visible;
+		}
+
+		&.open {
+			left: 0%;
+			border-top: 0.1rem solid $grey;
+		}
+	}
+}
+.desktop-hidden {
+	@include medium-large-screen-up {
+		display: none;
+		visibility: hidden;
+	}
+}
+
+
+// Checkbox for mobile menu toggle should be hidden
+#toggle-right {
+    display: none;
+}
+
+// Hamburger Menu Icon/Toggle (three Lines evenly spaced)
+// - adjust properties as needed
+$hamburger-line-height: 0.3rem;
+$hamburger-line-spacing: 0.4rem;
+$hamburger-line-color: $grey;
+$hamburger-width: 2.1rem;
+$hamburger-height: ($hamburger-line-height * 3) + ($hamburger-line-spacing * 2);
+
+.main-menu-toggle {
+	width: $hamburger-width;
+	height: $hamburger-height;
+	position: relative;
+	transform: rotate(0deg);
+	transition: .5s ease-in-out;
+	cursor: pointer;
+
+  	@include medium-large-screen-up {
+		display: none;
+	}
+
+	span {
+		display: block;
+		position: absolute;
+		height: $hamburger-line-height;
+		width: 100%;
+		background: $blue;
+		border-radius: $hamburger-line-height;
+		opacity: 1;
+		left: 0;
+		transform: rotate(0deg);
+		transition: .25s ease-in-out;
+
+		&:nth-child(1) {
+		  top: 0rem;
+		}
+		&:nth-child(2) {
+		  top: ($hamburger-line-height + $hamburger-line-spacing);
+		}
+		&:nth-child(3) {
+		  top: ($hamburger-line-height * 2) + ($hamburger-line-spacing * 2);
+		}
+	}
+
+	&.cross {
+		span{
+			&:nth-child(1) {
+				top: math.div($hamburger-height, 2);
+				transform: rotate(135deg);
+			}
+			&:nth-child(2) {
+				opacity: 0;
+				left: -1rem - $hamburger-width;
+			}
+			&:nth-child(3) {
+				top: math.div($hamburger-height, 2);
+				transform: rotate(-135deg);
+			}
+		}
+	}
+}
+
+//Ofset for the admin bar
+body.admin-bar {
+	ul.menu {
+		li.has-mega-menu.has-mega-menu-open {
+			.mega-menu {
+				@include medium-large-screen-up {
+					top: calc(8rem + 3.2rem);
+				}
+			}
+		}
+	}
+}
+
+//Ofset for the admin bar
+body.admin-bar {
+	header {
+		top: 4.6rem;
+		.menus.open {
+			top: 12.6rem;
+		}
+		@include medium-small-screen-up {
+			top: 3.2rem;
+			.menus.open {
+				top: 11.1rem;
+			}
+		}
+	}
+}
+

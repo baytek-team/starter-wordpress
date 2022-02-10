@@ -19,6 +19,10 @@ class Queue extends Base
 		add_action('wp_print_styles', [$this, 'enqueueStyles'], 20);
 		add_action('wp_enqueue_scripts', [$this, 'enqueueScript'], 20);
 		add_action('enqueue_block_editor_assets', [$this, 'ea_gutenberg_scripts'], 20);
+
+		//REMOVE GUTENBERG INLINE CSS FROM LOADING ON FRONTEND
+		add_action( 'wp_enqueue_scripts', [$this, 'remove_wp_block_library_css'], 100 );
+
 	}
 
 	/**
@@ -45,10 +49,6 @@ class Queue extends Base
 		// Enqueue the theme style
 		wp_enqueue_style('theme', $this->getAssetsUri('styles/bundle.css'), [], THEME_VERSION);
 
-		//Enqueue google fonts
-		wp_enqueue_style( 'gutenberg-main-fonts', 'https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@200;300;400;600;700;900&display=swap');
-
-		wp_enqueue_style( 'gutenberg-secondary-fonts', 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
 	}
 
 	/**
@@ -58,9 +58,6 @@ class Queue extends Base
 	public function ea_gutenberg_scripts() {
 		// Enqueue the theme script
 		wp_enqueue_script('baytek-admin', $this->getAssetsUri('scripts/admin.js'), [], THEME_VERSION, true);
-
-		// Google Fonts for Editor
-		wp_enqueue_style( 'gutenberg-fonts', $this->gutenberg_fonts_url() );
 	}
 
 
@@ -94,4 +91,10 @@ class Queue extends Base
 			$rel
 		);
 	}
+
+	//REMOVE GUTENBERG INLINE CSS FROM LOADING ON FRONTEND
+	public function remove_wp_block_library_css(){
+		wp_dequeue_style( 'global-styles' );
+	}
+	
 }

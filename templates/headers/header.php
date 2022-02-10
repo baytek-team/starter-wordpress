@@ -41,33 +41,17 @@ $classes = ['site'];
 				<a href="<?php echo home_url('/'); ?>" class="logo-link"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo.svg" alt="<?php bloginfo('name') ?>" id="nav-logo" class="logo" width="200"></a>
 			</div>
 
-			<?php if ( has_nav_menu( 'primary' ) ) : ?>
-				<nav id="site-navigation" class="menu inline" aria-label="<?php esc_attr_e( 'Primary Menu', THEMEL10N ); ?>">
-					<?php wp_nav_menu(['theme_location' => 'primary', 'menu_class' => 'menu inline']); ?>
-				</nav>
-			<?php endif; ?>
+			<div class="menus">
+				<?php if ( has_nav_menu( 'primary' ) ) : ?>
+					<nav id="site-navigation" class="menu inline" aria-label="<?php esc_attr_e( 'Primary Menu', THEMEL10N ); ?>">
+						<?php wp_nav_menu(['theme_location' => 'primary', 'menu_class' => 'menu inline']); ?>
+					</nav>
+				<?php endif; ?>
 
-			<?php if ( has_nav_menu( 'primary-mobile' ) ) : ?>
-				<nav id="mobile-navigation" role="navigation">
-					<div class="mobile-navigation-wrapper">
-						<?php wp_nav_menu(['theme_location' => 'primary-mobile', 'container_class' => 'mobile-primary']); ?>
-
-
-						<div class="search-mobile">
-							<form id="search-form" method="GET" action="<?php echo home_url(); ?>">
-								<input type="text" name="s" id="search-input" placeholder="<?php _e('Keyword', THEMEL10N); ?>" autocomplete="off" value="<?php echo isset($_GET['s']) ? $_GET['s'] : ''; ?>">
-							</form>
-							<div class="footer-socials">
-								<div class="socials"><a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a><a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a></div>
-							</div>
-						</div>
-
-					</div>
-				</nav>
-			<?php endif; ?>
-		
+			</div>
 			<!-- mobile menu toggle -->
-			<input type="checkbox" id="toggle-right">
+			<input type="checkbox" id="toggle-right" aria-hidden="true">
+			
 			<div class="mobile-wrapper">
 				<div id="nav-icon" class="main-menu-toggle">
 					<span></span>

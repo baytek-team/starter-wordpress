@@ -13,9 +13,10 @@ String.prototype.toProperCase = function () {
 // Some sample files are included for ideas to get you started.
 
 // require('./animations.js');
+// require('./hoverintent.js');
 require('./menu.js');
 require('./modals.js');
-require('./sliders.js');
+// require('./sliders.js');
 // require('./smooth-scroll.js');
 // require('./tabs.js');
 // require('./toggle.js');

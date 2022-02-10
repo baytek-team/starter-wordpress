@@ -460,24 +460,9 @@ h6, .h6 {
   letter-spacing: 0.1rem;
   padding: 0;
 }
-@media (min-width: 480px) {
-  .eyebrow,
-.is-style-eyebrow {
-    font-size: 1.4rem;
-    line-height: 1.6rem;
-    margin-bottom: 1.8rem;
-  }
-}
 .wp-block-cover .is-style-eyebrow,
 .wp-block-cover .eyebrow {
   color: inherit;
-}
-
-h2.is-style-eyebrow,
-.h2.is-style-eyebrow,
-h2.eyebrow:after,
-.h2.eyebrow:after {
-  display: none;
 }
 
 /*# sourceMappingURL=bundle-editor.css.map*/

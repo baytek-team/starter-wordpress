@@ -1,5 +1,9 @@
 // ELEMENTS - PAGE
 
+// (https://utopia.fyi/type/calculator/) helpful guide but because we are using 62.5% 
+// font-size we have to find each separately. Make sure to click "Use Clamp" beside 
+// the CSS Generator. Simply then adjust each font size until the generated css shows 
+// the correct low and high rem and then copy only the --step-0 clamp() content. 
 :root {
   --body: clamp(1.60rem, 1.36rem + 0.78vw, 2.00rem);
   --body-small: clamp(1.40rem, 1.28rem + 0.39vw, 1.60rem);

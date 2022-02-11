@@ -53,6 +53,10 @@ class Template extends Base
 
     	//Remove empty p tags from content
     	add_filter('the_content', [$this, 'remove_empty_p'], 20, 1);
+
+    	// Add extra markup to menus for mobile toggle (after mega menu is appended)
+    	add_filter('walker_nav_menu_start_el', [$this, 'addDropdownToMenuAnchors'], 20, 4);
+
 	}
 
 	/**
@@ -211,4 +215,27 @@ class Template extends Base
 		$content = preg_replace( '~\s?<p>(\s|&nbsp;)+</p>\s?~', '', $content );
 		return $content;
 	}
+
+
+	/**
+	 * Filter menu items to add drop-down toggle for mobile menu
+	 *
+	 * @param  string   $item_output  The menu item's HTML output
+	 * @param  WP_Post  $item  		  Menu item data object
+	 * @param  int  	$depth  	  Depth of menu item
+	 * @param  obj  	$args  		  An object of nav menu arguments
+	 *
+	 * @return string  $item_output  The modified menu item
+	 */
+	public function addDropdownToMenuAnchors($item_output, $item, $depth, $args) {
+		if (isset($item->classes) && is_array($item->classes) && in_array('has-mega-menu', $item->classes)) {
+			//Wrap the anchors in a span so we can size correctly
+			$item_output = preg_replace('/\<a/', '<span class="anchors"><a', $item_output, 1);
+			$item_output = preg_replace('/\<\/a\>/', '</a><a aria-hidden="true" class="expand"><i class="fal fa-angle-down"></i></a></span>', $item_output, 1);
+		}
+
+		return $item_output;
+	}
+
+
 }

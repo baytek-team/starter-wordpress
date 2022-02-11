@@ -1555,8 +1555,7 @@ body.single article > header.wp-block-cover {
 .wp-block-cover,
 .wp-block-columns {
   max-width: 960px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
 }
 .wp-block-group.alignnarrow,
 .wp-block-cover.alignnarrow,
@@ -1687,98 +1686,82 @@ body.single article > header.wp-block-cover {
 }
 
 .alignwide,
-.container,
 .wp-block-group .wp-block-group__inner-container,
 .wp-block-cover .wp-block-cover__inner-container,
-.wp-block-group.wp-block-group__inner-container {
-  margin: 0 auto;
+.container {
+  margin-inline: auto;
 }
 .alignwide > .wp-block-group,
 .alignwide > .wp-block-cover,
 .alignwide > .wp-block-columns,
-.container > .wp-block-group,
-.container > .wp-block-cover,
-.container > .wp-block-columns,
 .wp-block-group .wp-block-group__inner-container > .wp-block-group,
 .wp-block-group .wp-block-group__inner-container > .wp-block-cover,
 .wp-block-group .wp-block-group__inner-container > .wp-block-columns,
 .wp-block-cover .wp-block-cover__inner-container > .wp-block-group,
 .wp-block-cover .wp-block-cover__inner-container > .wp-block-cover,
 .wp-block-cover .wp-block-cover__inner-container > .wp-block-columns,
-.wp-block-group.wp-block-group__inner-container > .wp-block-group,
-.wp-block-group.wp-block-group__inner-container > .wp-block-cover,
-.wp-block-group.wp-block-group__inner-container > .wp-block-columns {
+.container > .wp-block-group,
+.container > .wp-block-cover,
+.container > .wp-block-columns {
   margin-bottom: 2.4rem;
 }
 @media (min-width: 980px) {
   .alignwide > .wp-block-group,
 .alignwide > .wp-block-cover,
 .alignwide > .wp-block-columns,
-.container > .wp-block-group,
-.container > .wp-block-cover,
-.container > .wp-block-columns,
 .wp-block-group .wp-block-group__inner-container > .wp-block-group,
 .wp-block-group .wp-block-group__inner-container > .wp-block-cover,
 .wp-block-group .wp-block-group__inner-container > .wp-block-columns,
 .wp-block-cover .wp-block-cover__inner-container > .wp-block-group,
 .wp-block-cover .wp-block-cover__inner-container > .wp-block-cover,
 .wp-block-cover .wp-block-cover__inner-container > .wp-block-columns,
-.wp-block-group.wp-block-group__inner-container > .wp-block-group,
-.wp-block-group.wp-block-group__inner-container > .wp-block-cover,
-.wp-block-group.wp-block-group__inner-container > .wp-block-columns {
+.container > .wp-block-group,
+.container > .wp-block-cover,
+.container > .wp-block-columns {
     margin-bottom: 6rem;
   }
 }
 .alignwide > .wp-block-group.no-margin,
 .alignwide > .wp-block-cover.no-margin,
 .alignwide > .wp-block-columns.no-margin,
-.container > .wp-block-group.no-margin,
-.container > .wp-block-cover.no-margin,
-.container > .wp-block-columns.no-margin,
 .wp-block-group .wp-block-group__inner-container > .wp-block-group.no-margin,
 .wp-block-group .wp-block-group__inner-container > .wp-block-cover.no-margin,
 .wp-block-group .wp-block-group__inner-container > .wp-block-columns.no-margin,
 .wp-block-cover .wp-block-cover__inner-container > .wp-block-group.no-margin,
 .wp-block-cover .wp-block-cover__inner-container > .wp-block-cover.no-margin,
 .wp-block-cover .wp-block-cover__inner-container > .wp-block-columns.no-margin,
-.wp-block-group.wp-block-group__inner-container > .wp-block-group.no-margin,
-.wp-block-group.wp-block-group__inner-container > .wp-block-cover.no-margin,
-.wp-block-group.wp-block-group__inner-container > .wp-block-columns.no-margin {
+.container > .wp-block-group.no-margin,
+.container > .wp-block-cover.no-margin,
+.container > .wp-block-columns.no-margin {
   margin-bottom: 0;
 }
 .alignwide > .wp-block-group.top-margin,
 .alignwide > .wp-block-cover.top-margin,
 .alignwide > .wp-block-columns.top-margin,
-.container > .wp-block-group.top-margin,
-.container > .wp-block-cover.top-margin,
-.container > .wp-block-columns.top-margin,
 .wp-block-group .wp-block-group__inner-container > .wp-block-group.top-margin,
 .wp-block-group .wp-block-group__inner-container > .wp-block-cover.top-margin,
 .wp-block-group .wp-block-group__inner-container > .wp-block-columns.top-margin,
 .wp-block-cover .wp-block-cover__inner-container > .wp-block-group.top-margin,
 .wp-block-cover .wp-block-cover__inner-container > .wp-block-cover.top-margin,
 .wp-block-cover .wp-block-cover__inner-container > .wp-block-columns.top-margin,
-.wp-block-group.wp-block-group__inner-container > .wp-block-group.top-margin,
-.wp-block-group.wp-block-group__inner-container > .wp-block-cover.top-margin,
-.wp-block-group.wp-block-group__inner-container > .wp-block-columns.top-margin {
+.container > .wp-block-group.top-margin,
+.container > .wp-block-cover.top-margin,
+.container > .wp-block-columns.top-margin {
   margin-top: 2.4rem;
 }
 @media (min-width: 980px) {
   .alignwide > .wp-block-group.top-margin,
 .alignwide > .wp-block-cover.top-margin,
 .alignwide > .wp-block-columns.top-margin,
-.container > .wp-block-group.top-margin,
-.container > .wp-block-cover.top-margin,
-.container > .wp-block-columns.top-margin,
 .wp-block-group .wp-block-group__inner-container > .wp-block-group.top-margin,
 .wp-block-group .wp-block-group__inner-container > .wp-block-cover.top-margin,
 .wp-block-group .wp-block-group__inner-container > .wp-block-columns.top-margin,
 .wp-block-cover .wp-block-cover__inner-container > .wp-block-group.top-margin,
 .wp-block-cover .wp-block-cover__inner-container > .wp-block-cover.top-margin,
 .wp-block-cover .wp-block-cover__inner-container > .wp-block-columns.top-margin,
-.wp-block-group.wp-block-group__inner-container > .wp-block-group.top-margin,
-.wp-block-group.wp-block-group__inner-container > .wp-block-cover.top-margin,
-.wp-block-group.wp-block-group__inner-container > .wp-block-columns.top-margin {
+.container > .wp-block-group.top-margin,
+.container > .wp-block-cover.top-margin,
+.container > .wp-block-columns.top-margin {
     margin-top: 6rem;
   }
 }

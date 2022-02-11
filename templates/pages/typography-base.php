@@ -14,9 +14,7 @@ do_action('theme_header'); ?>
 		</header>
 
 		<div id="base-typography" class="wp-block-group">
-			<div class="wp-block-group__inner-container">
-				<?php get_template_part( 'templates/tests/typography', 'base' ); ?>
-			</div>
+			<?php get_template_part( 'templates/tests/typography', 'base' ); ?>
 		</div>
 
 	</main><!-- #main -->

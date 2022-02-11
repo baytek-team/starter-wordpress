@@ -1,11 +1,24 @@
 // ELEMENTS - PAGE
 
-html {
-	// -moz-osx-font-smoothing: grayscale;
-	// -webkit-font-smoothing: antialiased;
-	// font-smoothing: antialiased;
-	font-weight: 400;
+:root {
+  --body: clamp(1.60rem, 1.36rem + 0.78vw, 2.00rem);
+  --body-small: clamp(1.40rem, 1.28rem + 0.39vw, 1.60rem);
+  --lead: clamp(2.00rem, 1.76rem + 0.78vw, 2.40rem);
+  // Headings
+  --h1: clamp(3.00rem, 1.00rem + 6.67vw, 6.40rem);
+  --h1-lh: clamp(3.40rem, 1.28rem + 7.06vw, 7.00rem); // line-height
+  --h2: clamp(2.60rem, 1.07rem + 5.10vw, 5.20rem);
+  --h2-lh: clamp(3.00rem, 1.47rem + 5.10vw, 5.60rem); // line-height
+  --h3: clamp(2.40rem, 1.69rem + 2.35vw, 3.60rem);
+  --h3-lh: clamp(2.60rem, 1.66rem + 3.14vw, 4.20rem); // line-height
+  --h4: clamp(2.20rem, 1.96rem + 0.78vw, 2.60rem);
+  --h4-lh: clamp(2.60rem, 1.66rem + 3.14vw, 4.20rem); // line-height
+  --h5: clamp(2.00rem, 1.88rem + 0.39vw, 2.20rem);
+  --h5-lh: clamp(2.20rem, 1.96rem + 0.78vw, 2.60rem); // line-height
+}
 
+html {
+	font-weight: 400;
 	font-size: 62.5%;
 	box-sizing: border-box;
 	word-wrap: normal;
@@ -20,44 +33,22 @@ html {
 body {
 	font-family: $fonts-main;
 	font-weight: 300;
-	font-size: $base-font-size;
+	font-size: var(--body);
 	line-height: $base-line-height;
 	color: $black;
-	// counter-reset: section;
 
-	@include medium-screen-up {
-		font-size: $tablet-font-size;
-	}
-	@include large-screen-up {
-		font-size: $desktop-font-size;
-	}
 }
 
 #{$block-text} {
 	margin-bottom: $default-margin;
-
 	&:last-child {
 		margin-bottom: 0;
 	}
 }
 
-
-p, .p {
-	// &:last-child {
-	// 	margin-bottom: 0;
-	// }
-}
-
 .lead, .has-lead-font-size {
 	display: block; //Otherwise the line height won't work
-	font-size: 2.0rem;
-
-	@include medium-screen-up {
-		font-size: 2.2rem;
-	}
-	@include large-screen-up {
-		font-size: 2.4rem;
-	}
+	font-size: var(--lead);
 }
 
 /**
@@ -67,15 +58,8 @@ p, .p {
 
 small, .small, .has-small-font-size {
 	display: block; //Otherwise the line height won't work
-	font-size: 1.4rem;
-
-	@include medium-screen-up {
-		font-size: 1.5rem;
-		line-height: 1.375;
-	}
-	@include large-screen-up {
-		font-size: 1.6rem;
-	}
+	font-size: var(--body-small);
+	line-height: 1.375;
 }
 
 strong, .strong, b {

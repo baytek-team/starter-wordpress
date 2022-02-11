@@ -6,101 +6,57 @@
 #{$headings} {
 	font-family: $fonts-secondary;
 	color: $black;
-	// text-transform: uppercase;
-	// letter-spacing: 0.025rem;
+	font-weight: 400;
 }
 
 
 // Heading Level 1
 h1, .h1, #main .h1 {
-	font-size: 3.0rem;
-	font-weight: 400;
-
-	// Tablet
-	@include small-screen-up {
-		font-size: 4.8rem;
-	}
-
-	// Desktop/Full
-	@include medium-screen-up {
-		font-size: 7.0rem;
-	}
+	font-size: var(--h1);
+	line-height: var(--h1-lh);
 }
 // Heading Level 2
 h2, .h2 {
-	font-size: 2.6rem;
-	line-height: 3rem;
-	font-weight: 300;
-
-	// Tablet
-	@include small-screen-up {
-		font-size: 3.8rem;
-		line-height: 4.4rem;
-	}
-
-	// Desktop/Full
-	@include medium-screen-up {
-		font-size: 5.2rem;
-		line-height: 5.6rem;
-		margin-bottom: 2.4rem;
-	}
-
-	&.has-text-align-center:after {
-		margin-left: auto;
-		margin-right: auto;
-	}
-	&.has-text-align-right:after {
-		margin-left: auto;
-	}
-	&.has-no-line:after {
-		display: none;
+	font-size: var(--h2);
+	line-height: var(--h2-lh);
+	&.large, &.is-style-large{
+		font-size: calc(var(--h2) + 1.8rem);
+		@include medium-screen-up {
+			font-size: calc(var(--h2) + 3rem);
+			line-height: calc(var(--h2-lh) + 3.8rem);
+		}
 	}
 }
 // Heading Level 3
 h3, .h3 {
-	font-size: 2.4rem;
-	line-height: 2.6rem;
-	font-weight: 400;
-
-	// Tablet
-	@include small-screen-up {
-		font-size: 3.0rem;
-		line-height: 3.4rem;
-	}
-
+	font-size: var(--h3);
+	line-height: var(--h3-lh);
 	// Desktop/Full
 	@include medium-screen-up {
-		font-size: 3.6rem;
-		line-height: 4.2rem;
+		margin-bottom: calc(#{$default-margin} / 2);
 	}
 }
 // Heading Level 4
 h4, .h4 {
-	font-size: 2.2rem;
-	line-height: 2.4rem;
-	font-weight: 400;
-
+	font-size: var(--h4);
+	line-height: var(--h4-lh);
 	// Tablet
 	@include small-screen-up {
-		font-size: 2.6rem;
-		line-height: 3.2rem;
+		margin-bottom: calc(#{$default-margin} / 2);
 	}
 }
 // Heading Level 5
 h5, .h5 {
-	font-size: 2.0rem;
-	line-height: 2.2rem;
-	font-weight: 500;
-
+	font-size: var(--h5);
+	line-height: var(--h5-lh);
 	// Tablet
 	@include small-screen-up {
-		font-size: 2.2rem;
-		line-height: 2.6rem;
+		margin-bottom: calc(#{$default-margin} / 2);
 	}
 }
 // Heading Level 6
 h6, .h6 {
-	font-weight: 500;
 	font-size: 1.8rem;
 	line-height: 2.1rem;
+	margin-bottom: calc(#{$default-margin} / 2);
 }

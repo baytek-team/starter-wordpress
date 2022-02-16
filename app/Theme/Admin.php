@@ -92,6 +92,23 @@ class Admin extends Base
 				$role_object->add_cap($cap);
 			}
 		}
+
+		//Site Kit
+		$sitekit_caps = [
+			'googlesitekit_authenticate',
+			'googlesitekit_setup',
+			'googlesitekit_view_posts_insights',
+			'googlesitekit_view_dashboard',
+			'googlesitekit_view_module_details',
+			'googlesitekit_manage_options',
+			'googlesitekit_view_post_insights'
+		];
+
+		if (!$role_object->has_cap($sitekit_caps[0])) {
+			foreach ($sitekit_caps as $cap) {
+				$role_object->add_cap($cap);
+			}
+		}
 	}
 
 	/**

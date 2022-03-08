@@ -18,6 +18,11 @@ class Setup extends Base
 		// Disable Automatic Updates
 		add_filter( 'automatic_updater_disabled', '__return_true' );
 
+		// Filter max upload size
+		add_filter('upload_size_limit', function($size) {
+			return 1024 * 1000 * 8; //8 MB in bytes
+		});
+
 		// Filter maximum image resolution
 		add_filter('big_image_size_threshold', [$this, 'filterMaxImageResolution'], 10, 4);
 

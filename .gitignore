@@ -1,11 +1,36 @@
-*.log
-mix-manifest.json
-.env.json
-/node_modules/
+# Ignore configuration files that may contain sensitive information.
+LocalValetDriver.php
+wp-config.php
 
-# libraries
-/assets/libraries/fontawesome-pro
-/assets/libraries/selectize.js-master
-/assets/libraries/slick
-/assets/libraries/icomoon
-/assets/fonts
+# Ignore paths that contain user-generated content.
+wp-content/uploads/*
+wp-content/uploads.zip
+wp-content/litespeed/*
+
+# Ignore paths that contain cache-generated content.
+wp-content/cache/*
+wp-content/debug.log
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+
+# Really ignore the debug log
+debug.log
+
+# OS generated files #
+######################
+.DS_Store*
+Thumbs.db
+desktop.ini
+
+# Project Files #
+#################
+*.sublime-*
+*.psd
+*.scssc
+.sass-cache
+/node_modules
+npm-debug.log
+be-media-from-production.php
+
+# dev only plugins #
+wp-content/plugins/be-media-from-production/

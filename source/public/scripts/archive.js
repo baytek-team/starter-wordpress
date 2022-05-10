@@ -2,6 +2,28 @@
 	//Only run if there's a filter form on the page
 	if ($("#filter-form").length) {
 
+		// use Choices.js for all select fields
+		const selectCategory = new Choices('select#resource-category-select', {
+			searchEnabled: false,
+			itemSelectText: '',
+			classNames: {
+				containerOuter: 'choices select-choices',
+			},
+		});
+		const selectType = new Choices('select#resource-type-select', {
+			searchEnabled: false,
+			itemSelectText: '',
+			classNames: {
+				containerOuter: 'choices select-choices',
+			},
+		});
+
+		const selectKeyword = new Choices('input#keyword-filter', {
+			searchEnabled: true,
+			placeholderValue: 'Insert keyword',
+			maxItemCount: 1,
+		});
+
 		//Append sorting if there is a sort select
 		if ($('#sort-select').length) {
 

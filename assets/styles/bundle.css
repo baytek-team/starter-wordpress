@@ -1261,42 +1261,6 @@ nav.previous-next a[rel=next] i {
   cursor: pointer;
 }
 
-.carousel-wrapper {
-  width: 100%;
-  clear: both;
-  position: relative;
-}
-.carousel-wrapper .carousel-slider .slick-list {
-  overflow: inherit;
-  z-index: 0;
-}
-.carousel-wrapper .carousel-slider .slick-track {
-  display: flex;
-}
-.carousel-wrapper .carousel-slider .baytek-carousel-item .baytek_carousel {
-  max-width: 96rem;
-  display: grid;
-  grid-template-rows: auto;
-  grid-template-columns: 1fr;
-  grid-template-areas: "slide_image" "slide_content";
-}
-.carousel-wrapper .carousel-slider .baytek-carousel-item .baytek_carousel .content {
-  grid-area: slide_content;
-  position: relative;
-}
-.carousel-wrapper .carousel-slider .baytek-carousel-item .baytek_carousel .slide__image__wrapper {
-  grid-area: slide_image;
-}
-.carousel-wrapper .carousel-slider .baytek-carousel-item .baytek_carousel .baytek_carousel-text-container {
-  position: relative;
-}
-.carousel-wrapper .carousel-slider .baytek-carousel-item .baytek_carousel .slide__image__wrapper .slide__image__inner {
-  height: 25rem;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-}
-
 .wp-block-media-text {
   margin-bottom: 1.6rem;
 }
@@ -1515,7 +1479,7 @@ body.single article > header.wp-block-cover {
 .wp-block-group.alignwide,
 .wp-block-cover.alignwide,
 .wp-block-columns.alignwide {
-  max-width: 1920px;
+  max-width: 1648px;
 }
 .wp-block-group.alignwide.twelve-ninety,
 .wp-block-cover.alignwide.twelve-ninety,
@@ -1556,7 +1520,7 @@ body.single article > header.wp-block-cover {
 #main > *.alignwide,
 .final-cta > *.alignwide,
 .related-resources > *.alignwide {
-  max-width: calc(1920px + (2.4rem * 2));
+  max-width: calc(1648px + (2.4rem * 2));
 }
 #main > *.alignwide.twelve-ninety,
 .final-cta > *.alignwide.twelve-ninety,
